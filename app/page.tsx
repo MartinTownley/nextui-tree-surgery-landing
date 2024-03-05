@@ -5,14 +5,12 @@ import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
+import { ServiceSection } from "@/components/service-section";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <section
-      className="relative"
-      style={{ backgroundImage: 'url("/hero-background.webp")' }}
-    >
+    <section className="relative">
       <section className="flex flex-col items-start justify-center gap-4 py-8 md:py-10">
         {/* <Image
           fill={true}
@@ -44,6 +42,9 @@ export default function Home() {
             View Services
           </Link>
         </div>
+      </section>
+      <section>
+        <ServiceSection></ServiceSection>
       </section>
     </section>
   );
