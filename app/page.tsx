@@ -4,7 +4,6 @@ import { Code } from "@nextui-org/code";
 import { button as buttonStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
 import { ServiceSection } from "@/components/service-section";
 import Image from "next/image";
 
@@ -44,7 +43,7 @@ export default function Home() {
         </div>
       </section>
       <section>
-        <ServiceSection></ServiceSection>
+        <ServiceSection />
       </section>
     </section>
   );
