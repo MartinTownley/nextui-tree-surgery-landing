@@ -1,7 +1,7 @@
 "use client";
 import { useRef, useEffect } from "react";
-import { register } from "swiper/element/bundle";
-import ServiceCard from "@/components/service-card";
+//import { register } from "swiper/element/bundle";
+import ServiceCard from "@/components/ServiceCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import serviceCardData from "@/public/data/service-card-data";
@@ -13,7 +13,7 @@ import {
   A11y,
 } from "swiper/modules";
 
-register();
+//register();
 
 export const ServiceSection = () => {
   const swiperElRef = useRef(null);
@@ -37,6 +37,7 @@ export const ServiceSection = () => {
       navigation={true}
       pagination={{ clickable: true }}
       keyboard={true}
+      mousewheel={true}
     >
       {serviceCardData.map((cardData, index) => (
         <SwiperSlide key={index}>

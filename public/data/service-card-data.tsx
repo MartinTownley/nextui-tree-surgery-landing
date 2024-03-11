@@ -10,7 +10,8 @@ interface ServiceCardData {
   buttonText: string;
   imageSrc: string;
   iconSrc: string;
-  additionalInfo: AdditionalInfo;
+  additionalInfo1: string;
+  additionalInfo2: string;
 }
 
 const serviceCardData: ServiceCardData[] = [
@@ -20,11 +21,9 @@ const serviceCardData: ServiceCardData[] = [
     description: "Lorem ipsum dolor sit amet 1...",
     buttonText: "Learn More",
     imageSrc: "/service-imgs/service-img1.jpg",
-    iconSrc: "",
-    additionalInfo: {
-      info1: "Additional Info 1",
-      info2: "Additional Info 2",
-    },
+    iconSrc: "/custom-icon.png",
+    additionalInfo1: "Additional Info 1",
+    additionalInfo2: "Additional Info 2",
   },
 
   {
@@ -33,11 +32,9 @@ const serviceCardData: ServiceCardData[] = [
     description: "Lorem ipsum dolor sit amet 2...",
     buttonText: "Learn More 2",
     imageSrc: "/service-imgs/service-img2.jpg",
-    iconSrc: "",
-    additionalInfo: {
-      info1: "Additional Info 1",
-      info2: "Additional Info 2",
-    },
+    iconSrc: "/custom-icon.png",
+    additionalInfo1: "Additional Info 1",
+    additionalInfo2: "Additional Info 2",
   },
   {
     preTitle: "Pre-Title 3",
@@ -45,11 +42,9 @@ const serviceCardData: ServiceCardData[] = [
     description: "Lorem ipsum dolor sit amet 3...",
     buttonText: "Learn More 3",
     imageSrc: "/service-imgs/service-img3.jpg",
-    iconSrc: "",
-    additionalInfo: {
-      info1: "Additional Info 1",
-      info2: "Additional Info 2",
-    },
+    iconSrc: "/custom-icon.png",
+    additionalInfo1: "Additional Info 1",
+    additionalInfo2: "Additional Info 2",
   },
 ];
 

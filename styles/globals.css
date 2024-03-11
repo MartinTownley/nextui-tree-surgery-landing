@@ -3,13 +3,31 @@
 @tailwind utilities;
 
 :root {
-  --swiper-navigation-color: #7d38e4;
-  --swiper-navigation-size: 32px;
+  --swiper-navigation-color: #ed0ef0;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 30px !important;
+  font-weight: bolder !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #ed0ef0 !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: #ec0ef079;
+}
+
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
+  opacity: 0 !important;
 }
 
 :root {
-  --swiper-navigation-size: 44px;
+  /* --swiper-navigation-size: 44px; */
   --swiper-navigation-top-offset: 50%;
   --swiper-navigation-sides-offset: 10px;
-  --swiper-navigation-color: var(--swiper-theme-color);
+  /* --swiper-navigation-color: var(--swiper-theme-color); */
 }

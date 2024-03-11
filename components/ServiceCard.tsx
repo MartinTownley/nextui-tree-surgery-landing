@@ -15,10 +15,8 @@ interface ServiceCardProps {
   buttonText: string;
   imageSrc: string;
   iconSrc: string;
-  additionalInfo: {
-    info1: string;
-    info2: string;
-  };
+  additionalInfo1: string;
+  additionalInfo2: string;
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = (props) => {
@@ -29,7 +27,8 @@ const ServiceCard: React.FC<ServiceCardProps> = (props) => {
     buttonText,
     imageSrc,
     iconSrc,
-    additionalInfo,
+    additionalInfo1,
+    additionalInfo2,
   } = props;
 
   return (
@@ -58,10 +57,11 @@ const ServiceCard: React.FC<ServiceCardProps> = (props) => {
           <Image
             alt="Breathing app icon"
             className="rounded-full w-10 h-11 bg-black"
-            src=""
+            src={iconSrc}
           />
           <div className="flex flex-col">
-            {/* <p className="text-tiny text-white/60">{additionalInfo}</p> */}
+            <p className="text-tiny text-white/60">{additionalInfo1}</p>
+            <p className="text-tiny text-white/60">{additionalInfo2}</p>
           </div>
         </div>
       </CardFooter>
