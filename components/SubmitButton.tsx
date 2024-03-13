@@ -3,12 +3,12 @@
 import { useFormStatus } from "react-dom";
 import { Button } from "@nextui-org/react";
 
-export function SendButton() {
+export function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
     <Button color="primary" type="submit" aria-disabled={pending}>
-      Send
+      Submit
     </Button>
   );
 }
