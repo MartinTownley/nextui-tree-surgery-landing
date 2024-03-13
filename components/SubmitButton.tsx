@@ -7,7 +7,12 @@ export function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
-    <Button color="primary" type="submit" aria-disabled={pending}>
+    <Button
+      color="primary"
+      type="submit"
+      aria-disabled={pending}
+      isLoading={pending}
+    >
       Submit
     </Button>
   );

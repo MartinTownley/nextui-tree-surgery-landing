@@ -8,6 +8,7 @@ import { submitInquiry } from "@/app/actions/actions";
 // @ts-ignore
 import { useFormState } from "react-dom";
 import { useRef } from "react";
+import { MdMail } from "react-icons/md";
 
 const initialState = {
   message: null,
@@ -26,15 +27,28 @@ const ContactForm = () => {
         className="flex flex-col mx-auto max-w-xs"
       >
         <div className="flex w-full flex-wrap md:flex-nowrap gap-4 mb-4">
-          <Input type="text" label="Name" name="name" />
+          <Input isRequired type="text" label="Name" name="name" />
         </div>
 
         <div className="mb-4">
-          <Input type="email" label="Email" name="email" />
+          <Input
+            isRequired
+            isClearable
+            type="email"
+            label="Email"
+            name="email"
+            placeholder="name@email.com"
+            errorMessage="Please enter a valid email"
+            isInvalid={false}
+            startContent={
+              <MdMail className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+            }
+          />
         </div>
 
         <div className="mb-4">
           <Textarea
+            isRequired
             label="Your message"
             placeholder="Enter your message"
             className="max-w-xs"
