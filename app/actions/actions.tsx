@@ -3,6 +3,7 @@
 import nodemailer from "nodemailer";
 import { revalidatePath } from "next/cache";
 import { z as zod } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 const { SMTP_SENDER, SMTP_RECIPIENT, SMTP_PASSWORD } = process.env;
 import { formDataSchema } from "@/app/lib/schema";
 
