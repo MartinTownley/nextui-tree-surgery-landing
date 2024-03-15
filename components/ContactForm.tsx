@@ -9,6 +9,9 @@ import { submitInquiry } from "@/app/actions/actions";
 import { useFormState } from "react-dom";
 import { useRef } from "react";
 import { MdMail } from "react-icons/md";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const initialState = {
   message: null,
@@ -17,28 +20,45 @@ const initialState = {
 const ContactForm = () => {
   const formRef = useRef<HTMLFormElement>(null);
 
-  const [formState, formAction] = useFormState(submitInquiry, initialState);
+  const [state, formAction] = useFormState(submitInquiry, initialState);
+  // prior to form submission, "state" will be the initial state. After form submission, "state" will be whatever you're returning from the server action.
+
+  // destructure from state:
+  const { data, error } = state;
+
+  const nameErrorMsg = error?.name?._errors?.[0];
+  const emailErrorMsg = error?.email?._errors?.[0];
+  const messageErrorMsg = error?.message?._errors?.[0];
 
   return (
-    <div className="container mx-auto mt-8">
+    <section className="container mx-auto mt-8 flex gap-8">
       <form
         ref={formRef}
         action={formAction}
         className="flex flex-col mx-auto max-w-xs"
       >
         <div className="flex w-full flex-wrap md:flex-nowrap gap-4 mb-4">
-          <Input isRequired type="text" label="Name" name="name" />
+          <Input
+            // isRequired
+            isClearable
+            type="text"
+            label="Name"
+            name="name"
+            defaultValue="TestName"
+            errorMessage={nameErrorMsg}
+          />
         </div>
 
         <div className="mb-4">
           <Input
-            isRequired
+            // isRequired
             isClearable
             type="email"
             label="Email"
             name="email"
             placeholder="name@email.com"
-            errorMessage="Please enter a valid email"
+            defaultValue="test@mail.com"
+            errorMessage={emailErrorMsg}
             isInvalid={false}
             startContent={
               <MdMail className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
@@ -48,11 +68,14 @@ const ContactForm = () => {
 
         <div className="mb-4">
           <Textarea
-            isRequired
+            // isRequired
+
             label="Your message"
             placeholder="Enter your message"
+            defaultValue="This is a placeholder message. Not a real message."
             className="max-w-xs"
             name="message"
+            errorMessage={messageErrorMsg}
           />
         </div>
         <div className="mb-4">
@@ -60,7 +83,11 @@ const ContactForm = () => {
         </div>
         {/* <button type="submit">Test/Send</button> */}
       </form>
-    </div>
+
+      <div className="flex-1 rounded-lg bg-cyan-600 p-8 text-white mx-auto overflow-y-auto">
+        <pre>{JSON.stringify(state, null, 2)}</pre>
+      </div>
+    </section>
   );
 };
 
