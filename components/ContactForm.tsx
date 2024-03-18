@@ -1,12 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button, Input, Textarea } from "@nextui-org/react";
 import { SubmitButton } from "@/components/SubmitButton";
 import { sendEmail } from "@/app/actions/actions";
 // @ts-ignore
 import { useFormState } from "react-dom";
-import { useRef, useState } from "react";
 import { MdMail } from "react-icons/md";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
@@ -23,15 +22,19 @@ type FieldInputs = zod.infer<typeof formDataSchema>;
 const ContactForm = () => {
   // const [state, formAction] = useFormState(onSubmitAction, initialState);
   const [data, setData] = useState<FieldInputs>();
+  const [useDefaults, setUseDefaults] = useState(false);
 
   const form = useForm<FieldInputs>({
     resolver: zodResolver(formDataSchema),
-    defaultValues: {
-      firstName: "DefaultName",
-      email: "default@email.com",
-      message: "This is a default message",
-    },
-    mode: "onChange",
+    defaultValues: useDefaults
+      ? {
+          firstName: "DefaultName",
+          lastName: "DefaultLastName",
+          email: "default@email.com",
+          message: "This is a default message",
+        }
+      : {},
+    mode: "onTouched",
   });
 
   const {
@@ -40,8 +43,20 @@ const ContactForm = () => {
     handleSubmit,
     reset,
     setValue,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isDirty, isSubmitSuccessful },
   } = form;
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset({
+        firstName: "",
+        lastName: "",
+        email: "",
+        message: "",
+      });
+    }
+  }),
+    [isSubmitSuccessful, reset];
 
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -58,11 +73,7 @@ const ContactForm = () => {
       console.log(result.error);
     }
 
-    setValue("firstName", "");
-    setValue("email", "");
-    setValue("message", "");
-
-    setData(result.data);
+    //setData(result.data);
   };
 
   return (
@@ -72,32 +83,51 @@ const ContactForm = () => {
         ref={formRef}
         //action={formAction}
         onSubmit={handleSubmit(processForm)}
-        className="flex flex-col mx-auto max-w-xs"
+        className="flex flex-col mx-auto max-w-lg"
       >
         <div className="flex w-full flex-wrap md:flex-nowrap gap-4 mb-4">
-          <Controller
-            control={control}
-            name="firstName"
-            // defaultValue="DefaultName"
-            render={({ field }) => (
-              <Input
-                {...field}
-                isRequired
-                isClearable
-                onClear={() => field.onChange("")}
-                type="text"
-                label="First Name"
-                id="firstName"
-                placeholder="Enter your first name here"
-                errorMessage={errors.firstName && errors.firstName.message}
-              />
-            )}
-          />
+          <div className="flex w-full  gap-4">
+            <Controller
+              control={control}
+              name="firstName"
+              render={({ field }) => (
+                <Input
+                  {...field}
+                  isRequired
+                  isClearable
+                  onClear={() => field.onChange("")}
+                  type="text"
+                  label="First Name"
+                  id="firstName"
+                  placeholder="Enter your first name here"
+                  errorMessage={errors.firstName && errors.firstName.message}
+                />
+              )}
+            />
+            <Controller
+              control={control}
+              name="lastName"
+              render={({ field }) => (
+                <Input
+                  {...field}
+                  // isRequired
+                  isClearable
+                  onClear={() => field.onChange("")}
+                  type="text"
+                  label="Last Name"
+                  id="lastName"
+                  placeholder="Enter your last name here"
+                  errorMessage={errors.lastName && errors.lastName.message}
+                />
+              )}
+            />
+          </div>
         </div>
         <div className="mb-4">
           <Controller
             control={control}
             name="email"
+            defaultValue=""
             render={({ field }) => (
               <Input
                 {...field}
@@ -108,7 +138,6 @@ const ContactForm = () => {
                 label="Email"
                 id="email"
                 placeholder="name@email.com"
-                defaultValue={field.value}
                 errorMessage={errors.email && errors.email.message}
                 //errorMessage={errors.email?.message}
                 // isInvalid={false}
@@ -123,7 +152,6 @@ const ContactForm = () => {
           <Controller
             control={control}
             name="message"
-            // defaultValue="This is a default message"
             render={({ field }) => (
               <Textarea
                 {...field}
@@ -144,6 +172,7 @@ const ContactForm = () => {
       <DevTool control={control} />
       <div className="flex-1 rounded-lg bg-cyan-600 p-8 text-white mx-auto overflow-y-auto">
         <pre>{JSON.stringify(data, null, 2)}</pre>
+        <p>Hello</p>
       </div>
     </section>
   );

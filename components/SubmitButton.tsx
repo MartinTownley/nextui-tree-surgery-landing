@@ -9,14 +9,16 @@ interface SubmitButtonProps {
 }
 
 export const SubmitButton: React.FC<SubmitButtonProps> = ({ formState }) => {
+  const { isValid, isSubmitting, isSubmitSuccessful } = formState;
+
   return (
     <Button
       type="submit"
-      // isDisabled={formState.isSubmitting}
+      isDisabled={!isValid}
       color="secondary"
-      isLoading={formState.isSubmitting}
+      isLoading={isSubmitting}
     >
-      {formState.isSubmitting ? "Submitting..." : "Submit"}
+      {isSubmitting ? "Submitting..." : "Submit"}
     </Button>
   );
 };

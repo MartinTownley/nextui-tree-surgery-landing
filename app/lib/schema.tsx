@@ -4,6 +4,7 @@ export const formDataSchema = zod.object({
   firstName: zod.string().trim().min(1, {
     message: "First Name is required.",
   }),
+  lastName: zod.string().trim(),
   email: zod.string().trim().email({
     message: "Invalid email address.",
   }),
