@@ -8,7 +8,7 @@ import { sendEmail } from "@/app/actions/actions";
 import { useFormState } from "react-dom";
 import { useRef, useState } from "react";
 import { MdMail } from "react-icons/md";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z as zod } from "zod";
@@ -39,7 +39,8 @@ const ContactForm = () => {
     control,
     handleSubmit,
     reset,
-    formState: { errors },
+    setValue,
+    formState: { errors, isSubmitting },
   } = form;
 
   const formRef = useRef<HTMLFormElement>(null);
@@ -57,7 +58,10 @@ const ContactForm = () => {
       console.log(result.error);
     }
 
-    reset();
+    setValue("firstName", "");
+    setValue("email", "");
+    setValue("message", "");
+
     setData(result.data);
   };
 
@@ -71,49 +75,69 @@ const ContactForm = () => {
         className="flex flex-col mx-auto max-w-xs"
       >
         <div className="flex w-full flex-wrap md:flex-nowrap gap-4 mb-4">
-          <Input
-            {...register("firstName")}
-            isRequired
-            isClearable
-            type="text"
-            label="First Name"
-            id="firstName"
-            defaultValue="DefaultName"
-            errorMessage={errors.firstName && errors.firstName.message}
+          <Controller
+            control={control}
+            name="firstName"
+            // defaultValue="DefaultName"
+            render={({ field }) => (
+              <Input
+                {...field}
+                isRequired
+                isClearable
+                onClear={() => field.onChange("")}
+                type="text"
+                label="First Name"
+                id="firstName"
+                placeholder="Enter your first name here"
+                errorMessage={errors.firstName && errors.firstName.message}
+              />
+            )}
           />
         </div>
         <div className="mb-4">
-          <Input
-            {...register("email")}
-            isRequired
-            isClearable
-            type="email"
-            label="Email"
-            id="email"
-            placeholder="name@email.com"
-            defaultValue="default@mail.com"
-            errorMessage={errors.email && errors.email.message}
-            //errorMessage={errors.email?.message}
-            // isInvalid={false}
-            startContent={
-              <MdMail className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
-            }
+          <Controller
+            control={control}
+            name="email"
+            render={({ field }) => (
+              <Input
+                {...field}
+                isRequired
+                isClearable
+                onClear={() => field.onChange("")}
+                type="email"
+                label="Email"
+                id="email"
+                placeholder="name@email.com"
+                defaultValue={field.value}
+                errorMessage={errors.email && errors.email.message}
+                //errorMessage={errors.email?.message}
+                // isInvalid={false}
+                startContent={
+                  <MdMail className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+                }
+              />
+            )}
           />
         </div>
         <div className="mb-4">
-          <Textarea
-            {...register("message")}
-            isRequired
-            label="Your message"
-            placeholder="Enter your message"
-            defaultValue="This is a default message. Not a real message."
-            className="max-w-xs"
-            id="message"
-            errorMessage={errors.message && errors.message.message}
+          <Controller
+            control={control}
+            name="message"
+            // defaultValue="This is a default message"
+            render={({ field }) => (
+              <Textarea
+                {...field}
+                isRequired
+                label="Your message"
+                placeholder="Enter your message here"
+                id="message"
+                errorMessage={errors.message && errors.message.message}
+              />
+            )}
           />
         </div>
         <div className="mb-4">
-          <SubmitButton />
+          <SubmitButton formState={form.formState} />
         </div>
       </form>
 
