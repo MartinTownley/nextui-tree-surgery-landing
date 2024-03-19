@@ -11,14 +11,30 @@ interface SubmitButtonProps {
 export const SubmitButton: React.FC<SubmitButtonProps> = ({ formState }) => {
   const { isValid, isSubmitting, isSubmitSuccessful } = formState;
 
+  let buttonText = "Submit";
+  let buttonColor:
+    | "secondary"
+    | "success"
+    | "default"
+    | "primary"
+    | "warning"
+    | "danger" = "secondary";
+
+  if (isSubmitting) {
+    buttonText = "Submitting...";
+  } else if (isSubmitSuccessful) {
+    buttonText = "Submitted!";
+    buttonColor = "success";
+  }
+
   return (
     <Button
       type="submit"
       isDisabled={!isValid}
-      color="secondary"
+      color={buttonColor}
       isLoading={isSubmitting}
     >
-      {isSubmitting ? "Submitting..." : "Submit"}
+      {buttonText}
     </Button>
   );
 };
