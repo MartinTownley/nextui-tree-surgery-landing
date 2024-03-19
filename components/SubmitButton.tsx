@@ -1,8 +1,9 @@
-"use client";
+// "use client";
 // @ts-ignore
 import { useFormStatus } from "react-dom";
 import { Button } from "@nextui-org/react";
 import { FormState } from "react-hook-form";
+import { useState, useEffect } from "react";
 
 interface SubmitButtonProps {
   formState: FormState<any>;
@@ -11,21 +12,28 @@ interface SubmitButtonProps {
 export const SubmitButton: React.FC<SubmitButtonProps> = ({ formState }) => {
   const { isValid, isSubmitting, isSubmitSuccessful } = formState;
 
-  let buttonText = "Submit";
-  let buttonColor:
-    | "secondary"
-    | "success"
-    | "default"
-    | "primary"
-    | "warning"
-    | "danger" = "secondary";
+  const [buttonText, setButtonText] = useState("Submit");
+  const [buttonColor, setButtonColor] = useState<
+    "secondary" | "success" | "default" | "primary" | "warning" | "danger"
+  >("secondary");
 
-  if (isSubmitting) {
-    buttonText = "Submitting...";
-  } else if (isSubmitSuccessful) {
-    buttonText = "Submitted!";
-    buttonColor = "success";
-  }
+  useEffect(() => {
+    if (isSubmitting) {
+      setButtonText("Submitting...");
+    } else if (isSubmitSuccessful) {
+      setButtonText("Submitted!");
+      setButtonColor("success");
+
+      //reset buttton after 5 seconds
+      const timeoutId = setTimeout(() => {
+        setButtonText("Submit");
+        setButtonColor("secondary");
+      }, 4000);
+
+      // clear timeout if the component is unmounted
+      return () => clearTimeout(timeoutId);
+    }
+  }, [isSubmitting, isSubmitSuccessful]);
 
   return (
     <Button

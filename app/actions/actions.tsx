@@ -13,13 +13,42 @@ export type FormState = {
   message: string;
 };
 
-const transport = nodemailer.createTransport({
+const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: SMTP_SENDER,
     pass: SMTP_PASSWORD,
   },
 });
+
+export async function sendMessage(data: FieldInputs) {
+  // safely parse with zod
+  const parsedData = formDataSchema.safeParse(data);
+
+  if (!parsedData.success) {
+    return { success: false, error: parsedData.error.format() };
+  }
+
+  const mailOptions: Object = {
+    from: SMTP_SENDER,
+    to: SMTP_RECIPIENT,
+    subject: "New Inquiry from Sparrowhawk Trees contact form",
+    text: `You have a new message from ${data.firstName}:
+  
+      Email: ${data.email}
+      
+      Message:
+      ${data.message}
+        `,
+  };
+
+  try {
+    const info = await transporter.sendMail(mailOptions);
+    return { success: true, data: info };
+  } catch (error) {
+    return { success: false, error: (error as Error).message };
+  }
+}
 
 export async function sendEmail(data: FieldInputs) {
   console.log("onsubmitAction", data);
@@ -30,7 +59,7 @@ export async function sendEmail(data: FieldInputs) {
     return { success: false, error: result.error.format() };
   }
 
-  const info = await transport.sendMail({
+  const info = await transporter.sendMail({
     from: SMTP_SENDER,
     to: SMTP_RECIPIENT,
     subject: "New Inquiry from Sparrowhawk Trees contact form",
@@ -40,7 +69,7 @@ export async function sendEmail(data: FieldInputs) {
     
     Message:
     ${data.message}
-      `, // plain text body
+      `,
   });
 
   console.log("Message sent: %s", info.messageId);

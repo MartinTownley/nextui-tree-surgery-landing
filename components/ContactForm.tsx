@@ -3,16 +3,22 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Button, Input, Textarea } from "@nextui-org/react";
 import { SubmitButton } from "@/components/SubmitButton";
-import { sendEmail } from "@/app/actions/actions";
+import { sendEmail, sendMessage } from "@/app/actions/actions";
 // @ts-ignore
 import { useFormState } from "react-dom";
 import { MdMail } from "react-icons/md";
-import { useForm, SubmitHandler, Controller } from "react-hook-form";
+import {
+  useForm,
+  SubmitHandler,
+  FieldErrors,
+  Controller,
+} from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z as zod } from "zod";
 import { formDataSchema } from "@/app/lib/schema";
 import { Toaster, toast } from "sonner";
+import { error } from "console";
 
 const initialState = {
   message: null,
@@ -23,6 +29,7 @@ type FieldInputs = zod.infer<typeof formDataSchema>;
 const ContactForm = () => {
   const [formData, setFormData] = useState<FieldInputs>();
   const [useDefaults, setUseDefaults] = useState(true);
+  const [serverSuccess, setServerSuccess] = useState(false);
   const toastDuration = 4000;
 
   const form = useForm<FieldInputs>({
@@ -47,48 +54,66 @@ const ContactForm = () => {
     formState: { errors, isSubmitting, isDirty, isSubmitSuccessful },
   } = form;
 
-  useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
+  // useEffect(() => {
+  //   let timeoutId: NodeJS.Timeout;
 
-    if (isSubmitSuccessful) {
-      timeoutId = setTimeout(() => {
-        reset({
-          firstName: "",
-          lastName: "",
-          email: "",
-          message: "",
-        });
-      }, toastDuration);
+  //   if (isSubmitSuccessful) {
+  //     timeoutId = setTimeout(() => {
+  //       reset({
+  //         firstName: "",
+  //         lastName: "",
+  //         email: "",
+  //         message: "",
+  //       });
+  //     }, toastDuration);
 
-      const toastMsg = `Message sent successfully to ${formData?.email ?? ""}!`;
+  //     const toastMsg = `Message sent successfully to ${formData?.email ?? ""}!`;
 
-      toast.success(toastMsg, { duration: toastDuration });
-    }
+  //     toast.success(toastMsg, { duration: toastDuration });
+  //   }
 
-    return () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-    };
-  }),
-    [isSubmitSuccessful, reset, formData];
+  //   return () => {
+  //     if (timeoutId) {
+  //       clearTimeout(timeoutId);
+  //     }
+  //   };
+  // }),
+  //   [isSubmitSuccessful, reset, formData];
 
   const formRef = useRef<HTMLFormElement>(null);
 
-  const processForm: SubmitHandler<FieldInputs> = async (data) => {
-    const result = await sendEmail(data);
+  const onSubmitHandler: SubmitHandler<FieldInputs> = async (data) => {
+    try {
+      const response = await sendMessage(data);
 
-    if (!result) {
-      console.log("something went wrong");
-      return;
+      if (!response.success) {
+        toast.error(`Error: ${response.error}`, { duration: toastDuration });
+        setServerSuccess(false);
+        return;
+      }
+
+      // If successful, reset the form
+      reset({
+        firstName: "",
+        lastName: "",
+        email: "",
+        message: "",
+      });
+
+      const toastMsg = `Message sent successfully to ${data.email}!`;
+      toast.success(toastMsg, { duration: toastDuration });
+      setServerSuccess(true);
+
+      // setFormData(data);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error(`Error: ${error}`, { duration: toastDuration });
+      setServerSuccess(false);
     }
+  };
 
-    if (result.error) {
-      // set local error state
-      console.log(result.error);
-    }
-
-    setFormData(data);
+  const onErrorHandler = (errors: FieldErrors<FieldInputs>) => {
+    console.log("Error submitting form:", errors);
   };
 
   return (
@@ -97,16 +122,15 @@ const ContactForm = () => {
         <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
           Contact Us
         </h2>
-        <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
+        <p className="mb-6 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
           Please send us a message using the form below, and we will respond as
           soon as we can!
         </p>
-
         <form
           noValidate
           // ref={formRef}
           //action={formAction}
-          onSubmit={handleSubmit(processForm)}
+          onSubmit={handleSubmit(onSubmitHandler, onErrorHandler)}
           className="flex flex-col mx-auto"
         >
           <div className="flex w-full flex-wrap md:flex-nowrap gap-4 mb-4">
