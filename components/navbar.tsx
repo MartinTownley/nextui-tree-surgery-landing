@@ -35,21 +35,19 @@ export const Navbar = () => {
   return (
     <NextUINavbar maxWidth="xl" position="sticky">
       {/* <NavbarContent className="lg:basis-3/4 sm:basis-4/5" justify="start"> */}
-      <NavbarBrand as="li" className="gap-3 max-w-fit">
+      <NavbarBrand as="li" className="gap-3 max-w-fit bg-green-100">
         <NextLink className="flex justify-start items-center gap-1" href="/">
           {/* <Logo /> */}
           <Image
-            src="/custom-logo-wide.svg"
+            src="/custom-logo-narrow.svg"
             alt="Custom Logo Wide"
             width={200}
             height={36}
           />
         </NextLink>
       </NavbarBrand>
-      <NavbarContent
-        className="lg:basis-auto gap-4 bg-blue-300"
-        justify="start"
-      >
+
+      <NavbarContent className="hidden bg-blue-100" justify="start">
         <ul className="hidden md:flex lg:flex gap-4 justify-start ml-2">
           {siteConfig.navAndMenuItems.map((item) => (
             <NavbarItem key={item.href}>
@@ -71,8 +69,8 @@ export const Navbar = () => {
       {/* <NavbarContent className="lg:basis-1/4" justify="end"> */}
 
       {/* <NavbarContent className="sm:hidden basis-1 pl-4" justify="end"> */}
-      <NavbarContent className="w-1/4 bg-red-300" justify="end">
-        <ThemeSwitch />
+      <NavbarContent className="w-1/4 bg-red-100" justify="end">
+        {/* <ThemeSwitch /> */}
         <NavbarItem>
           <Button
             isExternal

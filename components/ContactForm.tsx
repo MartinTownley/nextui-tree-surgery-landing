@@ -124,7 +124,7 @@ const ContactForm = () => {
         </h2>
         <p className="mb-6 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
           Please send us a message using the form below, and we will respond as
-          soon as we can!
+          soon as we can
         </p>
         <form
           noValidate
