@@ -219,7 +219,7 @@ const ContactForm = () => {
         </form>
       </div>
 
-      <DevTool control={control} />
+      {/* <DevTool control={control} /> */}
       {/* <div className="flex-1 rounded-lg bg-cyan-600 p-8 text-white mx-auto overflow-y-auto">
         <pre>{JSON.stringify(formData, null, 2)}</pre>
         <p>Hello</p>

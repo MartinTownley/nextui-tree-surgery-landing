@@ -31,3 +31,7 @@
   --swiper-navigation-sides-offset: 10px;
   /* --swiper-navigation-color: var(--swiper-theme-color); */
 }
+
+.inverted-svg {
+  filter: invert(1) sepia(1);
+}
