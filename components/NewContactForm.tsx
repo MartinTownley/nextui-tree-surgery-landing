@@ -1,8 +1,13 @@
 "use client";
 
+import { contactFormSchema } from "@/app/lib/schema";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { resolveMotionValue } from "framer-motion";
 import React, { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
+import { z as zod } from "zod";
+
+type TContactFormSchema = zod.infer<typeof contactFormSchema>;
 
 export default function NewContactForm() {
   const {
@@ -10,10 +15,11 @@ export default function NewContactForm() {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-    getValues,
-  } = useForm();
+  } = useForm<TContactFormSchema>({
+    resolver: zodResolver(contactFormSchema),
+  });
 
-  const onSubmitHandler = async (data: FieldValues) => {
+  const onSubmitHandler = async (data: TContactFormSchema) => {
     console.log(data);
     await new Promise((resolve) => setTimeout(resolve, 1000));
     reset();
@@ -25,13 +31,13 @@ export default function NewContactForm() {
       className="flex flex-col gap-y-2"
     >
       <input
-        {...register("firstName", { required: "Email is required" })}
+        {...register("firstName")}
         type="text"
         placeholder="First Name"
         className="px-4 py-2 rounded"
       />
-      {errors.email && (
-        <p className="text-red-500">{`${errors.email.message}`}</p>
+      {errors.firstName && (
+        <p className="text-red-500">{`${errors.firstName.message}`}</p>
       )}
       <input
         {...register("secondName")}
@@ -39,11 +45,11 @@ export default function NewContactForm() {
         placeholder="Second Name"
         className="px-4 py-2 rounded"
       />
-      {errors.email && (
-        <p className="text-red-500">{`${errors.email.message}`}</p>
+      {errors.secondName && (
+        <p className="text-red-500">{`${errors.secondName.message}`}</p>
       )}
       <input
-        {...register("email", { required: "Email is required" })}
+        {...register("email")}
         type="email"
         placeholder="Email"
         className="px-4 py-2 rounded"
@@ -53,10 +59,13 @@ export default function NewContactForm() {
       )}
 
       <textarea
-        {...register("message", { required: "Message is required" })}
+        {...register("message")}
         placeholder="Message"
         className="px-4 py-2 rounded"
       />
+      {errors.message && (
+        <p className="text-red-500">{`${errors.message.message}`}</p>
+      )}
       <button
         disabled={isSubmitting}
         type="submit"
