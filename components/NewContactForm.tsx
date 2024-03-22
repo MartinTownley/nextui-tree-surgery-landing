@@ -25,6 +25,24 @@ export default function NewContactForm() {
       className="flex flex-col gap-y-2"
     >
       <input
+        {...register("firstName", { required: "Email is required" })}
+        type="text"
+        placeholder="First Name"
+        className="px-4 py-2 rounded"
+      />
+      {errors.email && (
+        <p className="text-red-500">{`${errors.email.message}`}</p>
+      )}
+      <input
+        {...register("secondName")}
+        type="text"
+        placeholder="Second Name"
+        className="px-4 py-2 rounded"
+      />
+      {errors.email && (
+        <p className="text-red-500">{`${errors.email.message}`}</p>
+      )}
+      <input
         {...register("email", { required: "Email is required" })}
         type="email"
         placeholder="Email"
@@ -33,15 +51,12 @@ export default function NewContactForm() {
       {errors.email && (
         <p className="text-red-500">{`${errors.email.message}`}</p>
       )}
-      <input
-        {...register("password", { required: "Password is required" })}
-        type="password"
-        placeholder="Password"
+
+      <textarea
+        {...register("message", { required: "Message is required" })}
+        placeholder="Message"
         className="px-4 py-2 rounded"
       />
-      {errors.password && (
-        <p className="text-red-500">{`${errors.password.message}`}</p>
-      )}
       <button
         disabled={isSubmitting}
         type="submit"
