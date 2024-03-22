@@ -7,6 +7,7 @@ import { title, subtitle } from "@/components/primitives";
 import { ServiceSection } from "@/components/ServiceSection";
 import ContactForm from "@/components/ContactForm";
 import Image from "next/image";
+import NewContactForm from "@/components/NewContactForm";
 
 export default function Home() {
   return (
@@ -47,6 +48,9 @@ export default function Home() {
         <ServiceSection />
       </section>
       <section>{/* <ContactForm /> */}</section>
+      <section>
+        <NewContactForm />
+      </section>
     </section>
   );
 }

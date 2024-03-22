@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect, useRef, useState } from "react";
 import { Button, Input, Textarea } from "@nextui-org/react";
 import { SubmitButton } from "@/components/SubmitButton";
@@ -53,34 +51,6 @@ const ContactForm = () => {
     setValue,
     formState: { errors, isSubmitting, isDirty, isSubmitSuccessful },
   } = form;
-
-  // useEffect(() => {
-  //   let timeoutId: NodeJS.Timeout;
-
-  //   if (isSubmitSuccessful) {
-  //     timeoutId = setTimeout(() => {
-  //       reset({
-  //         firstName: "",
-  //         lastName: "",
-  //         email: "",
-  //         message: "",
-  //       });
-  //     }, toastDuration);
-
-  //     const toastMsg = `Message sent successfully to ${formData?.email ?? ""}!`;
-
-  //     toast.success(toastMsg, { duration: toastDuration });
-  //   }
-
-  //   return () => {
-  //     if (timeoutId) {
-  //       clearTimeout(timeoutId);
-  //     }
-  //   };
-  // }),
-  //   [isSubmitSuccessful, reset, formData];
-
-  const formRef = useRef<HTMLFormElement>(null);
 
   const onSubmitHandler: SubmitHandler<FieldInputs> = async (data) => {
     try {
