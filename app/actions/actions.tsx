@@ -23,11 +23,13 @@ const transporter = nodemailer.createTransport({
 
 export async function sendMessage(data: FieldInputs) {
   // safely parse with zod
+  // console.log("data:", data);
   const parsedData = formDataSchema.safeParse(data);
+  // console.log("parsedData:", parsedData);
 
-  if (!parsedData.success) {
-    return { success: false, error: parsedData.error.format() };
-  }
+  // if (!parsedData.success) {
+  //   return { success: false, error: parsedData.error.format() };
+  // }
 
   const mailOptions: Object = {
     from: SMTP_SENDER,
@@ -44,9 +46,11 @@ export async function sendMessage(data: FieldInputs) {
 
   try {
     const info = await transporter.sendMail(mailOptions);
+    // console.log("message sent: %s:", info.response);
     return { success: true, data: info };
-  } catch (error) {
-    return { success: false, error: (error as Error).message };
+  } catch (err) {
+    // console.log("message not sent", err);
+    return { success: false, error: err };
   }
 }
 

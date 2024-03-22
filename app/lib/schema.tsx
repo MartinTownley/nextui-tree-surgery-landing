@@ -19,3 +19,10 @@ export const contactFormSchema = zod.object({
   email: zod.string().email({ message: "Invalid email address." }),
   message: zod.string().min(20, "Message must be at least 20 characters"),
 });
+
+export const defaultFormValues = {
+  firstName: "DefaultName",
+  lastName: "DefaultLastName",
+  email: "default@email.com",
+  message: "This is a default message",
+};

@@ -8,10 +8,12 @@ import { ServiceSection } from "@/components/ServiceSection";
 import ContactForm from "@/components/ContactForm";
 import Image from "next/image";
 import NewContactForm from "@/components/NewContactForm";
+import { Toaster } from "sonner";
 
 export default function Home() {
   return (
     <section className="relative">
+      <Toaster richColors position="top-center" />
       <section className="flex flex-col items-start justify-center gap-4 py-8 md:py-10">
         {/* <Image
           fill={true}
@@ -30,7 +32,6 @@ export default function Home() {
             and beauty coexist.
           </h2>
         </div>
-
         <div className="flex gap-3">
           <Link
             isExternal
@@ -43,6 +44,7 @@ export default function Home() {
             View Services
           </Link>
         </div>
+        To
       </section>
       <section>
         <ServiceSection />

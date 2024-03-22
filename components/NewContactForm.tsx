@@ -1,11 +1,13 @@
 "use client";
 
-import { contactFormSchema } from "@/app/lib/schema";
+import { sendMessage } from "@/app/actions/actions";
+import { contactFormSchema, defaultFormValues } from "@/app/lib/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { resolveMotionValue } from "framer-motion";
 import React, { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import { z as zod } from "zod";
+import { toast } from "sonner";
 
 type TContactFormSchema = zod.infer<typeof contactFormSchema>;
 
@@ -17,11 +19,27 @@ export default function NewContactForm() {
     reset,
   } = useForm<TContactFormSchema>({
     resolver: zodResolver(contactFormSchema),
+    defaultValues: defaultFormValues,
   });
 
   const onSubmitHandler = async (data: TContactFormSchema) => {
-    console.log(data);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    // console.log(data);
+    // await new Promise((resolve) => setTimeout(resolve, 1000));
+    const response = await sendMessage(data);
+
+    console.log("response:", response.data);
+
+    // 1. the parsed data is not successful so you get success: false and the parsed data error
+    if (response.success) {
+      const successMsg = `Message from ${data.firstName} sent successfully`;
+      toast.success(successMsg, { duration: 4000 });
+    } else {
+      console.log("failed");
+      const errorMsg = `Error: ${response.error}`;
+      toast.error(errorMsg, { duration: 4000 });
+    }
+    // 2. if the parsed data is successful, it attempts to sendMail, for which you either get a success: true if that works, or a success false with the error if it doesn't
+
     reset();
   };
 
