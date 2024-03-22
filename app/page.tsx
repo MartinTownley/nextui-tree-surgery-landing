@@ -46,9 +46,7 @@ export default function Home() {
       <section>
         <ServiceSection />
       </section>
-      <section>
-        <ContactForm />
-      </section>
+      <section>{/* <ContactForm /> */}</section>
     </section>
   );
 }
