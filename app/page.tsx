@@ -16,16 +16,16 @@ export default function Home() {
       <Toaster richColors position="top-center" />
       <section className="flex flex-col items-start justify-center gap-4 py-8 md:py-10">
         <div className="inline-block max-w-lg text-left justify-center">
-          {/* <h1 className={title()}>Your Friendly Neighbourhood Tree Surgery</h1>
+          <h1 className={title()}>Your Friendly Neighbourhood Tree Surgery</h1>
           <br />
           <h2 className={subtitle({ class: "mt-4" })}>
             At Sparrowhawk trees, we believe in more than tree surgery – we're
             your partners in garden management, cultivating spaces where nature
             and beauty coexist.
-          </h2> */}
+          </h2>
         </div>
         <div className="flex gap-3">
-          {/* <Link
+          <Link
             isExternal
             href={siteConfig.links.docs}
             className={buttonStyles({
@@ -34,10 +34,12 @@ export default function Home() {
             })}
           >
             View Services
-          </Link> */}
+          </Link>
         </div>
       </section>
-      <section>{/* <ServiceSection /> */}</section>
+      <section>
+        <ServiceSection />
+      </section>
       <section>{/* <ContactForm /> */}</section>
       <section>
         <NewContactForm />

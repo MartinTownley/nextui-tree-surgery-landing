@@ -132,7 +132,7 @@ export default function NewContactForm() {
                     props.onChange(e.target.checked);
                   }}
                 >
-                  Send a copy of my query to my email address
+                  Send a copy of this query to my email address
                 </Checkbox>
               )}
             />
