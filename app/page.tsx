@@ -19,9 +19,9 @@ export default function Home() {
           <h1 className={title()}>Your Friendly Neighbourhood Tree Surgery</h1>
           <br />
           <h2 className={subtitle({ class: "mt-4" })}>
-            At Sparrowhawk trees, we believe in more than tree surgery – we're
-            your partners in garden management, cultivating spaces where nature
-            and beauty coexist.
+            At Sparrowhawk trees, we believe in more than tree surgery –
+            we&apos;re your partners in garden management, cultivating spaces
+            where nature and beauty coexist.
           </h2>
         </div>
         <div className="flex gap-3">
