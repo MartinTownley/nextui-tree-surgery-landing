@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Button, Input, Textarea } from "@nextui-org/react";
 import { SubmitButton } from "@/components/SubmitButton";
-import { sendEmail, sendMessage } from "@/app/actions/actions";
+import { sendMessage } from "@/app/actions/actions";
 // @ts-ignore
 import { useFormState } from "react-dom";
 import { MdMail } from "react-icons/md";
@@ -49,7 +49,7 @@ const ContactForm = () => {
     handleSubmit,
     reset,
     setValue,
-    formState: { errors, isSubmitting, isDirty, isSubmitSuccessful },
+    formState: { errors, isSubmitting, isDirty, isSubmitSuccessful, isValid },
   } = form;
 
   const onSubmitHandler: SubmitHandler<FieldInputs> = async (data) => {
