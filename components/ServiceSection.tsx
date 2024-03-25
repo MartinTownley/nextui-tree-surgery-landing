@@ -2,7 +2,7 @@
 import { useRef, useEffect } from "react";
 //import { register } from "swiper/element/bundle";
 import ServiceCard from "@/components/ServiceCard";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import serviceCardData from "@/public/data/service-card-data";
 import {
@@ -16,19 +16,18 @@ import {
 //register();
 
 export const ServiceSection = () => {
-  const swiperElRef = useRef(null);
+  const swiperElRef = useRef<SwiperRef>(null);
 
-  useEffect(() => {
-    // listen for Swiper events using addEventListener
-    swiperElRef.current.addEventListener("swiperprogress", (e) => {
-      const [swiper, progress] = e.detail;
-      console.log(progress);
-    });
+  // useEffect(() => {
+  //   // listen for Swiper events using addEventListener
+  //   swiperElRef.current.addEventListener("swiperprogress", (e) => {
+  //     const [swiper, progress] = e.detail;
+  //   });
 
-    swiperElRef.current.addEventListener("swiperslidechange", (e) => {
-      console.log("slide changed");
-    });
-  }, []);
+  //   swiperElRef?.current?.addEventListener("swiperslidechange", (e) => {
+  //     console.log("slide changed");
+  //   });
+  // }, []);
   return (
     <Swiper
       modules={[Keyboard, Navigation, Pagination, Scrollbar, A11y]}
