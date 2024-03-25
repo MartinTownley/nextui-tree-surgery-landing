@@ -8,6 +8,8 @@ import React, { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import { z as zod } from "zod";
 import { toast } from "sonner";
+import { DevTool } from "@hookform/devtools";
+import { SentMessageInfo } from "nodemailer";
 
 type TContactFormSchema = zod.infer<typeof contactFormSchema>;
 
@@ -23,24 +25,20 @@ export default function NewContactForm() {
   });
 
   const onSubmitHandler = async (data: TContactFormSchema) => {
-    // console.log(data);
-    // await new Promise((resolve) => setTimeout(resolve, 1000));
-    const response = await sendMessage(data);
+    sendMessage(data)
+      .then((result) => {
+        if (result.success) {
+          toast.success("Message sent successfully", { duration: 4000 });
+          reset();
+        } else {
+          toast.error("Error: Message not sent", { duration: 4000 });
+        }
+      })
+      .catch((err) => {
+        toast.error(` Error: ${err}`, { duration: 4000 });
+      });
 
-    console.log("response:", response.data);
-
-    // 1. the parsed data is not successful so you get success: false and the parsed data error
-    if (response.success) {
-      const successMsg = `Message from ${data.firstName} sent successfully`;
-      toast.success(successMsg, { duration: 4000 });
-    } else {
-      console.log("failed");
-      const errorMsg = `Error: ${response.error}`;
-      toast.error(errorMsg, { duration: 4000 });
-    }
-    // 2. if the parsed data is successful, it attempts to sendMail, for which you either get a success: true if that works, or a success false with the error if it doesn't
-
-    reset();
+    // reset();
   };
 
   return (
@@ -49,23 +47,15 @@ export default function NewContactForm() {
       className="flex flex-col gap-y-2"
     >
       <input
-        {...register("firstName")}
+        {...register("name")}
         type="text"
         placeholder="First Name"
         className="px-4 py-2 rounded"
       />
-      {errors.firstName && (
-        <p className="text-red-500">{`${errors.firstName.message}`}</p>
+      {errors.name && (
+        <p className="text-red-500">{`${errors.name.message}`}</p>
       )}
-      <input
-        {...register("secondName")}
-        type="text"
-        placeholder="Second Name"
-        className="px-4 py-2 rounded"
-      />
-      {errors.secondName && (
-        <p className="text-red-500">{`${errors.secondName.message}`}</p>
-      )}
+
       <input
         {...register("email")}
         type="email"
@@ -91,6 +81,7 @@ export default function NewContactForm() {
       >
         Submit
       </button>
+      {/* <DevTool control={control} /> */}
     </form>
   );
 }
