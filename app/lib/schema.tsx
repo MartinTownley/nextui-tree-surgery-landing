@@ -12,5 +12,5 @@ export const defaultFormValues = {
   name: "default name",
   email: "default@email.com",
   message: "this is a default message of the correct minimum length",
-  shouldSendCopy: true,
+  shouldSendCopy: false,
 };

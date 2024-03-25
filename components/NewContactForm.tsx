@@ -35,12 +35,18 @@ export default function NewContactForm() {
   }, [isSubmitting]);
 
   const onSubmitHandler = async (data: TContactFormSchema) => {
-    Promise.all([sendMessage(data), sendCopy(data)])
+    const sendOperations = [sendMessage(data)];
+
+    if (data.shouldSendCopy) {
+      sendOperations.push(sendCopy(data));
+    }
+
+    Promise.all(sendOperations)
       .then((results) => {
-        const [sendMessageResult, sendCopyResult] = results;
-        if (sendMessageResult.success && sendCopyResult.success) {
+        const allSuccessful = results.every((result) => result.success);
+        if (allSuccessful) {
           toast.success("Message sent successfully", { duration: 4000 });
-          reset();
+          reset({ name: "", email: "", message: "", shouldSendCopy: false });
         } else {
           toast.error("Error: Message not sent", { duration: 4000 });
         }
@@ -48,23 +54,6 @@ export default function NewContactForm() {
       .catch((err) => {
         toast.error(`Error: ${err}`, { duration: 4000 });
       });
-
-    // sendMessage(data)
-    //   .then((result) => {
-    //     if (result.success) {
-    //       toast.success("Message sent successfully", { duration: 4000 });
-    //       reset({
-    //         name: "",
-    //         email: "",
-    //         message: "",
-    //       });
-    //     } else {
-    //       toast.error("Error: Message not sent", { duration: 4000 });
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     toast.error(` Error: ${err}`, { duration: 4000 });
-    //   });
 
     return new Promise<void>((resolve) => {
       setTimeout(() => {
