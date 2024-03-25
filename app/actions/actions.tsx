@@ -61,3 +61,27 @@ export async function sendMessage(data: FieldInputs) {
       return { success: false, error: err };
     });
 }
+
+export async function sendCopy(data: FieldInputs) {
+  const mailOptions: Object = {
+    from: SMTP_SENDER,
+    to: data.email,
+    subject: "Copy of your message to Sparrowhawk Trees",
+    text: `You sent the following message to Sparrowhawk Trees:
+  
+      Message:
+      ${data.message}
+        `,
+  };
+
+  return transporter
+    .sendMail(mailOptions)
+    .then((result) => {
+      return { success: true, data: result.response };
+    })
+    .catch((err) => {
+      console.log("transporter error");
+      // What should I put here?
+      return { success: false, error: err };
+    });
+}
