@@ -1,7 +1,6 @@
-// I want to create a component that wraps an image component  and allows me to pass in the image src, alt, width, and height as props.
 "use client";
 import Image from "next/image";
-// import { useTheme } from "next-themes";
+import { useTheme } from "next-themes";
 
 interface CustomLogoProps {
   src: string;
@@ -18,7 +17,7 @@ const CustomLogo: React.FC<CustomLogoProps> = ({
   height,
   className,
 }) => {
-  // const { theme, setTheme, resolvedTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
 
   return (
     <div>
@@ -27,7 +26,7 @@ const CustomLogo: React.FC<CustomLogoProps> = ({
         alt={alt}
         width={width}
         height={height}
-        className={className}
+        className={`${className} ${theme === "light" ? "" : "inverted-svg"}`}
       />
     </div>
   );
