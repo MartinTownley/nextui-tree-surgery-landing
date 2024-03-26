@@ -59,110 +59,103 @@ export default function NewContactForm() {
   };
 
   return (
-    <section className="container mx-auto mt-8 flex gap-8">
-      <div className="py-8 lg:py-16 px-4 mx-auto max-w-lg">
-        <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
+    <section className="mx-auto max-w-lg px-4 py-4 sm:px-6 lg:px-8">
+      <header className="text-center sm:text-left">
+        <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
           Contact Us
         </h2>
-        <p className="mb-6 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
+        <p className="mb-6 font-light text-gray-500 dark:text-gray-400 sm:text-xl ">
           Please send us a message using the form below, and we will respond as
-          soon as we can
+          soon as we can.
         </p>
         <form
           onSubmit={handleSubmit(onSubmitHandler)}
-          className="flex flex-col gap-y-2"
+          className="space-y-6 border-t"
           noValidate
         >
-          <div className="flex w-full flex-wrap md:flex-nowrap gap-4 mb-4">
-            <Controller
-              name="name"
-              control={control}
-              render={({ field: { onChange, onBlur, value } }) => (
-                <Input
-                  label="Name"
-                  type="text"
-                  placeholder="Enter your name here"
-                  value={value}
-                  onBlur={onBlur}
-                  onChange={onChange}
-                  errorMessage={errors.name?.message}
-                />
-              )}
-            />
-            <Controller
-              name="email"
-              control={control}
-              render={({ field: { onChange, onBlur, value } }) => (
-                <Input
-                  label="Email"
-                  type="email"
-                  placeholder="Enter your email here"
-                  value={value}
-                  onBlur={onBlur}
-                  onChange={onChange}
-                  errorMessage={errors.email?.message}
-                />
-              )}
-            />
-            <Controller
-              name="message"
-              control={control}
-              render={({ field }) => (
-                <Textarea
-                  label="Message"
-                  placeholder="Enter your message here"
-                  errorMessage={errors.message?.message}
-                  {...field}
-                />
-              )}
-            />
-            <Controller
-              name="shouldSendCopy"
-              control={control}
-              render={({ field: props }) => (
-                <Checkbox
-                  {...props}
-                  checked={props.value}
-                  value={props.value ? "true" : "false"}
-                  onChange={(e) => {
-                    props.onChange(e.target.checked);
-                  }}
-                >
-                  Send a copy of this query to my email address
-                </Checkbox>
-              )}
-            />
-            {/* <Controller
-              name="shouldSendCopy"
-              control={control}
-              // defaultValue={true}
-              render={({ field }) => (
-                <Checkbox
-                  {...field}
-                  onChange={(e) => {
-                    field.onChange(e);
-                  }}
-                  value={field.value ? "true" : "false"} // Update the value type to string
-                  color="secondary"
-                >
-                  Send a copy of my query to my email address
-                </Checkbox>
-              )}
-            /> */}
-
-            <Button
-              type="submit"
-              color="secondary"
-              isDisabled={!isValid}
-              isLoading={isSubmitting}
-            >
-              Submit
-            </Button>
+          <div className="rounded-md shadow-sm space-y-4 mt-4">
+            <div>
+              <Controller
+                name="name"
+                control={control}
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <Input
+                    label="Name"
+                    type="text"
+                    placeholder="Enter your name here"
+                    value={value}
+                    onBlur={onBlur}
+                    onChange={onChange}
+                    errorMessage={errors.name?.message}
+                  />
+                )}
+              />
+            </div>
+            <div>
+              <Controller
+                name="email"
+                control={control}
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <Input
+                    label="Email"
+                    type="email"
+                    placeholder="Enter your email here"
+                    value={value}
+                    onBlur={onBlur}
+                    onChange={onChange}
+                    errorMessage={errors.email?.message}
+                  />
+                )}
+              />
+            </div>
+            <div>
+              <Controller
+                name="message"
+                control={control}
+                render={({ field }) => (
+                  <Textarea
+                    label="Message"
+                    placeholder="Enter your message here"
+                    errorMessage={errors.message?.message}
+                    {...field}
+                  />
+                )}
+              />
+            </div>
+            <div className="text-left">
+              <Controller
+                name="shouldSendCopy"
+                control={control}
+                render={({ field: props }) => (
+                  <Checkbox
+                    {...props}
+                    checked={props.value}
+                    value={props.value ? "true" : "false"}
+                    onChange={(e) => {
+                      props.onChange(e.target.checked);
+                    }}
+                    size="sm"
+                  >
+                    Send a copy of this query to my email address
+                  </Checkbox>
+                )}
+              />
+            </div>
+            <div>
+              <Button
+                type="submit"
+                color="secondary"
+                isDisabled={!isValid}
+                isLoading={isSubmitting}
+              >
+                Submit
+              </Button>
+            </div>
 
             {/* <DevTool control={control} /> */}
           </div>
         </form>
-      </div>
+      </header>
     </section>
   );
 }
