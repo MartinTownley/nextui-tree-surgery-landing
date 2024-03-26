@@ -30,10 +30,6 @@ export default function NewContactForm() {
     mode: "onTouched",
   });
 
-  useEffect(() => {
-    console.log("isSubmitting:", isSubmitting);
-  }, [isSubmitting]);
-
   const onSubmitHandler = async (data: TContactFormSchema) => {
     const sendOperations = [sendMessage(data)];
 

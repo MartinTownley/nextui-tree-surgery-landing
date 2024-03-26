@@ -31,6 +31,12 @@ const badTransporter = nodemailer.createTransport({
 });
 
 export async function sendMessage(data: FieldInputs) {
+  if (process.env.NODE_ENV === "development") {
+    console.log("development mode");
+  } else {
+    console.log("production mode");
+  }
+
   const parsedData = contactFormSchema.safeParse(data);
 
   // if (!parsedData.success) {
