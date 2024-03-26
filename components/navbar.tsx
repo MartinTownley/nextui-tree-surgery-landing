@@ -41,7 +41,17 @@ export const Navbar = () => {
             alt={"Custom Logo Narrow"}
             width={150}
             height={64}
+            className="md:hidden"
           />
+          <CustomLogo
+            src={"/custom-logo-wide.svg"}
+            alt={"Custom Logo Wide"}
+            width={200}
+            height={80}
+            className="hidden md:block"
+          />
+          {/* <CustomLogo */}
+
           {/* <Image
             src="/custom-logo-narrow.svg"
             alt="Custom Logo Narrow"
@@ -98,7 +108,7 @@ export const Navbar = () => {
             Call Now
           </Button>
         </NavbarItem>
-        <NavbarMenuToggle />
+        <NavbarMenuToggle className="md:hidden" />
       </NavbarContent>
 
       <NavbarMenu className="lg:basis">

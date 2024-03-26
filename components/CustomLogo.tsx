@@ -8,14 +8,27 @@ interface CustomLogoProps {
   alt: string;
   width: number;
   height: number;
+  className?: string;
 }
 
-const CustomLogo: React.FC<CustomLogoProps> = ({ src, alt, width, height }) => {
+const CustomLogo: React.FC<CustomLogoProps> = ({
+  src,
+  alt,
+  width,
+  height,
+  className,
+}) => {
   // const { theme, setTheme, resolvedTheme } = useTheme();
 
   return (
     <div>
-      <Image src={src} alt={alt} width={width} height={height} />
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        className={className}
+      />
     </div>
   );
 };
