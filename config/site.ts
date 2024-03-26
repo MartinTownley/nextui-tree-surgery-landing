@@ -22,7 +22,7 @@ export const siteConfig = {
     },
     {
       label: "Contact",
-      href: "#contactForm",
+      href: "/contact",
     },
   ],
   navMenuItems: [
