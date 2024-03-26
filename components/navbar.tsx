@@ -36,12 +36,12 @@ export const Navbar = () => {
       <NavbarBrand as="li" className="gap-3 max-w-fit bg-green-000">
         <NextLink className="flex justify-start items-center gap-1" href="/">
           {/* <Logo /> */}
-          {/* <CustomLogo
+          <CustomLogo
             src={"/custom-logo-narrow.svg"}
             alt={"Custom Logo Narrow"}
             width={150}
             height={64}
-          /> */}
+          />
           {/* <Image
             src="/custom-logo-narrow.svg"
             alt="Custom Logo Narrow"

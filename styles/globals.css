@@ -35,3 +35,7 @@
 .inverted-svg {
   filter: invert(1) sepia(1);
 }
+
+* {
+  scroll-behavior: smooth;
+}

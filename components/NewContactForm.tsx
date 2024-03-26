@@ -11,7 +11,6 @@ import { toast } from "sonner";
 import { DevTool } from "@hookform/devtools";
 import { SentMessageInfo } from "nodemailer";
 import { Button, Input, Textarea, Checkbox } from "@nextui-org/react";
-
 type TContactFormSchema = zod.infer<typeof contactFormSchema>;
 
 export default function NewContactForm() {
@@ -59,7 +58,10 @@ export default function NewContactForm() {
   };
 
   return (
-    <section className="mx-auto max-w-lg px-4 py-4 sm:px-6 lg:px-8">
+    <section
+      id="contactForm"
+      className="mx-auto max-w-lg px-4 py-4 sm:px-6 lg:px-8"
+    >
       <header className="text-center sm:text-left">
         <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
           Contact Us
@@ -83,6 +85,7 @@ export default function NewContactForm() {
                     label="Name"
                     type="text"
                     placeholder="Enter your name here"
+                    isClearable
                     value={value}
                     onBlur={onBlur}
                     onChange={onChange}
@@ -129,6 +132,7 @@ export default function NewContactForm() {
                 render={({ field: props }) => (
                   <Checkbox
                     {...props}
+                    color="secondary"
                     checked={props.value}
                     value={props.value ? "true" : "false"}
                     onChange={(e) => {
