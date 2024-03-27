@@ -1,3 +1,4 @@
+"use client";
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -7,31 +8,28 @@ import {
   NavbarItem,
   NavbarMenuItem,
 } from "@nextui-org/navbar";
+import { useState } from "react";
 import { Button } from "@nextui-org/button";
 import { Kbd } from "@nextui-org/kbd";
 import { Link } from "@nextui-org/link";
-import { Input } from "@nextui-org/input";
-import Image from "next/image";
 import { link as linkStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
 import NextLink from "next/link";
 import clsx from "clsx";
 import { ThemeSwitch } from "@/components/theme-switch";
 import CustomLogo from "@/components/CustomLogo";
-import {
-  TwitterIcon,
-  GithubIcon,
-  DiscordIcon,
-  HeartFilledIcon,
-  SearchIcon,
-  PhoneIcon,
-} from "@/components/icons";
-
-import { Logo } from "@/components/icons";
+import { PhoneIcon } from "@/components/icons";
 
 export const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <NextUINavbar maxWidth="xl" position="sticky">
+    <NextUINavbar
+      maxWidth="xl"
+      position="sticky"
+      isBordered
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={setIsMenuOpen}
+    >
       {/* <NavbarContent className="lg:basis-3/4 sm:basis-4/5" justify="start"> */}
       <NavbarBrand as="li" className="gap-3 max-w-fit bg-green-000">
         <NextLink className="flex justify-start items-center gap-1" href="/">
@@ -92,15 +90,22 @@ export const Navbar = () => {
         <NavbarItem>
           <span className="hidden md:inline">123-456-7890</span>
         </NavbarItem>
-        <NavbarMenuToggle className="md:hidden" />
+        <NavbarMenuToggle
+          className="md:hidden"
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        />
       </NavbarContent>
 
       <NavbarMenu className="lg:basis">
-        {/* {searchInput} */}
         <div className="mx-4 mt-2 flex flex-col gap-2">
           {siteConfig.navAndMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
-              <Link color="foreground" href={item.href} size="lg">
+              <Link
+                color="foreground"
+                href={item.href}
+                size="lg"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 {item.label}
               </Link>
             </NavbarMenuItem>
