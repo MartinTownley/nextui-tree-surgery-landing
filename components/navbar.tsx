@@ -50,25 +50,6 @@ export const Navbar = () => {
             height={80}
             className="hidden md:block"
           />
-          {/* <CustomLogo */}
-
-          {/* <Image
-            src="/custom-logo-narrow.svg"
-            alt="Custom Logo Narrow"
-            width={150}
-            height={64}
-            // className={`md:hidden lg:hidden h-12 ${
-            //   theme === "dark" ? "inverted-svg" : ""
-            // }`}
-            className={"md:hidden lg:hidden h-12 inverted-svg"}
-          />
-          <Image
-            src="/custom-logo-wide.svg"
-            alt="Custom Logo Wide"
-            width={150}
-            height={64}
-            className="hidden md:block lg:w-64  md:h-12"
-          /> */}
         </NextLink>
       </NavbarBrand>
 
@@ -100,13 +81,16 @@ export const Navbar = () => {
           <Button
             isExternal
             as={Link}
-            className="text-sm font-normal text-default-600 bg-default-100"
+            className="text-sm font-normal text-default-600 bg-default-100 md:hidden"
             href="tel:+1234567890"
             startContent={<PhoneIcon className="text-danger" />}
             variant="flat"
           >
             Call Now
           </Button>
+        </NavbarItem>
+        <NavbarItem>
+          <span className="hidden md:inline">123-456-7890</span>
         </NavbarItem>
         <NavbarMenuToggle className="md:hidden" />
       </NavbarContent>
@@ -116,7 +100,7 @@ export const Navbar = () => {
         <div className="mx-4 mt-2 flex flex-col gap-2">
           {siteConfig.navAndMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
-              <Link color="foreground" href="#" size="lg">
+              <Link color="foreground" href={item.href} size="lg">
                 {item.label}
               </Link>
             </NavbarMenuItem>

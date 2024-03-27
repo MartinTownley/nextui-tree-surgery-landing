@@ -1,7 +1,8 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import { siteConfig } from "@/config/site";
-import { fontSans } from "@/config/fonts";
+import { inter, roboto_mono, rakkas, merriweather } from "@/config/fonts";
+// import { Roboto, Inter } from "next/font/google";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
 import { Link } from "@nextui-org/link";
@@ -39,7 +40,7 @@ export default function RootLayout({
       <body
         className={clsx(
           "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
+          merriweather.className
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>

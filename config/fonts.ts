@@ -1,11 +1,22 @@
-import { Fira_Code as FontMono, Inter as FontSans } from "next/font/google"
+import { Inter, Roboto_Mono, Rakkas, Merriweather } from "next/font/google";
 
-export const fontSans = FontSans({
+export const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-sans",
-})
+  display: "swap",
+});
 
-export const fontMono = FontMono({
+export const roboto_mono = Roboto_Mono({
   subsets: ["latin"],
-  variable: "--font-mono",
-})
+  display: "swap",
+});
+
+export const rakkas = Rakkas({
+  subsets: ["latin"],
+  weight: "400",
+});
+
+export const merriweather = Merriweather({
+  subsets: ["latin"],
+  weight: ["400", "700", "300", "900"],
+  display: "swap",
+});
