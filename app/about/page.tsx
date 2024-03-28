@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function AboutPage() {
   return (
     // Container
-    <div className="container flex flex-col-reverse lg:flex-row items-center gap-12 mt-14 lg:mt-28">
+    <div className="container flex flex-col-reverse lg:flex-row items-center gap-12 mt-8 lg:mt-14">
       {/* Content */}
       <div className="flex-1 flex-col items-center lg:items-start">
         <h1 className={`${title()} text-center`}>About Us</h1>
@@ -35,9 +35,11 @@ export default function AboutPage() {
         <Image
           src="/about-imgs/profile-img.jpeg"
           alt="Profile Picture"
-          width={500}
+          width={400}
           height={500}
-          className=""
+          className="rounded-medium object-cover"
+          // placeholder="blur"
+          // style={{ objectFit: "" }}
         />
       </div>
     </div>
