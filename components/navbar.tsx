@@ -19,6 +19,7 @@ import clsx from "clsx";
 import { ThemeSwitch } from "@/components/theme-switch";
 import CustomLogo from "@/components/CustomLogo";
 import { PhoneIcon } from "@/components/icons";
+import { bungee_shade } from "@/config/fonts";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,9 +32,8 @@ export const Navbar = () => {
       onMenuOpenChange={setIsMenuOpen}
     >
       {/* <NavbarContent className="lg:basis-3/4 sm:basis-4/5" justify="start"> */}
-      <NavbarBrand as="li" className="gap-3 max-w-fit bg-green-000">
+      <NavbarBrand as="li" className="gap-3 max-w-fit">
         <NextLink className="flex justify-start items-center gap-1" href="/">
-          {/* <Logo /> */}
           <CustomLogo
             src={"/custom-logo-narrow.svg"}
             alt={"Custom Logo Narrow"}
@@ -51,7 +51,7 @@ export const Navbar = () => {
         </NextLink>
       </NavbarBrand>
 
-      <NavbarContent className="hidden md:flex bg-blue-000" justify="start">
+      <NavbarContent className="hidden md:flex" justify="center">
         <ul className="hidden md:flex lg:flex gap-4 justify-center ml-2">
           {siteConfig.navAndMenuItems.map((item) => (
             <NavbarItem key={item.href}>
@@ -70,21 +70,22 @@ export const Navbar = () => {
         </ul>
       </NavbarContent>
 
-      {/* <NavbarContent className="lg:basis-1/4" justify="end"> */}
-
-      {/* <NavbarContent className="sm:hidden basis-1 pl-4" justify="end"> */}
-      <NavbarContent className="w-1/4 bg-red-000" justify="end">
-        <ThemeSwitch />
+      <NavbarContent className="w-1/4" justify="end">
+        {/* <ThemeSwitch /> */}
         <NavbarItem>
           <Button
+            radius="sm"
+            color="success"
             isExternal
             as={Link}
-            className="text-sm font-normal text-default-600 bg-default-100 md:hidden"
+            className={`text-sm font-normal text-default-600 md:hidden flex flex-col ${bungee_shade.className}`}
             href="tel:+1234567890"
-            startContent={<PhoneIcon className="text-danger" />}
+            // startContent={<PhoneIcon className="text-danger" />}
             variant="flat"
           >
-            Call Now
+            CALL NOW!
+            {/* <div className="mb-0">CALL</div>
+            <div className="mt-0">NOW!</div> */}
           </Button>
         </NavbarItem>
         <NavbarItem>
@@ -92,7 +93,7 @@ export const Navbar = () => {
         </NavbarItem>
         <NavbarMenuToggle
           className="md:hidden"
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          // aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         />
       </NavbarContent>
 
@@ -104,7 +105,9 @@ export const Navbar = () => {
                 color="foreground"
                 href={item.href}
                 size="lg"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                }}
               >
                 {item.label}
               </Link>

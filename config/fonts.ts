@@ -1,4 +1,10 @@
-import { Inter, Roboto_Mono, Rakkas, Merriweather } from "next/font/google";
+import {
+  Inter,
+  Roboto_Mono,
+  Rakkas,
+  Merriweather,
+  Bungee_Shade,
+} from "next/font/google";
 
 export const inter = Inter({
   subsets: ["latin"],
@@ -18,5 +24,11 @@ export const rakkas = Rakkas({
 export const merriweather = Merriweather({
   subsets: ["latin"],
   weight: ["400", "700", "300", "900"],
+  display: "swap",
+});
+
+export const bungee_shade = Bungee_Shade({
+  subsets: ["latin"],
+  weight: "400",
   display: "swap",
 });
