@@ -1,7 +1,13 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import { siteConfig } from "@/config/site";
-import { inter, roboto_mono, rakkas, merriweather } from "@/config/fonts";
+import {
+  inter,
+  roboto_mono,
+  rakkas,
+  merriweather,
+  bungee_shade,
+} from "@/config/fonts";
 // import { Roboto, Inter } from "next/font/google";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
@@ -39,7 +45,7 @@ export default function RootLayout({
       <head />
       <body
         className={clsx(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background antialiased",
           merriweather.className
         )}
       >

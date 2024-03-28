@@ -20,6 +20,7 @@ import { ThemeSwitch } from "@/components/theme-switch";
 import CustomLogo from "@/components/CustomLogo";
 import { PhoneIcon } from "@/components/icons";
 import { bungee_shade } from "@/config/fonts";
+import MobileMenu from "@/components/MobileMenu";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,24 +33,26 @@ export const Navbar = () => {
       onMenuOpenChange={setIsMenuOpen}
     >
       {/* <NavbarContent className="lg:basis-3/4 sm:basis-4/5" justify="start"> */}
-      <NavbarBrand as="li" className="gap-3 max-w-fit">
-        <NextLink className="flex justify-start items-center gap-1" href="/">
-          <CustomLogo
-            src={"/custom-logo-narrow.svg"}
-            alt={"Custom Logo Narrow"}
-            width={150}
-            height={64}
-            className="md:hidden"
-          />
-          <CustomLogo
-            src={"/custom-logo-wide.svg"}
-            alt={"Custom Logo Wide"}
-            width={200}
-            height={80}
-            className="hidden md:block"
-          />
-        </NextLink>
-      </NavbarBrand>
+      <NavbarContent>
+        <NavbarBrand as="li" className="gap-3 max-wn-fit">
+          <NextLink className="flex justify-start items-center gap-1" href="/">
+            <CustomLogo
+              src={"/custom-logo-narrow.svg"}
+              alt={"Custom Logo Narrow"}
+              width={150}
+              height={64}
+              className="md:hidden"
+            />
+            <CustomLogo
+              src={"/custom-logo-wide.svg"}
+              alt={"Custom Logo Wide"}
+              width={200}
+              height={80}
+              className="hidden md:block"
+            />
+          </NextLink>
+        </NavbarBrand>
+      </NavbarContent>
 
       <NavbarContent className="hidden md:flex" justify="center">
         <ul className="hidden md:flex lg:flex gap-4 justify-center ml-2">
@@ -80,20 +83,16 @@ export const Navbar = () => {
             as={Link}
             className={`text-sm font-normal text-default-600 md:hidden flex flex-col ${bungee_shade.className}`}
             href="tel:+1234567890"
-            // startContent={<PhoneIcon className="text-danger" />}
+            startContent={<PhoneIcon className="text-danger" />}
             variant="flat"
-          >
-            CALL NOW!
-            {/* <div className="mb-0">CALL</div>
-            <div className="mt-0">NOW!</div> */}
-          </Button>
+          ></Button>
         </NavbarItem>
         <NavbarItem>
           <span className="hidden md:inline">123-456-7890</span>
         </NavbarItem>
         <NavbarMenuToggle
           className="md:hidden"
-          // aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         />
       </NavbarContent>
 
@@ -104,7 +103,7 @@ export const Navbar = () => {
               <Link
                 color="foreground"
                 href={item.href}
-                size="lg"
+                // size="lg"
                 onClick={() => {
                   setIsMenuOpen(false);
                 }}
