@@ -1,5 +1,6 @@
 import { title } from "@/components/primitives";
 import Image from "next/image";
+import profilePic from "@/public/about-imgs/profileImg.jpg";
 
 export default function AboutPage() {
   return (
@@ -33,12 +34,12 @@ export default function AboutPage() {
       </div>
       <div className="flex justify-center flex-1 mb-10 md:mb-16 lg:mb-0">
         <Image
-          src="/about-imgs/profile-img.jpeg"
+          src={profilePic}
           alt="Profile Picture"
           width={400}
           height={500}
           className="rounded-medium object-cover"
-          // placeholder="blur"
+          placeholder="blur"
           // style={{ objectFit: "" }}
         />
       </div>
