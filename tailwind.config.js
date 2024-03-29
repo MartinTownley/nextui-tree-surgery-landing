@@ -16,6 +16,9 @@ module.exports = {
         imbue: ["var(--font-imbue)"],
         roboto: ["var(--font-roboto)"],
       },
+      gridTemplateColumns: {
+        gallery: "repeat(auto-fit, minmax(250px, 1fr))",
+      },
     },
   },
   darkMode: "class",

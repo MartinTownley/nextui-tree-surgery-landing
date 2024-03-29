@@ -88,7 +88,7 @@ export const Navbar = () => {
           ></Button>
         </NavbarItem>
         <NavbarItem>
-          <span className="hidden md:inline">123-456-7890</span>
+          <span className="hidden md:inline items-center">123-456-7890</span>
         </NavbarItem>
         <NavbarMenuToggle
           className="md:hidden"
