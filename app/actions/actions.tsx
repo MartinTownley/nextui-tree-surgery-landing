@@ -63,7 +63,7 @@ export async function sendMessage(data: FieldInputs) {
     })
     .catch((err) => {
       console.log("transporter error");
-      // What should I put here?
+
       return { success: false, error: err };
     });
 }

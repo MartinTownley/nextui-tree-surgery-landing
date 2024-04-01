@@ -3,19 +3,15 @@ import Image from "next/image";
 import profilePic from "@/public/about-imgs/profileImg.jpg";
 
 export default function AboutPage() {
+  const imgUrl =
+    "https://d3o5amtmdekloq.cloudfront.net/gallery-page/img-23.jpeg";
   return (
     // Container
     <div className="container flex flex-col-reverse lg:flex-row items-center gap-12 mt-8 lg:mt-14">
       {/* Content */}
       <div className="flex-1 flex-col items-center lg:items-start">
-        <h1 className={`${title()} text-center`}>About Us</h1>
+        <h1 className={`${title()} text-center`}>About us</h1>
         <div className="text-lg mt-4 text-center lg:text-left mb-6">
-          <p className="my-4">
-            Sparrowhawk Trees is a family-run tree surgery business based in
-            South-East London. We are passionate about trees and the environment
-            and have been providing a professional and friendly service to our
-            customers for over 20 years.
-          </p>
           <p className="my-4">
             We are fully insured and qualified to undertake all aspects of tree
             surgery, from pruning and shaping to felling and stump removal. We
@@ -34,12 +30,13 @@ export default function AboutPage() {
       </div>
       <div className="flex justify-center flex-1 mb-10 md:mb-16 lg:mb-0">
         <Image
-          src={profilePic}
+          // src={profilePic}
+          src={imgUrl}
           alt="Profile Picture"
           width={400}
           height={500}
           className="rounded-medium object-cover"
-          placeholder="blur"
+          // placeholder="blur"
           // style={{ objectFit: "" }}
         />
       </div>

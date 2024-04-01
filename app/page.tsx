@@ -8,8 +8,11 @@ import { ServiceSection } from "@/components/ServiceSection";
 import Image from "next/image";
 import NewContactForm from "@/components/NewContactForm";
 import { Toaster } from "sonner";
+import fetchImages from "./actions/fetchImages";
 
 export default function Home() {
+  console.log(fetchImages());
+
   return (
     <section className="relative">
       <Toaster richColors position="top-center" />

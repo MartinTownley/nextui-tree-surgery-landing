@@ -1,11 +1,17 @@
-import React from "react";
-import { galleryImages } from "./imagePaths";
-import Image from "next/image";
+import React, { useEffect, useState } from "react";
+import ImgContainer from "@/components/ImgContainer";
+import fetchImages from "@/app/actions/fetchImages";
 
-const Gallery = () => {
+export default async function Gallery() {
+  const imageUrls = await fetchImages();
+
   return (
-    <section className="px-2 my-3 grid gap-2 grid-cols-gallery auto-rows-[10px]">
-      {galleryImages.map((image, index) => (
+    <section className="px-2 my-3 grid gap-2 grid-cols-gallery ">
+      {imageUrls?.map((imgUrl) => (
+        <ImgContainer imageUrl={imgUrl} />
+      ))}
+
+      {/* {galleryImages.map((image, index) => (
         <div
           key={index}
           className="h-64 bg-gray-200 rounded-xl relative overflow-hidden group"
@@ -22,9 +28,7 @@ const Gallery = () => {
             className="object-cover group-hover:opacity-75"
           />
         </div>
-      ))}
+      ))} */}
     </section>
   );
-};
-
-export default Gallery;
+}
