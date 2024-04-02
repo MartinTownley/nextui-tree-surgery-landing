@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from "react";
 import ImgContainer from "@/components/ImgContainer";
 import fetchImages from "@/app/actions/fetchImages";
+import addBlurredDataUrls from "@/app/lib/getBase64";
 
 export default async function Gallery() {
-  const imageUrls = await fetchImages();
+  const imageUrls: string[] | undefined = await fetchImages();
+
+  if (!imageUrls)
+    return <h2 className="m-4 text-2xl font-bold"> No Images Found</h2>;
+
+  const photosWithBlur = await addBlurredDataUrls(imageUrls);
 
   return (
     <section className="px-2 my-3 grid gap-2 grid-cols-gallery ">
-      {imageUrls?.map((imgUrl) => (
-        <ImgContainer imageUrl={imgUrl} />
+      {photosWithBlur.map((photo) => (
+        <ImgContainer key={photo.imageUrl} photo={photo} />
       ))}
 
       {/* {galleryImages.map((image, index) => (
