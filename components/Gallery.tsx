@@ -4,17 +4,26 @@ import fetchImages from "@/app/actions/fetchImages";
 import addBlurredDataUrls from "@/app/lib/getBase64";
 
 export default async function Gallery() {
-  const imageUrls: string[] | undefined = await fetchImages();
+  const images: { url: string; width: number; height: number }[] | undefined =
+    await fetchImages();
 
-  if (!imageUrls)
+  if (!images)
     return <h2 className="m-4 text-2xl font-bold"> No Images Found</h2>;
 
-  const photosWithBlur = await addBlurredDataUrls(imageUrls);
+  const photosWithBlur = await addBlurredDataUrls(images);
 
   return (
-    <section className="px-2 my-3 grid gap-2 grid-cols-gallery auto-rows-[10px]">
+    <section className="px-1 my-3 grid  grid-cols-gallery auto-rows-[10px]">
       {photosWithBlur.map((photo) => (
-        <ImgContainer key={photo.imageUrl} photo={photo} />
+        <ImgContainer
+          key={photo.url}
+          photo={{
+            imageUrl: photo.url,
+            blurredDataUrl: photo.blurredDataUrl,
+            width: photo.width,
+            height: photo.height,
+          }}
+        />
       ))}
 
       {/* {galleryImages.map((image, index) => (

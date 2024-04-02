@@ -1,4 +1,5 @@
 import { s3 } from "../../config/aws-config";
+import probe from "probe-image-size";
 
 export default async function fetchImages() {
   try {
@@ -9,13 +10,20 @@ export default async function fetchImages() {
       })
       .promise();
 
-    // listObjects includes the prefix itself as an object in the response, which will not point to an image. So use filter to deal with this.
-    const imageUrls =
-      data.Contents?.filter((image) => image.Key !== "album1/").map((image) => {
-        return `https://sparrowhawk-bucket.s3.eu-north-1.amazonaws.com/${image.Key}`;
-      }) || [];
+    const images =
+      data.Contents?.filter((image) => image.Key !== "album1/").map(
+        async (image) => {
+          const imageUrl = `https://sparrowhawk-bucket.s3.eu-north-1.amazonaws.com/${image.Key}`;
+          const dimensions = await probe(imageUrl);
+          return {
+            url: imageUrl,
+            width: dimensions.width,
+            height: dimensions.height,
+          };
+        }
+      ) || [];
 
-    return imageUrls;
+    return Promise.all(images);
   } catch (err) {
     console.log("Error:", err);
   }
