@@ -15,7 +15,7 @@ export default function Home() {
     <section className="relative">
       <Toaster richColors position="top-center" />
       <section className="flex flex-col items-start justify-center gap-4 py-8 md:py-10">
-        <div className="inline-block max-w-lg text-left justify-center">
+        <div className="inline-block max-w-lg text-left">
           <h1 className={title()}>Your Friendly Neighbourhood Tree Surgery</h1>
           <br />
           <h2 className={subtitle({ class: "mt-4" })}>

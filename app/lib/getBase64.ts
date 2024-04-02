@@ -26,7 +26,7 @@ interface Image {
   height: number;
 }
 
-interface ImageWithBlur extends Image {
+export interface ImageWithBlur extends Image {
   blurredDataUrl: string;
 }
 
