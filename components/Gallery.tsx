@@ -12,7 +12,7 @@ export default async function Gallery() {
   const photosWithBlur = await addBlurredDataUrls(imageUrls);
 
   return (
-    <section className="px-2 my-3 grid gap-2 grid-cols-gallery ">
+    <section className="px-2 my-3 grid gap-2 grid-cols-gallery auto-rows-[10px]">
       {photosWithBlur.map((photo) => (
         <ImgContainer key={photo.imageUrl} photo={photo} />
       ))}

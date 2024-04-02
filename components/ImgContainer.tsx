@@ -8,8 +8,10 @@ type Props = {
   };
 };
 const ImgContainer: React.FC<Props> = ({ photo }) => {
+  // const widthHeightRatio =
+
   return (
-    <div className="h-64 bg-gray rounded-xl relative overflow-hidden group">
+    <div className="h-64 bg-gray rounded-xl relative overflow-hidden group ">
       <Image
         src={photo.imageUrl}
         alt={"Gallery image"}
