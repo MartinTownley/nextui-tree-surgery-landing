@@ -4,7 +4,7 @@ import profilePic from "@/public/about-imgs/profileImg.jpg";
 
 export default function AboutPage() {
   const imgUrl =
-    "https://d3o5amtmdekloq.cloudfront.net/gallery-page/img-23.jpeg";
+    "https://sparrowhawk-bucket.s3.eu-north-1.amazonaws.com/album1/_img-23.jpeg";
   return (
     // Container
     <div className="container flex flex-col-reverse lg:flex-row items-center gap-12 mt-8 lg:mt-14">

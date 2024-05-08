@@ -33,8 +33,8 @@ const ImgContainer: React.FC<Props> = ({ photo }) => {
             height={photo.height}
             sizes="250px"
             className="group-hover:opacity-75"
-            placeholder="blur"
-            blurDataURL={photo.blurredDataUrl}
+            // placeholder="blur"
+            // blurDataURL={photo.blurredDataUrl}
           />
         </div>
       </Link>

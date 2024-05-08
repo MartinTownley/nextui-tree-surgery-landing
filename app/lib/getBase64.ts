@@ -1,5 +1,6 @@
 import { getPlaiceholder } from "plaiceholder";
 
+// helper function
 async function getBase64(imageUrl: string) {
   try {
     const res = await fetch(imageUrl);
