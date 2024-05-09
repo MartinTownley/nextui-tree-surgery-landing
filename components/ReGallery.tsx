@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import * as React from "react";
 import ImgContainer from "@/components/ImgContainer";
 import fetchImages from "@/app/actions/fetchImages";
 import addBlurredDataUrls from "@/app/lib/getBase64";
-import Lightbox from "yet-another-react-lightbox";
-import LightboxContainer from "./LightboxContainer";
+import useLightbox from "@/components/useLightbox";
+import { slides } from "@/app/lightbox/data";
 
 export default async function ReGallery() {
   const images: { url: string; width: number; height: number }[] | undefined =
@@ -26,9 +26,6 @@ export default async function ReGallery() {
             }}
           />
         ))}
-      </section>
-      <section>
-        <LightboxContainer />
       </section>
     </section>
   );

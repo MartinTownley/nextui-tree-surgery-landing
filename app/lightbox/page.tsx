@@ -3,7 +3,7 @@
 import useLightbox from "@/components/useLightbox";
 import { slides } from "@/app/lightbox/data";
 
-export default function Home() {
+export default function LightboxPage() {
   const { openLightbox, renderLightbox } = useLightbox();
 
   return (

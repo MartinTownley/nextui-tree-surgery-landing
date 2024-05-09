@@ -3,8 +3,6 @@ import { title } from "@/components/primitives";
 import NewGallery from "@/components/NewGallery";
 import ReGallery from "@/components/ReGallery";
 import Image from "next/image";
-import Lightbox from "yet-another-react-lightbox/*";
-import LightboxContainer from "@/components/LightboxContainer";
 
 type ImageProps = {
   src: string;

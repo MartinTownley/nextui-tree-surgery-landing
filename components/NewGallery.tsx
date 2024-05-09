@@ -1,4 +1,3 @@
-"use client";
 import React, { useEffect, useState } from "react";
 import ImgContainer from "@/components/ImgContainer";
 import fetchImages from "@/app/actions/fetchImages";
