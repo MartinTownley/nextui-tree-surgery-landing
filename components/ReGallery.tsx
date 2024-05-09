@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import ImgContainer from "@/components/ImgContainer";
 import fetchImages from "@/app/actions/fetchImages";
 import addBlurredDataUrls from "@/app/lib/getBase64";
+import Lightbox from "yet-another-react-lightbox";
+import LightboxContainer from "./LightboxContainer";
 
 export default async function ReGallery() {
   const images: { url: string; width: number; height: number }[] | undefined =
@@ -11,18 +13,23 @@ export default async function ReGallery() {
     return <h2 className="m-4 text-2xl font-bold"> No Images Found</h2>;
 
   return (
-    <section className="px-1 my-3 grid  grid-cols-gallery auto-rows-[10px]">
-      {images.map((photo) => (
-        <ImgContainer
-          key={photo.url}
-          photo={{
-            imageUrl: photo.url,
-            blurredDataUrl: "",
-            width: photo.width,
-            height: photo.height,
-          }}
-        />
-      ))}
+    <section>
+      <section className="px-1 my-3 grid  grid-cols-gallery auto-rows-[10px]">
+        {images.map((photo) => (
+          <ImgContainer
+            key={photo.url}
+            photo={{
+              imageUrl: photo.url,
+              blurredDataUrl: "",
+              width: photo.width,
+              height: photo.height,
+            }}
+          />
+        ))}
+      </section>
+      <section>
+        <LightboxContainer />
+      </section>
     </section>
   );
 }

@@ -13,21 +13,9 @@ import {
   A11y,
 } from "swiper/modules";
 
-//register();
-
 export const ServiceSection = () => {
   const swiperElRef = useRef<SwiperRef>(null);
 
-  // useEffect(() => {
-  //   // listen for Swiper events using addEventListener
-  //   swiperElRef.current.addEventListener("swiperprogress", (e) => {
-  //     const [swiper, progress] = e.detail;
-  //   });
-
-  //   swiperElRef?.current?.addEventListener("swiperslidechange", (e) => {
-  //     console.log("slide changed");
-  //   });
-  // }, []);
   return (
     <Swiper
       modules={[Keyboard, Navigation, Pagination, Scrollbar, A11y]}
