@@ -14,8 +14,6 @@ import { Button, Input, Textarea, Checkbox } from "@nextui-org/react";
 type TContactFormSchema = zod.infer<typeof contactFormSchema>;
 
 export default function NewContactForm() {
-  // const form = useForm();
-
   const {
     register,
     handleSubmit,

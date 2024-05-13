@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.574.0",
     "@hookform/resolvers": "^3.3.4",
     "@nextui-org/button": "2.0.26",
     "@nextui-org/code": "2.0.24",
@@ -27,11 +28,11 @@
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.16",
-    "aws-sdk": "^2.1588.0",
     "clsx": "^2.0.0",
     "eslint": "8.48.0",
     "eslint-config-next": "14.0.2",
     "framer-motion": "^10.16.4",
+    "imgur": "^2.4.2",
     "intl-messageformat": "^10.5.0",
     "next": "^14.1.4",
     "next-themes": "^0.2.1",
@@ -44,6 +45,7 @@
     "react-hook-form": "^7.51.1",
     "react-icon": "^1.0.0",
     "react-icons": "^5.0.1",
+    "react-photo-album": "^2.3.1",
     "server-only": "^0.0.1",
     "sonner": "^1.4.3",
     "swiper": "^11.0.7",

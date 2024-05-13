@@ -17,7 +17,7 @@ export default async function fetchImages() {
             const imageUrl = `https://sparrowhawk-bucket.s3.eu-north-1.amazonaws.com/${image.Key}`;
             const dimensions = await probe(imageUrl);
             return {
-              url: imageUrl,
+              src: imageUrl,
               width: dimensions.width,
               height: dimensions.height,
             };

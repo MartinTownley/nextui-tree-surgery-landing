@@ -25,6 +25,7 @@ export const siteConfig = {
       href: "/contact",
     },
     { label: "Lightbox", href: "/lightbox" },
+    { label: "Album", href: "/album" },
   ],
   navMenuItems: [
     {

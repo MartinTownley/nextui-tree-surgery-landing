@@ -1,4 +1,4 @@
-export const slides = [
+export const photos = [
   {
     src: "/service-imgs/service-img1.jpg",
     title: "Mountain Range",
