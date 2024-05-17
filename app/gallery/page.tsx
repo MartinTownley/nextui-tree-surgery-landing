@@ -4,6 +4,8 @@ import NewGallery from "@/components/NewGallery";
 import ReGallery from "@/components/ReGallery";
 import Image from "next/image";
 import GalleryTest from "@/components/GalleryTest";
+import PexelsGallery from "@/components/PexelsGallery";
+import ImgurGallery from "@/components/ImgurGallery";
 
 type ImageProps = {
   src: string;
@@ -25,7 +27,9 @@ export default async function GalleryPage() {
       {/* <NewGallery /> */}
       {/* <Gallery /> */}
       {/* <ReGallery /> */}
-      <GalleryTest />
+      {/* <GalleryTest /> */}
+      {/* <PexelsGallery /> */}
+      <ImgurGallery />
     </div>
   );
 }

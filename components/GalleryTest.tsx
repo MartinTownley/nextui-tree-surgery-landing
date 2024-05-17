@@ -1,23 +1,15 @@
 "use client";
 import { imgurClient } from "@/config/imgur-config";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, FC } from "react";
+import AlbumData, { ImgurApiResponse } from "imgur";
 
-function GalleryTest() {
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
-
-  useEffect(() => {
-    imgurClient.getImage("4B9vHd0").then((image) => {
-      console.log("image:", image);
-      setImageUrl(image.data.link);
-    });
-  }, []);
-
+const GalleryTest: FC = () => {
   return (
     <div>
-      <h1>Bucket List:</h1>
-      {imageUrl && <img src={imageUrl} alt="imgur image" />}
+      <h1>Images</h1>
+      {/* {imageUrl && <img src={imageUrl} alt="imgur image" />} */}
     </div>
   );
-}
+};
 
 export default GalleryTest;

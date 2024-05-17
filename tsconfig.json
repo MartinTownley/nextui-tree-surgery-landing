@@ -23,7 +23,13 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "config/imgur-config.js"
+  ],
   "exclude": ["node_modules"],
   "types": ["node", "@types/nodemailer"]
 }
