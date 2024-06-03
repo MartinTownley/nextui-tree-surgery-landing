@@ -1,9 +1,8 @@
 import Gallery from "@/components/Gallery";
 import { title } from "@/components/primitives";
 import NewGallery from "@/components/NewGallery";
-import ReGallery from "@/components/ReGallery";
 import Image from "next/image";
-import GalleryTest from "@/components/GalleryTest";
+
 import PexelsGallery from "@/components/PexelsGallery";
 import ImgurGallery from "@/components/ImgurGallery";
 
@@ -14,10 +13,6 @@ type ImageProps = {
   height: number;
 };
 export default async function GalleryPage() {
-  // const image = await fetch(
-  //   "https://sparrowhawk-bucket.s3.eu-north-1.amazonaws.com/album1/_img-1.jpeg"
-  // );
-
   return (
     <div>
       <h1 className={title()}>Gallery</h1>
