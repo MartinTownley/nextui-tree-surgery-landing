@@ -3,7 +3,6 @@ import { title } from "@/components/primitives";
 import NewGallery from "@/components/NewGallery";
 import Image from "next/image";
 
-import PexelsGallery from "@/components/PexelsGallery";
 import ImgurGallery from "@/components/ImgurGallery";
 
 type ImageProps = {
@@ -21,10 +20,7 @@ export default async function GalleryPage() {
 
       {/* <NewGallery /> */}
       {/* <Gallery /> */}
-      {/* <ReGallery /> */}
-      {/* <GalleryTest /> */}
-      {/* <PexelsGallery /> */}
-      <ImgurGallery />
+      {/* <ImgurGallery /> */}
     </div>
   );
 }

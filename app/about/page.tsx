@@ -3,8 +3,7 @@ import Image from "next/image";
 import profilePic from "@/public/about-imgs/profileImg.jpg";
 
 export default function AboutPage() {
-  const imgUrl =
-    "https://sparrowhawk-bucket.s3.eu-north-1.amazonaws.com/album1/_img-23.jpeg";
+  const imgUrl = "https://i.imgur.com/9Ck7Aj2.jpg";
   return (
     // Container
     <div className="container flex flex-col-reverse lg:flex-row items-center gap-12 mt-8 lg:mt-14">
