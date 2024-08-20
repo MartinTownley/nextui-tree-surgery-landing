@@ -1,6 +1,5 @@
 import Gallery from "@/components/Gallery";
 import { title } from "@/components/primitives";
-import NewGallery from "@/components/NewGallery";
 import Image from "next/image";
 
 import ImgurGallery from "@/components/ImgurGallery";
