@@ -29,7 +29,6 @@ export default function AboutPage() {
       </div>
       <div className="flex justify-center flex-1 mb-10 md:mb-16 lg:mb-0">
         <Image
-          // src={profilePic}
           src={imgUrl}
           alt="Profile Picture"
           width={400}

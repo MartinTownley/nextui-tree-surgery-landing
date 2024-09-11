@@ -8,7 +8,6 @@ import { ServiceSection } from "@/components/ServiceSection";
 import Image from "next/image";
 import NewContactForm from "@/components/NewContactForm";
 import { Toaster } from "sonner";
-import fetchImages from "./actions/fetchImages";
 
 export default function Home() {
   return (
@@ -40,7 +39,6 @@ export default function Home() {
       <section>
         <ServiceSection />
       </section>
-      <section>{/* <ContactForm /> */}</section>
       <section>
         <NewContactForm />
       </section>

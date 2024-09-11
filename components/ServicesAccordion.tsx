@@ -1,4 +1,5 @@
 "use client";
+import { servicesPageData } from "@/public/data/services-page-data";
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
 
 export default function ServicesAccordion() {
@@ -7,11 +8,16 @@ export default function ServicesAccordion() {
 
   return (
     <div>
-      <h2>Services Accordion</h2>
-      <Accordion>
-        <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
-          {defaultContent}
-        </AccordionItem>
+      <Accordion variant="splitted">
+        {servicesPageData.map((service, index) => (
+          <AccordionItem
+            key={index}
+            aria-label={`Accordion ${index + 1}`}
+            title={service.title}
+          >
+            {service.description}
+          </AccordionItem>
+        ))}
       </Accordion>
     </div>
   );
