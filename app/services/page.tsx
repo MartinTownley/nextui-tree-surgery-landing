@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function ServicesPage() {
   return (
     <main>
-      <header className="mb-6 text-center lg:text-left">
+      <header className="mb-10 text-center lg:text-left">
         <h1 className={title()}>Services</h1>
       </header>
       <section className="block lg:hidden">
@@ -23,7 +23,7 @@ export default function ServicesPage() {
           >
             <div className="lg:w-2/3">
               <h1 className={title({ size: "sm" })}>{service.title}</h1>
-              <p className="mt-4">{service.description}</p>
+              <p className="mt-4 text-lg">{service.description}</p>
             </div>
             <div className="lg:w-1/3">
               <Image
