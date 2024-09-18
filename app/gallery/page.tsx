@@ -1,4 +1,3 @@
-import Gallery from "@/components/Gallery";
 import { title } from "@/components/primitives";
 import Image from "next/image";
 
@@ -14,11 +13,6 @@ export default async function GalleryPage() {
   return (
     <div>
       <h1 className={title()}>Gallery</h1>
-
-      {/* <Image src={image.url} alt="Gallery image" width={250} height={250} /> */}
-
-      {/* <NewGallery /> */}
-      {/* <Gallery /> */}
       {/* <ImgurGallery /> */}
     </div>
   );
