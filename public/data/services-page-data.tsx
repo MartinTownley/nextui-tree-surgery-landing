@@ -39,20 +39,3 @@ Hedge laying, once associated only with agricultural field boundaries, is increa
     image: "/service-imgs/service-img5.jpg",
   },
 ];
-
-export const longPruning = {
-  title: "Pruning",
-  description: `
-      Trees may require pruning to reduce weight on damaged or structurally unsound limbs, to remove hazardous deadwood, or to create light and space in a small urban garden.
-
-We might wish to keep a small ornamental tree shapely and attractive, or to establish the future shape of a young tree.
-
-With all pruning work, it is important to analyse each individual tree contextually, taking into consideration the nature of the species, its biology, its aesthetics, and its interaction with its surroundings.
-
-Methods of pruning may include:
-- Crown reductions
-- Pollarding
-- Formative pruning of young trees
-- Crown lifting
-    `,
-};

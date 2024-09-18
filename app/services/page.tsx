@@ -1,6 +1,7 @@
 import { title, subtitle } from "@/components/primitives";
 import ServicesAccordion from "@/components/ServicesAccordion";
-import { servicesPageData } from "@/public/data/services-page-data";
+//import { servicesPageData } from "@/public/data/services-page-data";
+import servicesData from "@/public/data/services-data";
 import Image from "next/image";
 
 export default function ServicesPage() {
@@ -14,7 +15,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="hidden lg:block">
-        {servicesPageData.map((service, index) => (
+        {servicesData.map((service, index) => (
           <div
             key={index}
             className={`mb-8 flex flex-col lg:flex-row lg:gap-8 ${
@@ -27,7 +28,7 @@ export default function ServicesPage() {
             </div>
             <div className="lg:w-1/3">
               <Image
-                src={service.image}
+                src={service.imageSrc}
                 alt={`${service.title} service`}
                 width={400}
                 height={500}

@@ -4,7 +4,7 @@ import { useRef, useEffect } from "react";
 import ServiceCard from "@/components/ServiceCard";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
-import serviceCardData from "@/public/data/service-card-data";
+import servicesData from "@/public/data/services-data";
 import {
   Keyboard,
   Navigation,
@@ -26,7 +26,7 @@ export const ServiceSection = () => {
       keyboard={true}
       mousewheel={true}
     >
-      {serviceCardData.map((cardData, index) => (
+      {servicesData.map((cardData, index) => (
         <SwiperSlide key={index}>
           <ServiceCard {...cardData} />
         </SwiperSlide>
