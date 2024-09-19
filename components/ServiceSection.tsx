@@ -22,7 +22,7 @@ export const ServiceSection = () => {
       ref={swiperElRef}
       slides-per-view={1}
       navigation={true}
-      pagination={{ clickable: true }}
+      pagination={{ clickable: true, type: "fraction" }}
       keyboard={true}
       mousewheel={true}
       breakpoints={{
@@ -30,10 +30,14 @@ export const ServiceSection = () => {
           slidesPerView: 2,
           spaceBetween: 20,
         },
-        768: {
+        1024: {
           slidesPerView: 3,
-          spaceBetween: 40,
+          spaceBetween: 50,
         },
+        // 768: {
+        //   slidesPerView: 3,
+        //   spaceBetween: 40,
+        // },
         // 1024: {
         //   slidesPerView: 5,
         //   spaceBetween: 50,

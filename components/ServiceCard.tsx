@@ -4,9 +4,9 @@ import {
   CardHeader,
   CardBody,
   CardFooter,
-  Image,
   Button,
 } from "@nextui-org/react";
+import Image from "next/image";
 
 interface ServiceCardProps {
   preTitle: string;
@@ -42,17 +42,23 @@ const ServiceCard: React.FC<ServiceCardProps> = (props) => {
         </p> */}
         <h4 className="text-white font-medium bg-black/50 text-4xl">{title}</h4>
         {/* <p className="text-white bg-green-800/80">{description}</p> */}
-        <Button radius="sm" size="sm" className="mt-4 mx-auto">
-          Learn More
-        </Button>
       </CardHeader>
 
       <Image
-        removeWrapper
+        // removeWrapper
+        width={500}
+        height={500}
         alt="Relaxing app background"
         className="z-0 w-full h-full object-cover brightness-50"
         src={imageSrc}
       />
+
+      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 z-10">
+        <Button radius="sm" size="md" color="secondary" variant="shadow">
+          {buttonText}
+        </Button>
+      </div>
+
       {/* <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100"> */}
       {/* <div className="flex flex-grow gap-2 items-center">
           <Image

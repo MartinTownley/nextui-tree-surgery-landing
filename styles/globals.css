@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --swiper-navigation-color: #ed0ef0;
+  --swiper-navigation-color: #ffffff;
 }
 
 .swiper-button-next:after,

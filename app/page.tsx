@@ -17,7 +17,7 @@ export default function Home() {
         <div className="inline-block max-w-lg text-left">
           <h1 className={title()}>Your Friendly Neighbourhood Tree Surgery</h1>
           <br />
-          <h2 className={subtitle({ class: "mt-4" })}>
+          <h2 className={subtitle({ class: "mt-2" })}>
             At Sparrowhawk trees, we believe in more than tree surgery –
             we&apos;re your partners in garden management, cultivating spaces
             where nature and beauty coexist.
