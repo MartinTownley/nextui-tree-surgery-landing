@@ -37,7 +37,7 @@ Our approach considers the species, its biology, aesthetics, and its surrounding
         Sometimes a tree may need to be removed. It may be diseased, structurally unsound, or pose a risk to people or property. We rely on experience and teamwork to safely and efficiently dismantle trees in all manner of challenging urban environments.
       `,
     buttonText: "Learn More",
-    buttonLink: "/services?id=tree-removal-section",
+    buttonLink: "/services#tree-removal-section",
     imageSrc: "/service-imgs/service-img2.jpg",
     iconSrc: "/custom-icon.png",
     additionalInfo1: "Additional Info 1",
