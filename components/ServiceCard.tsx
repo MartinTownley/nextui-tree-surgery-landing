@@ -7,12 +7,14 @@ import {
   Button,
 } from "@nextui-org/react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface ServiceCardProps {
   preTitle: string;
   title: string;
   description: string;
   buttonText: string;
+  buttonLink: string;
   imageSrc: string;
   iconSrc: string;
   additionalInfo1: string;
@@ -25,6 +27,7 @@ const ServiceCard: React.FC<ServiceCardProps> = (props) => {
     title,
     description,
     buttonText,
+    buttonLink,
     imageSrc,
     iconSrc,
     additionalInfo1,
@@ -53,10 +56,12 @@ const ServiceCard: React.FC<ServiceCardProps> = (props) => {
         src={imageSrc}
       />
 
-      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 z-10">
-        <Button radius="sm" size="md" color="secondary" variant="shadow">
-          {buttonText}
-        </Button>
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10">
+        <Link href={buttonLink} passHref>
+          <Button radius="sm" size="md" color="secondary">
+            {buttonText}
+          </Button>
+        </Link>
       </div>
 
       {/* <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100"> */}

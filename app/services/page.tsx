@@ -1,6 +1,5 @@
 import { title, subtitle } from "@/components/primitives";
 import ServicesAccordion from "@/components/ServicesAccordion";
-//import { servicesPageData } from "@/public/data/services-page-data";
 import servicesData from "@/public/data/services-data";
 import Image from "next/image";
 
@@ -18,7 +17,8 @@ export default function ServicesPage() {
         {servicesData.map((service, index) => (
           <div
             key={index}
-            className={`mb-8 flex flex-col lg:flex-row lg:gap-8 ${
+            id={service.id}
+            className={`mb-8 flex flex-col lg:flex-row lg:gap-8 scroll-mt-20 ${
               index % 2 === 0 ? "lg:flex-row-reverse" : ""
             }`}
           >

@@ -22,7 +22,7 @@ export const ServiceSection = () => {
       ref={swiperElRef}
       slides-per-view={1}
       navigation={true}
-      pagination={{ clickable: true, type: "fraction" }}
+      // pagination={{ clickable: true }}
       keyboard={true}
       mousewheel={true}
       breakpoints={{
