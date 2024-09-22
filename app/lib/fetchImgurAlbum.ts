@@ -1,9 +1,10 @@
-import { ImgurAlbumSchema, ImgurImage, ImgurAlbum } from "@/models/Imgur";
+import { ImgurAlbumSchema, ImgurImage, ImgurAlbum } from "@/models/Imgur-image";
 import validEnv from "./env";
 
-export async function fetchImgurImages(
+export default async function fetchImgurAlbum(
   url: string
 ): Promise<ImgurAlbum | undefined> {
+  // For public read-only and anonymous resources, such as getting image info, looking up user comments, etc. all you need to do is send an authorization header with your client_id in your requests
   try {
     const res = await fetch(url, {
       headers: {

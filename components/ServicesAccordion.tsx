@@ -1,6 +1,4 @@
 "use client";
-import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
 import servicesData from "@/public/data/services-data";
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
 
