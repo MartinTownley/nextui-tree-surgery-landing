@@ -6,7 +6,8 @@ interface PhotoDetailProps {
     id: string;
   };
 }
-const PhotoDetail = async ({}) => {
+
+const PhotoDetail = async ({ id }) => {
   return <div>PhotoDetail</div>;
 };
 
