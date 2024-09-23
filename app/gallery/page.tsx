@@ -1,8 +1,4 @@
 import { title } from "@/components/primitives";
-import Image from "next/image";
-
-import ImgurGallery from "@/components/ImgurGallery";
-import ImageGallery from "@/components/ImageGallery";
 import Gallery from "@/components/Gallery";
 
 type ImageProps = {
