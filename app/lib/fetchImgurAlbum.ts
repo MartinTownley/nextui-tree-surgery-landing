@@ -1,4 +1,4 @@
-import { ImgurAlbumSchema, ImgurImage, ImgurAlbum } from "@/models/Imgur-image";
+import { ImgurAlbumSchema, ImgurAlbum } from "@/models/imgur-schemas";
 import validEnv from "./env";
 
 export default async function fetchImgurAlbum(

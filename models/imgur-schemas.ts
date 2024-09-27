@@ -1,6 +1,6 @@
 import { z as zod } from "zod";
 
-const ImgurImageSchema = zod.object({
+export const ImgurImageSchema = zod.object({
   id: zod.string(),
   width: zod.number(),
   height: zod.number(),
