@@ -10,20 +10,21 @@ import {
 } from "@nextui-org/navbar";
 import { useState } from "react";
 import { Button } from "@nextui-org/button";
-import { Kbd } from "@nextui-org/kbd";
 import { Link } from "@nextui-org/link";
 import { link as linkStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
 import NextLink from "next/link";
 import clsx from "clsx";
-import { ThemeSwitch } from "@/components/theme-switch";
+// import { ThemeSwitch } from "@/components/theme-switch";
 import CustomLogo from "@/components/CustomLogo";
 import { PhoneIcon } from "@/components/icons";
 import { bungee_shade } from "@/config/fonts";
-import MobileMenu from "@/components/MobileMenu";
+import { usePathname } from "next/navigation";
+//import MobileMenu from "@/components/MobileMenu";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
   return (
     <NextUINavbar
       maxWidth="xl"
@@ -31,6 +32,19 @@ export const Navbar = () => {
       isBordered
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
+      classNames={{
+        item: [
+          "relative",
+          "data-[active=true]:after:content-['']",
+          "data-[active=true]:after:absolute",
+          "data-[active=true]:after:bottom-0",
+          "data-[active=true]:after:left-0",
+          "data-[active=true]:after:right-0",
+          "data-[active=true]:after:h-[2px]",
+          "data-[active=true]:after:rounded-[2px]",
+          "data-[active=true]:after:bg-secondary",
+        ],
+      }}
     >
       {/* <NavbarContent className="lg:basis-3/4 sm:basis-4/5" justify="start"> */}
       <NavbarContent>
@@ -54,21 +68,22 @@ export const Navbar = () => {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden md:flex" justify="center">
+      <NavbarContent className="hidden md:flex" justify="start">
         <ul className="hidden md:flex lg:flex gap-4 justify-center ml-2">
-          {siteConfig.navAndMenuItems.map((item) => (
-            <NavbarItem key={item.href}>
-              <NextLink
-                className={clsx(
-                  linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-large"
-                )}
-                href={item.href}
+          {siteConfig.navAndMenuItems.map((link) => {
+            const isActive =
+              link.href === "/"
+                ? pathname === link.href
+                : pathname.startsWith(link.href);
+            return (
+              <NavbarItem
+                key={link.href}
+                data-active={isActive ? "true" : "false"}
               >
-                {item.label}
-              </NextLink>
-            </NavbarItem>
-          ))}
+                <NextLink href={link.href}>{link.label}</NextLink>
+              </NavbarItem>
+            );
+          })}
         </ul>
       </NavbarContent>
 
@@ -99,7 +114,7 @@ export const Navbar = () => {
         <div className="mx-4 mt-2 flex flex-col gap-2">
           {siteConfig.navAndMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
-              <Link
+              <NextLink
                 color="foreground"
                 href={item.href}
                 // size="lg"
@@ -108,7 +123,7 @@ export const Navbar = () => {
                 }}
               >
                 {item.label}
-              </Link>
+              </NextLink>
             </NavbarMenuItem>
           ))}
         </div>

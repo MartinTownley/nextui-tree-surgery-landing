@@ -11,7 +11,7 @@ export default async function GalleryPage() {
   return (
     <div>
       <h1 className={title()}>Gallery</h1>
-      {/* <ImageGallery /> */}
+
       <Gallery />
     </div>
   );
