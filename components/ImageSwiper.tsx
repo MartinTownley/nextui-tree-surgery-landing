@@ -1,7 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
-import type { ImgurImage } from "@/models/Imgur-image";
+import type { ImgurImage } from "@/models/imgur-schemas";
 import Image from "next/image";
 import { Button } from "@nextui-org/react";
 
