@@ -10,7 +10,7 @@ import {
 } from "@/config/fonts";
 // import { Roboto, Inter } from "next/font/google";
 import { Providers } from "./providers";
-import { Navbar } from "@/components/navbar";
+import { Navbar } from "@/components/Navbar/navbar";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 
