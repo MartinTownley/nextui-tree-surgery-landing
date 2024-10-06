@@ -1,4 +1,4 @@
-import type { ImgurImage } from "@/models/Imgur-image";
+import type { ImgurImage } from "@/models/imgur-schemas";
 import Image from "next/image";
 import { ImageSlide } from "yet-another-react-lightbox/*";
 

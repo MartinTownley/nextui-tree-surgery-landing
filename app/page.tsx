@@ -39,7 +39,7 @@ export default function Home() {
       <section>
         <ServiceSection />
       </section>
-      <section className="mt-10">
+      <section id="contact" className="mt-10">
         <NewContactForm />
       </section>
     </section>

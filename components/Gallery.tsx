@@ -14,7 +14,7 @@ export default async function Gallery() {
 
   if (!album || album.data.length === 0)
     return (
-      <h2 className="m-4 text-2xl font-bold">No Images Found / Album Emmpty</h2>
+      <h2 className="m-4 text-2xl font-bold">No Images Found / Album Empty</h2>
     );
 
   return (

@@ -6,13 +6,19 @@ export default async function fetchImgurAlbum(
 ): Promise<ImgurAlbum | undefined> {
   // For public read-only and anonymous resources, such as getting image info, looking up user comments, etc. all you need to do is send an authorization header with your client_id in your requests
   try {
+    console.log(
+      `Fetching album with url: ${url} with Client-ID: ${validEnv.IMGUR_CLIENT_ID}`
+    );
     const res = await fetch(url, {
       headers: {
         Authorization: validEnv.IMGUR_CLIENT_ID,
       },
     });
 
-    if (!res.ok) throw new Error("Fetch Album error!\n");
+    if (!res.ok) {
+      console.error(`Fetch error: ${res.statusText}`);
+      throw new Error("Fetch Album error!\n");
+    }
 
     const albumResult: ImgurAlbum = await res.json();
 
