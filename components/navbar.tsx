@@ -84,7 +84,7 @@ export const Navbar = () => {
               <NavbarItem
                 key={link.href}
                 data-active={isActive ? "true" : "false"}
-                className="h-full flex items-end py-2"
+                className="flex h-full items-end py-2"
               >
                 <Link isBlock color="foreground" size="lg" href={link.href}>
                   {link.label}
@@ -95,8 +95,17 @@ export const Navbar = () => {
         </ul>
       </NavbarContent>
 
-      {/* -- Navbar Menu Items (md screen) */}
-      <NavbarContent className="w-1/4" justify="end">
+      {/* --Phone Number */}
+      <NavbarContent justify="end">
+        <NavbarItem className="flex h-full items-end justify-center ">
+          <span className="hidden md:inline items-center mb-2 py-2">
+            123-456-7890
+          </span>
+        </NavbarItem>
+      </NavbarContent>
+
+      {/* -- Navbar Menu Items - phone and toggle */}
+      <NavbarContent className="w-1/4 md:hidden" justify="end">
         {/* <ThemeSwitch /> */}
         <NavbarItem className="flex items-center justify-end">
           <Button
@@ -104,15 +113,14 @@ export const Navbar = () => {
             color="success"
             isExternal
             as={Link}
-            className={`text-sm font-normal text-default-600 md:hidden flex flex-col ${bungee_shade.className}`}
+            className={`text-sm font-normal text-default-600 flex flex-col ${bungee_shade.className}`}
             href="tel:+1234567890"
             startContent={<PhoneIcon className="text-danger" />}
             variant="flat"
           ></Button>
         </NavbarItem>
-        {/* <NavbarItem className="flex">
-          <span className="hidden md:inline items-center">123-456-7890</span>
-        </NavbarItem> */}
+
+        {/* --Toggle */}
         <NavbarItem className="flex items-center justify-end">
           <NavbarMenuToggle
             className="md:hidden"
