@@ -32,16 +32,20 @@ export const Navbar = () => {
       isBordered
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
+      className="flex justify-between items-center"
       classNames={{
         item: [
+          "flex",
           "relative",
+          "items-end",
+
           "data-[active=true]:after:content-['']",
           "data-[active=true]:after:absolute",
           "data-[active=true]:after:bottom-0",
           "data-[active=true]:after:left-0",
           "data-[active=true]:after:right-0",
-          "data-[active=true]:after:h-[2px]",
-          "data-[active=true]:after:rounded-[2px]",
+          "data-[active=true]:after:h-[4px]",
+          // "data-[active=true]:after:rounded-[2px]",
           "data-[active=true]:after:bg-secondary",
         ],
       }}
@@ -49,7 +53,7 @@ export const Navbar = () => {
       {/* <NavbarContent className="lg:basis-3/4 sm:basis-4/5" justify="start"> */}
       <NavbarContent>
         <NavbarBrand as="li" className="gap-3 max-wn-fit">
-          <NextLink className="flex justify-start items-center gap-1" href="/">
+          <Link className="flex justify-start items-center gap-1" href="/">
             <CustomLogo
               src={"/custom-logo-narrow.svg"}
               alt={"Custom Logo Narrow"}
@@ -64,12 +68,13 @@ export const Navbar = () => {
               height={80}
               className="hidden md:block"
             />
-          </NextLink>
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
+      {/* -- Navbar Menu Items (lg screen) */}
       <NavbarContent className="hidden md:flex" justify="start">
-        <ul className="hidden md:flex lg:flex gap-4 justify-center ml-2">
+        <ul className="hidden md:flex lg:flex gap-4 justify-center h-full items-end">
           {siteConfig.navAndMenuItems.map((link) => {
             const isActive =
               link.href === "/"
@@ -79,17 +84,21 @@ export const Navbar = () => {
               <NavbarItem
                 key={link.href}
                 data-active={isActive ? "true" : "false"}
+                className="h-full flex items-end py-2"
               >
-                <NextLink href={link.href}>{link.label}</NextLink>
+                <Link isBlock color="foreground" size="lg" href={link.href}>
+                  {link.label}
+                </Link>
               </NavbarItem>
             );
           })}
         </ul>
       </NavbarContent>
 
+      {/* -- Navbar Menu Items (md screen) */}
       <NavbarContent className="w-1/4" justify="end">
         {/* <ThemeSwitch /> */}
-        <NavbarItem>
+        <NavbarItem className="flex items-center justify-end">
           <Button
             radius="sm"
             color="success"
@@ -101,31 +110,48 @@ export const Navbar = () => {
             variant="flat"
           ></Button>
         </NavbarItem>
-        <NavbarItem>
+        {/* <NavbarItem className="flex">
           <span className="hidden md:inline items-center">123-456-7890</span>
+        </NavbarItem> */}
+        <NavbarItem className="flex items-center justify-end">
+          <NavbarMenuToggle
+            className="md:hidden"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          />
         </NavbarItem>
-        <NavbarMenuToggle
-          className="md:hidden"
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-        />
       </NavbarContent>
 
+      {/* Mobile View Dropdown Menu */}
       <NavbarMenu className="lg:basis">
         <div className="mx-4 mt-2 flex flex-col gap-2">
-          {siteConfig.navAndMenuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
-              <NextLink
-                color="foreground"
-                href={item.href}
-                // size="lg"
-                onClick={() => {
-                  setIsMenuOpen(false);
-                }}
+          {siteConfig.navAndMenuItems.map((link, index) => {
+            const isActive =
+              link.href === "/"
+                ? pathname === link.href
+                : pathname.startsWith(link.href);
+
+            return (
+              <NavbarMenuItem
+                key={`${link}-${index}`}
+                data-active={isActive ? "true" : "false"}
+                className={clsx(
+                  isActive ? "bg-secondary text-white" : "",
+                  "px-2 py-1 rounded-md"
+                )}
               >
-                {item.label}
-              </NextLink>
-            </NavbarMenuItem>
-          ))}
+                <Link
+                  isBlock
+                  color="foreground"
+                  href={link.href}
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                  }}
+                >
+                  {link.label}
+                </Link>
+              </NavbarMenuItem>
+            );
+          })}
         </div>
       </NavbarMenu>
     </NextUINavbar>
