@@ -10,7 +10,11 @@ export async function generateStaticParams() {
 
   const album: ImgurAlbum | undefined = await fetchImgurAlbum(url);
 
-  return album?.data.map((image) => ({
+  if (!album) {
+    return [];
+  }
+
+  return album.data.map((image) => ({
     id: image.id,
   }));
 }
