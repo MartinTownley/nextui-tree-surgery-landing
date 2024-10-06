@@ -4,11 +4,16 @@ import { bungee } from "@/config/fonts";
 const NavbarPhoneNo = () => {
   return (
     <NavbarContent className="hidden md:inline" justify="end">
-      <NavbarItem className="flex h-full items-end justify-center">
+      <NavbarItem className="flex h-full items-center justify-center">
         <span
-          className={`items-center mb-2 py-2 large-font ${bungee.className}`}
+          className={`flex flex-col items-center large-font ${bungee.className}`}
         >
-          07956 864566
+          <span className="block lg:hidden">
+            07956-
+            <br />
+            864566
+          </span>
+          <span className="hidden lg:block mb-2 py-2">07956 864566</span>
         </span>
       </NavbarItem>
     </NavbarContent>

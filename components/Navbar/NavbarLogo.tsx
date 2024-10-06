@@ -12,14 +12,14 @@ const NavbarLogo = () => {
             alt={"Custom Logo Narrow"}
             width={150}
             height={64}
-            className="md:hidden"
+            className="lg-custom:hidden"
           />
           <CustomLogo
             src={"/custom-logo-wide.svg"}
             alt={"Custom Logo Wide"}
             width={200}
             height={80}
-            className="hidden md:block"
+            className="hidden lg-custom:block"
           />
         </Link>
       </NavbarBrand>
