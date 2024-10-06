@@ -27,12 +27,12 @@ export const Navbar = () => {
   const pathname = usePathname();
   return (
     <NextUINavbar
-      maxWidth="xl"
+      // maxWidth="xl"
       position="sticky"
       isBordered
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
-      className="flex justify-between items-center"
+      className="flex items-center justify-between"
       classNames={{
         item: [
           "flex",
@@ -96,11 +96,9 @@ export const Navbar = () => {
       </NavbarContent>
 
       {/* --Phone Number */}
-      <NavbarContent justify="end">
+      <NavbarContent className="hidden md:inline" justify="end">
         <NavbarItem className="flex h-full items-end justify-center ">
-          <span className="hidden md:inline items-center mb-2 py-2">
-            123-456-7890
-          </span>
+          <span className="items-center mb-2 py-2">123-456-7890</span>
         </NavbarItem>
       </NavbarContent>
 
