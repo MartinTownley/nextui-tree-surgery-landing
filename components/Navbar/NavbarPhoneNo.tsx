@@ -13,7 +13,7 @@ const NavbarPhoneNo = () => {
             <br />
             864566
           </span>
-          <span className="hidden lg:block mb-2 py-2">07956 864566</span>
+          <span className="hidden lg:block">07956 864566</span>
         </span>
       </NavbarItem>
     </NavbarContent>

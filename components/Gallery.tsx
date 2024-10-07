@@ -2,9 +2,9 @@ import React from "react";
 import Image from "next/image";
 import fetchImgurAlbum from "@/app/lib/fetchImgurAlbum";
 import type { ImgurAlbum } from "@/models/imgur-schemas";
-import ImgContainer from "@/components/ImgContainer";
-import ImageContainer from "./ImageContainer";
+import ImageContainer from "./ImageContainer/ImageContainer";
 import Link from "next/link";
+import GalleryImageContainer from "./ImageContainer/GalleryImageContainer";
 
 export default async function Gallery() {
   const albumHash = "N24f6Zb";
@@ -18,13 +18,9 @@ export default async function Gallery() {
     );
 
   return (
-    <section className="px-2 my-3 grid gap-2 grid-cols-gallery">
+    <section className="px-1 my-3 grid grid-cols-gallery auto-rows-[10px]">
       {album.data.map((image) => (
-        <div key={image.id}>
-          <Link href={`/gallery/${image.id}`}>
-            <ImageContainer image={image} />
-          </Link>
-        </div>
+        <GalleryImageContainer key={image.id} image={image} />
       ))}
     </section>
   );

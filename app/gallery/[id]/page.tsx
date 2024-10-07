@@ -1,8 +1,9 @@
 import fetchImgurImage from "@/app/lib/fetchImgurImage";
 import fetchImgurAlbum from "@/app/lib/fetchImgurAlbum";
 import { ImgurAlbum, ImgurImage } from "@/models/imgur-schemas";
-import ImageContainer from "@/components/ImageContainer";
+import ImageContainer from "@/components/ImageContainer/ImageContainer";
 import React from "react";
+import DetailImageContainer from "@/components/ImageContainer/DetailImageContainer";
 
 export async function generateStaticParams() {
   const albumHash = "N24f6Zb";
@@ -37,7 +38,7 @@ export default async function PhotoDetail({
   return (
     <div className="m-4">
       <h1 className="text-3xl font-bold mb-4">Image Detail</h1>
-      <ImageContainer image={image} />
+      <DetailImageContainer image={image} />
     </div>
   );
 }
