@@ -35,7 +35,7 @@ export default async function fetchImgurAlbum(
     return parsedAlbumResult;
   } catch (e) {
     if (e instanceof Error) {
-      console.error("Fetch Imgur Images Error:", e.stack);
+      console.error("Fetch Imgur Album Error:", e.stack);
     }
   }
 }
