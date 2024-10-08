@@ -15,18 +15,17 @@ export const Navbar = () => {
   const pathname = usePathname();
   return (
     <NextUINavbar
-      // maxWidth="xl"
+      maxWidth="xl"
       position="sticky"
       isBordered
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
-      className="flex items-center justify-between"
+      className="flex border border-dashed border-white-500"
       classNames={{
         item: [
           "flex",
           "relative",
           "items-end",
-
           "data-[active=true]:after:content-['']",
           "data-[active=true]:after:absolute",
           "data-[active=true]:after:bottom-0",
