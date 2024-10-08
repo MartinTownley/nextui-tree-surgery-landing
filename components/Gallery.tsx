@@ -19,6 +19,7 @@ export default async function Gallery() {
 
   return (
     <section className="px-1 my-3 grid grid-cols-gallery auto-rows-[10px]">
+      {/* <section className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-3"> */}
       {album.data.map((image) => (
         <GalleryImageContainer key={image.id} image={image} />
       ))}
