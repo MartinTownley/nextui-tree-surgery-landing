@@ -7,27 +7,25 @@ import { usePathname } from "next/navigation";
 const NavbarLinks = () => {
   const pathname = usePathname();
   return (
-    <NavbarContent className="hidden md:flex" justify="start">
-      <ul className="hidden md:flex lg:flex gap-4 justify-center h-full items-end">
-        {siteConfig.navAndMenuItems.map((link) => {
-          const isActive =
-            link.href === "/"
-              ? pathname === link.href
-              : pathname.startsWith(link.href);
-          return (
-            <NavbarItem
-              key={link.href}
-              data-active={isActive ? "true" : "false"}
-              className="flex h-full items-end py-2"
-            >
-              <Link isBlock color="foreground" size="lg" href={link.href}>
-                {link.label}
-              </Link>
-            </NavbarItem>
-          );
-        })}
-      </ul>
-    </NavbarContent>
+    <ul className="hidden md:flex lg:flex gap-4 justify-center h-full items-end">
+      {siteConfig.navAndMenuItems.map((link) => {
+        const isActive =
+          link.href === "/"
+            ? pathname === link.href
+            : pathname.startsWith(link.href);
+        return (
+          <NavbarItem
+            key={link.href}
+            data-active={isActive ? "true" : "false"}
+            className="flex h-full items-end py-2"
+          >
+            <Link isBlock color="foreground" size="lg" href={link.href}>
+              {link.label}
+            </Link>
+          </NavbarItem>
+        );
+      })}
+    </ul>
   );
 };
 

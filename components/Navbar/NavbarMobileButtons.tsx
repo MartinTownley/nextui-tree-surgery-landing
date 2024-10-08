@@ -32,7 +32,7 @@ const NavbarMobileButtons = ({ isMenuOpen }: NavbarMobileButtonsProps) => {
       {/* --Toggle */}
       <NavbarItem className="flex items-center justify-end">
         <NavbarMenuToggle
-          className="md:hidden"
+          className=""
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         />
       </NavbarItem>

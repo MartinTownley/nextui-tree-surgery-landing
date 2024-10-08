@@ -1,5 +1,5 @@
 "use client";
-import { Navbar as NextUINavbar } from "@nextui-org/navbar";
+import { NavbarContent, Navbar as NextUINavbar } from "@nextui-org/navbar";
 import { useState } from "react";
 // import { ThemeSwitch } from "@/components/theme-switch";
 import { usePathname } from "next/navigation";
@@ -38,11 +38,23 @@ export const Navbar = () => {
         ],
       }}
     >
-      <NavbarLogo />
+      <NavbarContent className=" border border-dashed border-green-500">
+        <NavbarLogo />
+      </NavbarContent>
 
-      <NavbarLinks />
+      <NavbarContent
+        className="hidden md:flex border border-dashed border-blue-500"
+        justify="start"
+      >
+        <NavbarLinks />
+      </NavbarContent>
 
-      <NavbarPhoneNo />
+      <NavbarContent
+        className="hidden md:inline border border-dashed border-red-500"
+        justify="end"
+      >
+        <NavbarPhoneNo />
+      </NavbarContent>
 
       <NavbarMobileButtons isMenuOpen={isMenuOpen} />
 
