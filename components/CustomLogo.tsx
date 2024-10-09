@@ -26,7 +26,7 @@ const CustomLogo: React.FC<CustomLogoProps> = ({
         alt={alt}
         width={width}
         height={height}
-        className={`${className} ${theme === "light" ? "" : "inverted-svg"}`}
+        className={`${className} ${theme === "light" ? "" : "inverted-svg"} `}
       />
     </div>
   );

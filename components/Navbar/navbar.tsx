@@ -20,7 +20,7 @@ export const Navbar = () => {
       isBordered
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
-      className="flex border border-dashed border-white-500"
+      className="flex border"
       classNames={{
         item: [
           "flex",
@@ -37,21 +37,15 @@ export const Navbar = () => {
         ],
       }}
     >
-      <NavbarContent className=" border border-dashed border-green-500">
+      <NavbarContent className="">
         <NavbarLogo />
       </NavbarContent>
 
-      <NavbarContent
-        className="hidden md:flex border border-dashed border-blue-500"
-        justify="start"
-      >
+      <NavbarContent className="hidden md:flex " justify="start">
         <NavbarLinks />
       </NavbarContent>
 
-      <NavbarContent
-        className="hidden md:inline border border-dashed border-red-500"
-        justify="end"
-      >
+      <NavbarContent className="hidden md:inline " justify="end">
         <NavbarPhoneNo />
       </NavbarContent>
 
