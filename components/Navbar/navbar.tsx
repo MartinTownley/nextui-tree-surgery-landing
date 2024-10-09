@@ -48,6 +48,8 @@ export const Navbar = () => {
           className="hidden md:inline-flex border border-green-500 "
           justify="end"
           > */}
+          <div className="border-l border-gray-700  h-8 self-center "></div>
+          {/* Divider */}
           <NavbarPhoneNo />
         </NavbarContent>
         {/* </NavbarContent> */}
