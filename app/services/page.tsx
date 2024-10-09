@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function ServicesPage() {
   return (
-    <main className="border border-dashed border-green-500">
+    <main className="">
       <header className="mb-10 text-center lg:text-left">
         <h1 className={title()}>Services</h1>
       </header>

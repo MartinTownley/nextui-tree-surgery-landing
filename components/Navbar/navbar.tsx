@@ -41,13 +41,17 @@ export const Navbar = () => {
         <NavbarLogo />
       </NavbarContent>
 
-      <NavbarContent className="hidden md:flex " justify="start">
-        <NavbarLinks />
-      </NavbarContent>
-
-      <NavbarContent className="hidden md:inline " justify="end">
-        <NavbarPhoneNo />
-      </NavbarContent>
+      <div className="flex justify-end">
+        <NavbarContent className="hidden md:flex " justify="end">
+          <NavbarLinks />
+          {/* <NavbarContent
+          className="hidden md:inline-flex border border-green-500 "
+          justify="end"
+          > */}
+          <NavbarPhoneNo />
+        </NavbarContent>
+        {/* </NavbarContent> */}
+      </div>
 
       <NavbarMobileButtons isMenuOpen={isMenuOpen} />
 
