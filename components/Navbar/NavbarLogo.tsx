@@ -1,4 +1,3 @@
-import { NavbarContent, NavbarBrand } from "@nextui-org/navbar";
 import { Link } from "@nextui-org/link";
 import CustomLogo from "@/components/CustomLogo";
 

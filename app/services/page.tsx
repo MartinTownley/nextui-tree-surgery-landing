@@ -1,5 +1,5 @@
 import { title, subtitle } from "@/components/primitives";
-import ServicesAccordion from "@/components/ServicesAccordion";
+import ServicesAccordion from "@/components/Services/ServicesAccordion";
 import servicesData from "@/public/data/services-data";
 import Image from "next/image";
 

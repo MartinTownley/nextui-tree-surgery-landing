@@ -1,7 +1,7 @@
 "use client";
 import { useRef, useEffect } from "react";
 //import { register } from "swiper/element/bundle";
-import ServiceCard from "@/components/ServiceCard";
+import ServiceCard from "@/components/Services/ServiceCard";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import servicesData from "@/public/data/services-data";

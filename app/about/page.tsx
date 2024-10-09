@@ -1,7 +1,5 @@
 import { title } from "@/components/primitives";
 import Image from "next/image";
-import profilePic from "@/public/about-imgs/profileImg.jpg";
-import BreadcrumbComponent from "@/components/BreadcrumbComponent";
 
 export default function AboutPage() {
   const imgUrl = "https://i.imgur.com/9Ck7Aj2.jpg";
