@@ -1,54 +1,31 @@
-"use client";
-import { useRef, useEffect } from "react";
-//import { register } from "swiper/element/bundle";
-import ServiceCard from "@/components/Services/ServiceCard";
-import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
-import "swiper/swiper-bundle.css";
+// components/Services/ServiceSection.tsx
+import ServiceSwiper from "@/components/Services/ServiceSwiper";
 import servicesData from "@/public/data/services-data";
-import {
-  Keyboard,
-  Navigation,
-  Pagination,
-  Scrollbar,
-  A11y,
-} from "swiper/modules";
+import { ServicesData } from "@/public/data/services-data";
+import fetchImgurAlbum from "@/app/lib/fetchImgurAlbum";
+import type { ImgurAlbum } from "@/models/imgur-schemas";
 
-export const ServiceSection = () => {
-  const swiperElRef = useRef<SwiperRef>(null);
+export interface Service extends ServicesData {
+  imageUrl: string;
+}
 
-  return (
-    <Swiper
-      modules={[Keyboard, Navigation, Pagination, Scrollbar, A11y]}
-      ref={swiperElRef}
-      slides-per-view={1}
-      navigation={true}
-      // pagination={{ clickable: true }}
-      keyboard={true}
-      mousewheel={true}
-      breakpoints={{
-        640: {
-          slidesPerView: 2,
-          spaceBetween: 20,
-        },
-        1024: {
-          slidesPerView: 3,
-          spaceBetween: 50,
-        },
-        // 768: {
-        //   slidesPerView: 3,
-        //   spaceBetween: 40,
-        // },
-        // 1024: {
-        //   slidesPerView: 5,
-        //   spaceBetween: 50,
-        // },
-      }}
-    >
-      {servicesData.map((cardData, index) => (
-        <SwiperSlide key={index}>
-          <ServiceCard {...cardData} />
-        </SwiperSlide>
-      ))}
-    </Swiper>
-  );
+async function fetchServicesWithImages(): Promise<Service[]> {
+  const albumHash = "7QWtBkH";
+  const url = `https://api.imgur.com/3/album/${albumHash}/images`;
+  const serviceImages: ImgurAlbum | undefined = await fetchImgurAlbum(url);
+  if (!serviceImages || serviceImages.data.length === 0) return [];
+
+  return servicesData.map((service, index) => ({
+    ...service,
+    imageUrl: serviceImages.data[index]?.link || "",
+  }));
+}
+
+const ServiceSection = async () => {
+  const servicesWithImages = await fetchServicesWithImages();
+  console.log("services with images:", servicesWithImages);
+
+  return <ServiceSwiper services={servicesWithImages} />;
 };
+
+export default ServiceSection;

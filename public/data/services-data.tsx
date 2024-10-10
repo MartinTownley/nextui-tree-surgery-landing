@@ -1,11 +1,10 @@
-interface ServicesData {
-  id: string;
+export interface ServicesData {
+  id: number;
   preTitle: string;
   title: string;
   description: string;
   buttonText: string;
   buttonLink: string;
-  imageSrc: string;
   iconSrc: string;
   additionalInfo1: string;
   additionalInfo2: string;
@@ -13,7 +12,7 @@ interface ServicesData {
 
 const servicesData: ServicesData[] = [
   {
-    id: "pruning-section",
+    id: 1,
     preTitle: "Pre-Title 1",
     title: "Pruning",
     description: `
@@ -23,14 +22,13 @@ Our approach considers the species, its biology, aesthetics, and its surrounding
       `,
     buttonText: "Learn More",
     buttonLink: "/services#pruning-section",
-    imageSrc: "/service-imgs/service-img1.jpg",
     iconSrc: "/custom-icon.png",
     additionalInfo1: "Additional Info 1",
     additionalInfo2: "Additional Info 2",
   },
 
   {
-    id: "tree-removal-section",
+    id: 2,
     preTitle: "Pre-Title 2",
     title: "Tree Removal",
     description: `
@@ -38,13 +36,12 @@ Our approach considers the species, its biology, aesthetics, and its surrounding
       `,
     buttonText: "Learn More",
     buttonLink: "/services#tree-removal-section",
-    imageSrc: "/service-imgs/service-img2.jpg",
     iconSrc: "/custom-icon.png",
     additionalInfo1: "Additional Info 1",
     additionalInfo2: "Additional Info 2",
   },
   {
-    id: "stump-grinding-section",
+    id: 3,
     preTitle: "Pre-Title 3",
     title: "Stump Grinding",
     description: `
@@ -52,13 +49,12 @@ Our approach considers the species, its biology, aesthetics, and its surrounding
       `,
     buttonText: "Learn More",
     buttonLink: "/services#stump-grinding-section",
-    imageSrc: "/service-imgs/service-img3.jpg",
     iconSrc: "/custom-icon.png",
     additionalInfo1: "Additional Info 1",
     additionalInfo2: "Additional Info 2",
   },
   {
-    id: "hedge-management-section",
+    id: 4,
     preTitle: "Pre-Title 4",
     title: "Hedge Management",
     description: `
@@ -68,13 +64,12 @@ Hedge laying, once associated only with agricultural field boundaries, is increa
       `,
     buttonText: "Learn More",
     buttonLink: "/services#hedge-management-section",
-    imageSrc: "/service-imgs/service-img4.jpg",
     iconSrc: "/custom-icon.png",
     additionalInfo1: "Additional Info 1",
     additionalInfo2: "Additional Info 2",
   },
   {
-    id: "waste-disposal-section",
+    id: 5,
     preTitle: "Pre-Title 5",
     title: "Waste Disposal",
     description: `
@@ -82,7 +77,6 @@ Hedge laying, once associated only with agricultural field boundaries, is increa
       `,
     buttonText: "Learn More",
     buttonLink: "/services#waste-disposal-section",
-    imageSrc: "/service-imgs/service-img5.jpg",
     iconSrc: "/custom-icon.png",
     additionalInfo1: "Additional Info 1",
     additionalInfo2: "Additional Info 2",

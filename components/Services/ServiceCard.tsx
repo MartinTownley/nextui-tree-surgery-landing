@@ -15,7 +15,7 @@ interface ServiceCardProps {
   description: string;
   buttonText: string;
   buttonLink: string;
-  imageSrc: string;
+  imageUrl: string;
   iconSrc: string;
   additionalInfo1: string;
   additionalInfo2: string;
@@ -28,7 +28,7 @@ const ServiceCard: React.FC<ServiceCardProps> = (props) => {
     description,
     buttonText,
     buttonLink,
-    imageSrc,
+    imageUrl,
     iconSrc,
     additionalInfo1,
     additionalInfo2,
@@ -53,7 +53,7 @@ const ServiceCard: React.FC<ServiceCardProps> = (props) => {
         height={500}
         alt="Relaxing app background"
         className="z-0 w-full h-full object-cover brightness-50"
-        src={imageSrc}
+        src={imageUrl}
       />
 
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10">
