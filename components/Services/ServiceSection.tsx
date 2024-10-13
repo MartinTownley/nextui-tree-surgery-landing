@@ -9,7 +9,7 @@ export interface Service extends ServicesData {
   imageUrl: string;
 }
 
-async function fetchServicesWithImages(): Promise<Service[]> {
+export async function fetchServicesWithImages(): Promise<Service[]> {
   const albumHash = "7QWtBkH";
   const url = `https://api.imgur.com/3/album/${albumHash}/images`;
   const serviceImages: ImgurAlbum | undefined = await fetchImgurAlbum(url);
