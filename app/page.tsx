@@ -51,20 +51,16 @@ export default function Home() {
               where nature and beauty coexist.
             </h2>
           </div>
-          <div className="">
-            <Button color="secondary" radius="sm" variant="shadow">
+          <div className="flex gap-3 relative z-10 py-6">
+            <Button
+              as={Link}
+              color="secondary"
+              radius="sm"
+              variant="shadow"
+              href="/#contact"
+            >
               Get in Touch
             </Button>
-            {/* <Link
-              isExternal
-              href={siteConfig.links.docs}
-              className={buttonStyles({
-                color: "secondary",
-                variant: "shadow",
-              })}
-            >
-              View Services
-            </Link> */}
           </div>
         </div>
       </div>
