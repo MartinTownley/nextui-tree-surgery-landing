@@ -60,7 +60,7 @@ export default function Home() {
 
         {/* Services Section */}
         {/* Container */}
-        <div className="relative services-section px-10 mt-10 pb-10 bg-stone-200 bg-opacity-90">
+        <div className="relative services-section px-10 mt-10 pb-10 bg-neutral-400 bg-opacity-90">
           {/* Title */}
           {/* <div className="relative z-10 max-w-lg py-6 justify-center text-center mx-auto">
             <h1 className={title()}>Our Services</h1>
