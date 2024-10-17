@@ -14,19 +14,23 @@ export default function Home() {
   return (
     <section className="relative min-h-screen">
       <Toaster richColors position="top-center" />
-      {/* Hero Section */}
 
+      {/* Background Image with Opacity */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-fixed opacity-30"
+        className="absolute inset-0 bg-cover bg-center bg-fixed opacity-60"
         style={{
-          backgroundImage: `url("https://i.imgur.com/AwGWYah.jpg")`,
+          backgroundImage: `url(${bgImg})`,
         }}
-      ></div>
+      >
+        <div className="absolute inset-0 bg-black opacity-30"></div>
+      </div>
 
+      {/* Content Wrapper */}
       <div className="relative z-10">
+        {/* Hero Section */}
         <div className="hero-section relative flex flex-col items-start justify-center">
           {/* Hero Content Wrapper */}
-          <div className="py-8 md:py-10 px-6 relative h-[70vh] w-full">
+          <div className="py-8 md:py-10 px-6 relative w-full">
             {/* Hero Text */}
             <div className="relative z-10 inline-block max-w-lg text-left">
               <h1 className={title()}>
@@ -40,7 +44,7 @@ export default function Home() {
               </h2>
             </div>
             {/* Hero Button */}
-            <div className="flex gap-3 relative z-10 py-6">
+            <div className="flex gap-3 relative z-10 pt-6">
               <Button
                 as={Link}
                 color="secondary"
@@ -53,16 +57,26 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Services Section */}
-      <div className="services-section mt-20 px-6">
-        <ServiceSection />
-      </div>
+        {/* Services Section */}
+        {/* Container */}
+        <div className="services-section px-10 mt-10 pb-10 bg-stone-200 bg-opacity-90 transform -skew-y-3">
+          {/* Title */}
+          {/* <div className="relative z-10 max-w-lg py-6 justify-center text-center mx-auto">
+            <h1 className={title()}>Our Services</h1>
+          </div> */}
+          <div className="relative -top-10 transform skew-y-3">
+            <ServiceSection />
+          </div>
+        </div>
 
-      {/* Contact Section */}
-      <div id="contact" className="contact-section mt-10">
-        <NewContactForm />
+        {/* Contact Section */}
+        <div
+          id="contact"
+          className="contact-section mt-10 bg-black bg-opacity-50"
+        >
+          <NewContactForm />
+        </div>
       </div>
     </section>
   );
