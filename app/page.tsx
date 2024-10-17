@@ -6,16 +6,18 @@ import ServiceSection from "@/components/Services/ServiceSection";
 import NewContactForm from "@/components/NewContactForm";
 import { Toaster } from "sonner";
 import Image from "next/image";
+import { Button } from "@nextui-org/button";
 
 export default function Home() {
   return (
     <section className="relative">
       <Toaster richColors position="top-center" />
-      <div className="hero-section relative flex flex-col items-start justify-center gap-4 py-8 md:py-10 mb-10 px-6">
+      <div className="hero-section relative flex flex-col items-start justify-center">
         <div
+          className="py-8 md:py-10 px-6 "
           style={{
             position: "relative",
-            height: "60vh",
+            height: "70vh",
             width: "100%",
             clipPath: "inset(0 0 0 0)",
           }}
@@ -37,30 +39,32 @@ export default function Home() {
               quality={100}
               className="z-0 opacity-30"
             />
-
-            <div className="relative z-10 inline-block max-w-lg text-left">
-              <h1 className={title()}>
-                Your Friendly Neighbourhood Tree Surgery
-              </h1>
-              <br />
-              <h2 className={subtitle({ class: "mt-2" })}>
-                At Sparrowhawk trees, we believe in more than tree surgery –
-                we&apos;re your partners in garden management, cultivating
-                spaces where nature and beauty coexist.
-              </h2>
-            </div>
-            <div className="flex gap-3 relative z-10">
-              <Link
-                isExternal
-                href={siteConfig.links.docs}
-                className={buttonStyles({
-                  color: "secondary",
-                  variant: "shadow",
-                })}
-              >
-                View Services
-              </Link>
-            </div>
+          </div>
+          <div className="relative z-10 inline-block max-w-lg text-left">
+            <h1 className={title()}>
+              Your Friendly Neighbourhood Tree Surgery
+            </h1>
+            <br />
+            <h2 className={subtitle({ class: "mt-2" })}>
+              At Sparrowhawk trees, we believe in more than tree surgery –
+              we&apos;re your partners in garden management, cultivating spaces
+              where nature and beauty coexist.
+            </h2>
+          </div>
+          <div className="">
+            <Button color="secondary" radius="sm" variant="shadow">
+              Get in Touch
+            </Button>
+            {/* <Link
+              isExternal
+              href={siteConfig.links.docs}
+              className={buttonStyles({
+                color: "secondary",
+                variant: "shadow",
+              })}
+            >
+              View Services
+            </Link> */}
           </div>
         </div>
       </div>
