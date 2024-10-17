@@ -51,8 +51,8 @@ const ServiceCard: React.FC<ServiceCardProps> = (props) => {
         // removeWrapper
         width={500}
         height={500}
-        alt="Relaxing app background"
-        className="z-0 w-full h-full object-cover brightness-50"
+        alt="service-image"
+        className="z-0 w-full h-full object-cover brightness-75"
         src={imageUrl}
       />
 

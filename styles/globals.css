@@ -43,3 +43,8 @@
 .large-font {
   font-size: 1.5rem; /* Adjust the size as needed */
 }
+
+.skew-top {
+  transform: skewY(-4deg);
+  transform-origin: top;
+}

@@ -12,7 +12,7 @@ const bgImg = "https://i.imgur.com/AwGWYah.jpg";
 
 export default function Home() {
   return (
-    <section className="relative min-h-screen">
+    <section className="relative min-h-screen ">
       <Toaster richColors position="top-center" />
 
       {/* Background Image with Opacity */}
@@ -28,9 +28,9 @@ export default function Home() {
       {/* Content Wrapper */}
       <div className="relative z-10">
         {/* Hero Section */}
-        <div className="hero-section relative flex flex-col items-start justify-center">
+        <div className="hero-section relative flex flex-col items-start justify-center h-[100vh]">
           {/* Hero Content Wrapper */}
-          <div className="py-8 md:py-10 px-6 relative w-full">
+          <div className="py-8 md:py-10 px-10 relative w-full">
             {/* Hero Text */}
             <div className="relative z-10 inline-block max-w-lg text-left">
               <h1 className={title()}>
@@ -60,12 +60,13 @@ export default function Home() {
 
         {/* Services Section */}
         {/* Container */}
-        <div className="services-section px-10 mt-10 pb-10 bg-stone-200 bg-opacity-90 transform -skew-y-3">
+        <div className="relative services-section px-10 mt-10 pb-10 bg-stone-200 bg-opacity-90">
           {/* Title */}
           {/* <div className="relative z-10 max-w-lg py-6 justify-center text-center mx-auto">
             <h1 className={title()}>Our Services</h1>
           </div> */}
-          <div className="relative -top-10 transform skew-y-3">
+
+          <div className="relative -top-10 ">
             <ServiceSection />
           </div>
         </div>
