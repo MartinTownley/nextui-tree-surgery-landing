@@ -64,10 +64,12 @@ export default function NewContactForm() {
         <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
           Contact Us
         </h2>
-        <p className="mb-6 font-light text-gray-500 dark:text-gray-400 sm:text-xl ">
-          Please send us a message using the form below, and we will respond as
-          soon as we can.
-        </p>
+        <div className="mb-6 px-8 sm:px-0">
+          <p className="font-light text-gray-500 dark:text-gray-400 sm:text-xl">
+            Please send us a message using the form below, and we will respond
+            as soon as we can.
+          </p>
+        </div>
         <form
           onSubmit={handleSubmit(onSubmitHandler)}
           className="space-y-6 border-t"

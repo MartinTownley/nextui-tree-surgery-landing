@@ -13,6 +13,7 @@ import { Providers } from "./providers";
 import { Navbar } from "@/components/Navbar/navbar";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
+import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: {
@@ -56,15 +57,7 @@ export default function RootLayout({
               {children}
             </main>
             <footer className="w-full flex items-center justify-center py-3">
-              <Link
-                isExternal
-                className="flex items-center gap-1 text-current"
-                href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
-                title="nextui.org homepage"
-              >
-                <span className="text-default-600">Footer</span>
-                <p className="text-primary"></p>
-              </Link>
+              <Footer />
             </footer>
           </div>
         </Providers>

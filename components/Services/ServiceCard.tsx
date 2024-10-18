@@ -8,6 +8,7 @@ import {
 } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
+import { title as primTitle, subtitle } from "@/components/primitives";
 
 interface ServiceCardProps {
   preTitle: string;
@@ -46,7 +47,8 @@ const ServiceCard: React.FC<ServiceCardProps> = (props) => {
         {/* <p className="text-tiny text-white/60 uppercase font-bold">
           {preTitle}
         </p> */}
-        <h4 className="text-white font-medium bg-black/50 text-4xl">{title}</h4>
+        {/* <h4 className="text-white font-medium bg-black/50 text-4xl">{title}</h4> */}
+        <h1 className={`${primTitle({ size: "sm" })} bg-black/50`}>{title}</h1>
         {/* <p className="text-white bg-green-800/80">{description}</p> */}
       </CardHeader>
 
