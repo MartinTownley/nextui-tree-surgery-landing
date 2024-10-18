@@ -26,11 +26,11 @@ export default function Home() {
       </div>
 
       {/* Content Wrapper */}
-      <div className="relative z-10">
+      <div className=" relative z-10">
         {/* Hero Section */}
-        <div className="hero-section relative flex flex-col items-start justify-center h-[100vh] border border-red-500">
-          {/* Hero Content Wrapper */}
-          <div className="py-8 md:py-10 px-10 relative w-full border border-blue-500">
+        <div className=" hero-section relative flex flex-col items-start justify-center h-[91vh] ">
+          {/* Hero text Wrapper */}
+          <div className="py-8 md:py-10 px-10 relative w-full">
             {/* Hero Text */}
             <div className="relative z-10 inline-block max-w-lg text-left">
               <h1 className={title()}>
@@ -58,23 +58,34 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Fading Gradient Transition */}
+        {/* <div className="relative bottom-0 left-0 w-full h-16 bg-gradient-to-b from-transparent to-neutral-400"></div> */}
+        <div
+          className="relative bottom-0 left-0 w-full h-10"
+          style={{
+            background:
+              "linear-gradient(to bottom, transparent, rgba(163, 163, 163, 0.9))",
+          }}
+        ></div>
+
         {/* Services Section */}
         {/* Container */}
-        <div className="relative services-section px-10 mt-0 pt-10 bg-neutral-400 bg-opacity-90">
+        <div className="relative services-section px-10 pt-10 bg-neutral-400 bg-opacity-90">
           {/* Title */}
-          {/* <div className="relative z-10 max-w-lg py-6 justify-center text-center mx-auto">
+          <div className="relative z-10 max-w-lg py-0 justify-center text-center mx-auto">
             <h1 className={title()}>Our Services</h1>
-          </div> */}
+          </div>
 
-          <div className="relative -bottom-10 ">
+          <div className="relative -bottom-10">
             <ServiceSection />
           </div>
         </div>
 
         {/* Contact Section */}
+
         <div
           id="contact"
-          className="contact-section mt-20 bg-black bg-opacity-50"
+          className="contact-section bg-black bg-opacity-100 mt-0 pt-20"
         >
           <NewContactForm />
         </div>

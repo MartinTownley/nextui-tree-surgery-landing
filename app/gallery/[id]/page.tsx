@@ -37,7 +37,7 @@ export default async function PhotoDetail({
   }
 
   return (
-    <div className="m-4">
+    <div className="">
       <BreadcrumbComponent />
 
       {/* <h1 className="text-3xl font-bold mb-4">Image Detail</h1> */}

@@ -35,6 +35,9 @@ module.exports = {
         gallery: "repeat(auto-fit, minmax(250px, 1fr))",
       },
       screens: { "lg-custom": "950px" },
+      height: {
+        "vh-minus-navbar": "calc(100vh - var(--navbar-height))",
+      },
     },
   },
   darkMode: "class",

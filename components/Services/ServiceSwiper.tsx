@@ -39,6 +39,14 @@ const ServiceSwiper: React.FC<ServiceSwiperProps> = ({ services }) => {
           slidesPerView: 3,
           spaceBetween: 50,
         },
+        1440: {
+          slidesPerView: 4,
+          spaceBetween: 50,
+        },
+        1980: {
+          slidesPerView: 5,
+          spaceBetween: 70,
+        },
         // 768: {
         //   slidesPerView: 3,
         //   spaceBetween: 40,

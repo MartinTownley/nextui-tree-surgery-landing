@@ -37,7 +37,7 @@ const ServiceCard: React.FC<ServiceCardProps> = (props) => {
   return (
     <Card
       isFooterBlurred
-      className="w-full h-[300px] col-span-12 sm:col-span-7 border-12 border-neutral-400 border-opacity-90"
+      className="w-full h-[300px] col-span-12 sm:col-span-7 border-12 border-neutral-400 border-opacity-95"
       radius="none"
       shadow="none"
       isHoverable={true}

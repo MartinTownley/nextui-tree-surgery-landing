@@ -48,3 +48,17 @@
   transform: skewY(-4deg);
   transform-origin: top;
 }
+
+@layer components {
+  .skewed-divider {
+    position: absolute;
+    bottom: -30px; /* Adjust as needed */
+    left: 0;
+    width: 100%;
+    height: 60px; /* Height of the diagonal */
+    background-color: #a3a3a3; /* Same as bg-neutral-400 */
+    transform: skewY(-6deg); /* Creates the skew effect */
+    transform-origin: bottom left; /* Anchors skew at bottom-left corner */
+    z-index: 1; /* Place it behind the content */
+  }
+}
