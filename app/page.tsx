@@ -28,9 +28,9 @@ export default function Home() {
       {/* Content Wrapper */}
       <div className="relative z-10">
         {/* Hero Section */}
-        <div className="hero-section relative flex flex-col items-start justify-center h-[100vh]">
+        <div className="hero-section relative flex flex-col items-start justify-center h-[100vh] border border-red-500">
           {/* Hero Content Wrapper */}
-          <div className="py-8 md:py-10 px-10 relative w-full">
+          <div className="py-8 md:py-10 px-10 relative w-full border border-blue-500">
             {/* Hero Text */}
             <div className="relative z-10 inline-block max-w-lg text-left">
               <h1 className={title()}>
@@ -60,13 +60,13 @@ export default function Home() {
 
         {/* Services Section */}
         {/* Container */}
-        <div className="relative services-section px-10 mt-10 pb-10 bg-neutral-400 bg-opacity-90">
+        <div className="relative services-section px-10 mt-0 pt-10 bg-neutral-400 bg-opacity-90">
           {/* Title */}
           {/* <div className="relative z-10 max-w-lg py-6 justify-center text-center mx-auto">
             <h1 className={title()}>Our Services</h1>
           </div> */}
 
-          <div className="relative -top-10 ">
+          <div className="relative -bottom-10 ">
             <ServiceSection />
           </div>
         </div>
@@ -74,7 +74,7 @@ export default function Home() {
         {/* Contact Section */}
         <div
           id="contact"
-          className="contact-section mt-10 bg-black bg-opacity-50"
+          className="contact-section mt-20 bg-black bg-opacity-50"
         >
           <NewContactForm />
         </div>
