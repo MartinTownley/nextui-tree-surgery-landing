@@ -11,9 +11,8 @@ import {
 // import { Roboto, Inter } from "next/font/google";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/Navbar/navbar";
-import { Link } from "@nextui-org/link";
 import clsx from "clsx";
-import { Footer } from "@/components/Footer";
+import Footer2 from "@/components/Footer2";
 
 export const metadata: Metadata = {
   title: {
@@ -32,7 +31,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
+    { media: "(prefers-color-scheme: dark)", color: "white" },
   ],
 };
 
@@ -51,13 +50,13 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
+          <div className="relative flex flex-col h-screen ">
             <Navbar />
             <main className="container mx-auto max-w-full flex-grow">
               {children}
             </main>
             <footer className="w-full flex items-center justify-center py-3">
-              <Footer />
+              <Footer2 />
             </footer>
           </div>
         </Providers>

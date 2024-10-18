@@ -38,11 +38,13 @@ const ServiceCard: React.FC<ServiceCardProps> = (props) => {
   return (
     <Card
       isFooterBlurred
-      className="w-full h-[300px] col-span-12 sm:col-span-7 border-12 border-neutral-400 border-opacity-95"
+      className="relative w-full h-[300px] col-span-12 sm:col-span-7 border-10 border-green-900 border-opacity-90 shadow-lg"
       radius="none"
-      shadow="none"
+      shadow="md"
       isHoverable={true}
     >
+      <div className="absolute inset-0 border-8 border-neutral-400 border-opacity-90 transform translate-x-2 translate-y-2 bg-white"></div>
+
       <CardHeader className="absolute z-10 top-1 flex-col items-start">
         {/* <p className="text-tiny text-white/60 uppercase font-bold">
           {preTitle}
