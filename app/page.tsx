@@ -85,7 +85,7 @@ export default function Home() {
 
         <div
           id="contact"
-          className="contact-section bg-stone-950 bg-opacity-100 mt-0 p-20"
+          className="contact-section bg-gray-800 bg-opacity-100 mt-0 p-20"
         >
           <NewContactForm />
         </div>

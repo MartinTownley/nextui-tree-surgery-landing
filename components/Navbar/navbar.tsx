@@ -20,7 +20,7 @@ export const Navbar = () => {
       isBordered
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
-      className="flex bg-green-950"
+      className="flex bg-main-green"
       classNames={{
         item: [
           "flex",

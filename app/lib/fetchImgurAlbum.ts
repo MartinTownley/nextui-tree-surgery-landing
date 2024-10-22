@@ -10,9 +10,9 @@ export default async function fetchImgurAlbum(
     if (!clientId) {
       throw new Error("IMGUR_CLIENT_ID not found in env");
     }
-    console.log(
-      `Fetching album with url: ${url} with Client-ID: ${validEnv.IMGUR_CLIENT_ID}`
-    );
+    // console.log(
+    //   `Fetching album with url: ${url} with Client-ID: ${validEnv.IMGUR_CLIENT_ID}`
+    // );
     const res = await fetch(url, {
       headers: {
         Authorization: `Client-ID ${clientId}`,
@@ -25,8 +25,6 @@ export default async function fetchImgurAlbum(
     }
 
     const albumResult: ImgurAlbum = await res.json();
-
-    // console.log("RESULTS:", albumResult);
 
     const parsedAlbumResult = ImgurAlbumSchema.parse(albumResult);
 

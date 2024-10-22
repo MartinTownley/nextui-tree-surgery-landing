@@ -4,6 +4,8 @@
 
 :root {
   --swiper-navigation-color: #ffffff;
+  /* --main-bg-color: #065f46; */
+  --main-green-color: #052e16;
 }
 
 .swiper-button-next:after,
@@ -62,3 +64,15 @@
     z-index: 1; /* Place it behind the content */
   }
 }
+
+/* 
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+} */

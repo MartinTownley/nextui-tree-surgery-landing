@@ -10,7 +10,7 @@ export default async function fetchImgurImage(
     if (!clientId) {
       throw new Error("IMGUR_CLIENT_ID not found in env");
     }
-    console.log(`Fetching image with url: ${url} with Client-ID: ${clientId}`);
+    // console.log(`Fetching image with url: ${url} with Client-ID: ${clientId}`);
 
     const res = await fetch(url, {
       headers: {

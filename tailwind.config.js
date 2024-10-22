@@ -38,6 +38,9 @@ module.exports = {
       height: {
         "vh-minus-navbar": "calc(100vh - var(--navbar-height))",
       },
+      colors: {
+        "main-green": "var(--main-green-color)",
+      },
     },
   },
   darkMode: "class",
