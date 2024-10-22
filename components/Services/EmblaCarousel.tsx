@@ -8,14 +8,16 @@ import {
   usePrevNextButtons,
 } from "./EmblaCarouselArrowButtons";
 import useEmblaCarousel from "embla-carousel-react";
+import ServiceCard from "@/components/Services/ServiceCard";
+import type { Service } from "./ServiceSection";
 
 type PropType = {
-  slides: number[];
+  services: Service[];
   options?: EmblaOptionsType;
 };
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
-  const { slides, options } = props;
+  const { services, options } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
@@ -32,9 +34,9 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     <section className="embla">
       <div className="embla__viewport " ref={emblaRef}>
         <div className="embla__container">
-          {slides.map((index) => (
-            <div className="embla__slide border" key={index}>
-              <div className="embla__slide__number">{index + 1}</div>
+          {services.map((service, index) => (
+            <div className="embla__slide" key={index}>
+              <ServiceCard {...service} />
             </div>
           ))}
         </div>

@@ -32,7 +32,12 @@ const ServiceSection = async () => {
   // console.log("services with images:", servicesWithImages);
 
   // return <ServiceSwiper services={servicesWithImages} />;
-  return <EmblaCarousel slides={SLIDES} options={OPTIONS}></EmblaCarousel>;
+  return (
+    <EmblaCarousel
+      services={servicesWithImages}
+      options={OPTIONS}
+    ></EmblaCarousel>
+  );
 };
 
 export default ServiceSection;

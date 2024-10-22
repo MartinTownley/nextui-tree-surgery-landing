@@ -70,14 +70,16 @@ export default function Home() {
 
         {/* Services Section */}
         {/* Container */}
-        <div className="relative services-section px-10 pt-10 bg-neutral-400 bg-opacity-90">
-          {/* Title */}
-          <div className="relative z-10 max-w-lg py-0 justify-center text-center mx-auto">
-            <h1 className={title()}>Our Services</h1>
-          </div>
+        <div className="relative services-section px-10 bg-neutral-400 bg-opacity-90">
+          <div className="relative -bottom-20">
+            {/* Title */}
+            <div className="relative z-10 max-w-lg py-0 justify-center text-center mx-auto pb-10">
+              <h1 className={title()}>Our Services</h1>
+            </div>
 
-          <div className="relative -bottom-10">
-            <ServiceSection />
+            <div className="relative">
+              <ServiceSection />
+            </div>
           </div>
         </div>
 
@@ -85,7 +87,7 @@ export default function Home() {
 
         <div
           id="contact"
-          className="contact-section bg-gray-800 bg-opacity-100 mt-0 p-20"
+          className="contact-section bg-stone-900 bg-opacity-100 mt-0 p-20"
         >
           <NewContactForm />
         </div>
