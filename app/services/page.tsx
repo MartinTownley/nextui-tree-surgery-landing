@@ -1,6 +1,6 @@
 import { title } from "@/components/primitives";
 import ServicesAccordion from "@/components/Services/ServicesAccordion";
-import { fetchServicesWithImages } from "@/components/Services/ServiceSection";
+import { fetchServicesWithImages } from "@/app/lib/fetchServicesWithImages";
 import servicesData from "@/public/data/services-data";
 import Image from "next/image";
 

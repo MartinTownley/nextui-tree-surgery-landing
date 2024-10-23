@@ -9,7 +9,7 @@ import {
 } from "./EmblaCarouselArrowButtons";
 import useEmblaCarousel from "embla-carousel-react";
 import ServiceCard from "@/components/Services/ServiceCard";
-import type { Service } from "./ServiceSection";
+import type { Service } from "@/app/lib/fetchServicesWithImages";
 
 type PropType = {
   services: Service[];
