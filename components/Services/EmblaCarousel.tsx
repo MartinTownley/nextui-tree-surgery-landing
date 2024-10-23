@@ -31,7 +31,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   } = usePrevNextButtons(emblaApi);
 
   return (
-    <section className="embla">
+    <div className="embla">
       <div className="embla__viewport " ref={emblaRef}>
         <div className="embla__container">
           {services.map((service, index) => (
@@ -60,7 +60,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
