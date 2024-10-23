@@ -87,9 +87,28 @@ export default function Home() {
 
         <div
           id="contact"
-          className="contact-section bg-stone-900 bg-opacity-100 mt-0 p-20"
+          className="contact-section bg-stone-900 bg-opacity-100"
         >
-          <NewContactForm />
+          <div className="divider pt-32 px-20 flex items-center justify-center">
+            <hr
+              id="contact-divider"
+              className="flex-grow h-px bg-gray-200 border-0 dark:bg-gray-700"
+            />
+            <div className="mx-4">
+              <Image
+                src={"/custom-icon.png"}
+                alt="Sparrowhawk Trees Icon"
+                width={50}
+                height={50}
+                className="logo"
+              />
+            </div>
+
+            <hr className="flex-grow h-px bg-gray-200 border-0 dark:bg-gray-700" />
+          </div>
+          <div className="form-container pt-10 pb-10">
+            <NewContactForm />
+          </div>
         </div>
       </div>
     </section>

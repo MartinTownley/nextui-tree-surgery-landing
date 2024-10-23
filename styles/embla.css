@@ -18,7 +18,7 @@
   touch-action: pan-y pinch-zoom;
   margin-left: calc(var(--slide-spacing) * -1);
 }
-@media (min-width: 750px) {
+@media (min-width: 640px) {
   .embla__container {
     margin-left: calc(var(--slide-spacing-sm) * -1);
   }
@@ -33,13 +33,13 @@
   flex: 0 0 var(--slide-size);
   padding-left: var(--slide-spacing);
 }
-@media (min-width: 750px) {
+@media (min-width: 640px) {
   .embla__slide {
     flex: 0 0 var(--slide-size-sm);
     padding-left: var(--slide-spacing-sm);
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
   .embla__slide {
     flex: 0 0 var(--slide-size-lg);
     padding-left: var(--slide-spacing-lg);
@@ -203,6 +203,6 @@
 }
 
 .embla__dot--selected:after {
-  background-color: #1bcacd;
+  background-color: #7828c8;
   opacity: 1;
 }

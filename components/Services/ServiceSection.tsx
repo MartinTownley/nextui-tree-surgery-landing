@@ -1,5 +1,4 @@
 // components/Services/ServiceSection.tsx
-import ServiceSwiper from "@/components/Services/ServiceSwiper";
 import servicesData from "@/public/data/services-data";
 import { ServicesData } from "@/public/data/services-data";
 import fetchImgurAlbum from "@/app/lib/fetchImgurAlbum";

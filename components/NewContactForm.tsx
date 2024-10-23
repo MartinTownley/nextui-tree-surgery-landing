@@ -23,7 +23,7 @@ export default function NewContactForm() {
     watch,
   } = useForm<TContactFormSchema>({
     resolver: zodResolver(contactFormSchema),
-    defaultValues: defaultFormValues,
+    // defaultValues: defaultFormValues,
     mode: "onTouched",
   });
 

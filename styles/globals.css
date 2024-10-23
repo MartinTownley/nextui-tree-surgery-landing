@@ -64,3 +64,27 @@
     z-index: 1; /* Place it behind the content */
   }
 }
+
+/**
+.divider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.divider-line {
+  flex-grow: 1;
+  height: 4px;
+  background-color: var(--tw-bg-opacity, 1) * var(--tw-bg-gray-200, #e5e7eb);
+  border: 0;
+}
+
+.divider-logo {
+  margin: 0 1rem; 
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+}
+**/
