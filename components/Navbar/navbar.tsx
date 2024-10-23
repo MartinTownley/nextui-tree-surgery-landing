@@ -28,11 +28,11 @@ export const Navbar = () => {
           "items-end",
           "data-[active=true]:after:content-['']",
           "data-[active=true]:after:absolute",
-          "data-[active=true]:after:bottom-0",
+          "data-[active=true]:after:bottom-[-10px]",
           "data-[active=true]:after:left-0",
           "data-[active=true]:after:right-0",
           "data-[active=true]:after:h-[4px]",
-          // "data-[active=true]:after:rounded-[2px]",
+          // "data-[active=true]:after:rounded[2px]",
           "data-[active=true]:after:bg-secondary",
         ],
       }}
@@ -41,8 +41,8 @@ export const Navbar = () => {
         <NavbarLogo />
       </NavbarContent>
 
-      <div className="flex justify-end">
-        <NavbarContent className="hidden md:flex " justify="end">
+      <div className="hidden md:flex justify-end">
+        <NavbarContent className="hidden md:flex" justify="end">
           <NavbarLinks />
           {/* <NavbarContent
           className="hidden md:inline-flex border border-green-500 "

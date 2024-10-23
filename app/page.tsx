@@ -50,7 +50,7 @@ export default function Home() {
                 color="secondary"
                 radius="sm"
                 variant="shadow"
-                href="/#contact"
+                href="/#contact-divider"
               >
                 Get in Touch
               </Button>
@@ -64,13 +64,13 @@ export default function Home() {
           className="relative bottom-0 left-0 w-full h-10"
           style={{
             background:
-              "linear-gradient(to bottom, transparent, rgba(163, 163, 163, 0.9))",
+              "linear-gradient(to bottom, transparent, rgb(115 115 115)",
           }}
         ></div>
 
         {/* Services Section */}
         {/* Container */}
-        <div className="relative services-section px-10 bg-neutral-400 bg-opacity-90">
+        <div className="relative services-section px-10 bg-neutral-500 bg-opacity-90">
           <div className="relative -bottom-20">
             {/* Title */}
             <div className="relative z-10 max-w-lg py-0 justify-center text-center mx-auto pb-10">

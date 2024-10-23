@@ -8,7 +8,7 @@ export default async function ServicesPage() {
   const servicesWithImages = await fetchServicesWithImages();
 
   return (
-    <main className="">
+    <main className="py-10">
       <header className="mb-10 text-center lg:text-left">
         <h1 className={title()}>Services</h1>
       </header>

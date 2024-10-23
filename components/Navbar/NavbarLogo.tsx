@@ -3,7 +3,7 @@ import CustomLogo from "@/components/CustomLogo";
 
 const NavbarLogo = () => {
   return (
-    <div className="">
+    <div className="flex items-center">
       <Link href="/">
         <CustomLogo
           src={"/custom-logo-narrow.svg"}

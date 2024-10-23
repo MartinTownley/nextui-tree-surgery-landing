@@ -1,4 +1,3 @@
-import { NavbarContent } from "@nextui-org/navbar";
 import { siteConfig } from "@/config/site";
 import { Link } from "@nextui-org/link";
 import { NavbarItem } from "@nextui-org/navbar";
@@ -17,9 +16,9 @@ const NavbarLinks = () => {
           <NavbarItem
             key={link.href}
             data-active={isActive ? "true" : "false"}
-            className="flex h-full items-end py-2"
+            className="flex h-full items-end px-2 py-2"
           >
-            <Link isBlock color="foreground" size="lg" href={link.href}>
+            <Link color="foreground" size="lg" href={link.href}>
               {link.label}
             </Link>
           </NavbarItem>
