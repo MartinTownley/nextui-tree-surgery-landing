@@ -8,9 +8,8 @@ import {
 import EmblaCarousel from "./EmblaCarousel";
 import type { EmblaOptionsType } from "embla-carousel";
 
-const OPTIONS: EmblaOptionsType = { align: "start" };
-
 const ServiceSection = async () => {
+  const OPTIONS: EmblaOptionsType = { align: "start" };
   const servicesWithImages = await fetchServicesWithImages();
   // console.log("services with images:", servicesWithImages);
 
