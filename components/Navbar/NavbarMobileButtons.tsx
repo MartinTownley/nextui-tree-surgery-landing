@@ -23,7 +23,7 @@ const NavbarMobileButtons = ({ isMenuOpen }: NavbarMobileButtonsProps) => {
           isExternal
           as={Link}
           className={`text-sm font-normal text-default-600 flex flex-col ${bungee_shade.className}`}
-          href="tel:+1234567890"
+          href="tel:+447956864566"
           startContent={<PhoneIcon className="text-danger" />}
           variant="flat"
         ></Button>
