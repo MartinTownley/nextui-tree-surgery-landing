@@ -26,7 +26,7 @@ export default function Home() {
       </div>
 
       {/* Content Wrapper */}
-      <div className=" relative z-10">
+      <div className="relative z-10 tilt">
         {/* Hero Section */}
         <div className=" hero-section relative flex flex-col items-start justify-center h-[91vh] ">
           {/* Hero text Wrapper */}
@@ -60,18 +60,18 @@ export default function Home() {
 
         {/* Fading Gradient Transition */}
         {/* <div className="relative bottom-0 left-0 w-full h-16 bg-gradient-to-b from-transparent to-neutral-400"></div> */}
-        <div
+        {/* <div
           className="relative bottom-0 left-0 w-full h-10"
           style={{
             background:
               "linear-gradient(to bottom, transparent, rgb(115 115 115)",
           }}
-        ></div>
+        ></div> */}
 
         {/* Services Section */}
         {/* Container */}
-        <div className="relative services-section px-10 bg-neutral-500 bg-opacity-90">
-          <div className="relative -bottom-20">
+        <div className="relative services-section px-10 py-10 bg-neutral-500 bg-opacity-100">
+          <div className="relative">
             {/* Title */}
             <div className="relative z-10 max-w-lg py-0 justify-center text-center mx-auto pb-10">
               <h1 className={title()}>Our Services</h1>
@@ -83,13 +83,24 @@ export default function Home() {
           </div>
         </div>
 
+        {/*Icon on border*/}
+
+        <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+          <Image
+            src={"/custom-icon.png"}
+            alt="Sparrowhawk Trees Icon"
+            width={50}
+            height={50}
+            className="logo"
+          />
+        </div>
         {/* Contact Section */}
 
         <div
           id="contact"
           className="contact-section bg-stone-900 bg-opacity-100"
         >
-          <div className="divider pt-32 px-20 flex items-center justify-center">
+          {/* <div className="divider pt-32 px-20 flex items-center justify-center">
             <hr
               id="contact-divider"
               className="flex-grow h-px bg-gray-200 border-0 dark:bg-gray-700"
@@ -105,7 +116,8 @@ export default function Home() {
             </div>
 
             <hr className="flex-grow h-px bg-gray-200 border-0 dark:bg-gray-700" />
-          </div>
+          </div> */}
+
           <div className="form-container pt-10 pb-10">
             <NewContactForm />
           </div>

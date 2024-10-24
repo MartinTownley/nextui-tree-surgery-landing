@@ -14,16 +14,6 @@ const ServiceSection = async () => {
 
   // return <ServiceSwiper services={servicesWithImages} />;
   return (
-    // <div>
-    //   <h1>testing </h1>
-    //   {servicesWithImages.map((service, index) => (
-    //     <div key={index}>
-    //       <h1>{service.title}</h1>
-    //       <p>{service.description}</p>
-    //       <img src={service.imageUrl} alt={service.title} />
-    //     </div>
-    //   ))}
-    // </div>
     <EmblaCarousel
       services={servicesWithImages}
       options={OPTIONS}

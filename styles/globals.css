@@ -68,3 +68,7 @@
 .bg-background-stone {
   background-color: rgb(28 25 23);
 }
+
+.tilt {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - var(--cut)));
+}

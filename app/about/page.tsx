@@ -2,7 +2,8 @@ import { title } from "@/components/primitives";
 import Image from "next/image";
 
 export default function AboutPage() {
-  const imgUrl = "https://i.imgur.com/9Ck7Aj2.jpg";
+  // const imgUrl = "https://i.imgur.com/9Ck7Aj2.jpg";
+  const imgUrl = "https://i.imgur.com/TqjdK9g.jpg";
   return (
     // Container
     <div className="container flex flex-col-reverse lg:flex-row items-center gap-12 mt-8 lg:mt-14">

@@ -38,9 +38,8 @@ const ServiceCard: React.FC<ServiceCardProps> = (props) => {
   return (
     <Card
       isFooterBlurred
-      className="relative w-full h-[300px] col-span-12 sm:col-span-7 border-10 border-green-800 border-opacity-50"
-      // style={{ border: '4px solid #052e16'}}
-      radius="none"
+      className="relative w-full h-[300px] col-span-12 sm:col-span-7"
+      radius="sm"
       shadow="md"
       isHoverable={true}
     >
@@ -58,7 +57,7 @@ const ServiceCard: React.FC<ServiceCardProps> = (props) => {
         width={500}
         height={500}
         alt="service-image"
-        className="z-0 w-full h-full object-cover brightness-75"
+        className="z-0 w-full h-full object-cover brightness-75 stroke-slate-500"
         src={imageUrl}
       />
 
