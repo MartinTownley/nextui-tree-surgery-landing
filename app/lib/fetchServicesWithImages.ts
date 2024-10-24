@@ -1,3 +1,4 @@
+"use server";
 import servicesData from "@/public/data/services-data";
 import fetchImgurAlbum from "@/app/lib/fetchImgurAlbum";
 import type { ImgurAlbum } from "@/models/imgur-schemas";
