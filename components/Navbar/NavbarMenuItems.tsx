@@ -25,7 +25,7 @@ const NavbarMenuItems = ({
               key={`${link}-${index}`}
               data-active={isActive ? "true" : "false"}
               className={clsx(
-                isActive ? "bg-secondary text-white" : "",
+                isActive ? "bg-secondary-orange text-white" : "",
                 "px-2 py-1 rounded-md"
               )}
             >

@@ -64,11 +64,13 @@ const ServiceCard: React.FC<ServiceCardProps> = (props) => {
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10">
         <Link href={buttonLink} passHref>
           <Button
+            className="bg-secondary-orange border font-bold"
             // as={Link}
             radius="sm"
-            size="md"
-            color="secondary"
+            size="lg"
+            // color="secondary"
             // href={buttonLink}
+            // variant="bordered"
           >
             {buttonText}
           </Button>

@@ -19,10 +19,10 @@ const NavbarMobileButtons = ({ isMenuOpen }: NavbarMobileButtonsProps) => {
       <NavbarItem className="flex items-center justify-end">
         <Button
           radius="sm"
-          color="success"
+          // color="success"
           isExternal
           as={Link}
-          className={`text-sm font-normal text-default-600 flex flex-col ${bungee_shade.className}`}
+          className={`text-sm font-normal text-default-600 flex flex-col bg-secondary-orange ${bungee_shade.className}`}
           href="tel:+447956864566"
           startContent={<PhoneIcon className="text-danger" />}
           variant="flat"

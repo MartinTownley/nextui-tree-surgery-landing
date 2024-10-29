@@ -46,27 +46,19 @@ export default function Home() {
             {/* Hero Button */}
             <div className="flex gap-3 relative z-10 pt-6">
               <Button
+                className="bg-secondary-orange  font-bold text-base"
                 as={Link}
-                color="secondary"
+                // color="custom-orange"
                 radius="sm"
                 variant="shadow"
                 href="/#contact-divider"
+                size="md"
               >
                 Get in Touch
               </Button>
             </div>
           </div>
         </div>
-
-        {/* Fading Gradient Transition */}
-        {/* <div className="relative bottom-0 left-0 w-full h-16 bg-gradient-to-b from-transparent to-neutral-400"></div> */}
-        {/* <div
-          className="relative bottom-0 left-0 w-full h-10"
-          style={{
-            background:
-              "linear-gradient(to bottom, transparent, rgb(115 115 115)",
-          }}
-        ></div> */}
 
         {/* Services Section */}
         {/* Container */}

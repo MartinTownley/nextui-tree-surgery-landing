@@ -148,7 +148,8 @@ export default function NewContactForm() {
             <div>
               <Button
                 type="submit"
-                color="secondary"
+                className="bg-custom-orange"
+                // color="secondary"
                 isDisabled={!isValid}
                 isLoading={isSubmitting}
               >

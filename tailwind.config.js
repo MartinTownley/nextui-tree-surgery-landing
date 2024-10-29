@@ -40,9 +40,20 @@ module.exports = {
       },
       colors: {
         "main-green": "var(--main-green-color)",
+        "secondary-orange": "var(--secondary-orange-color)",
       },
     },
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [
+    nextui({
+      themes: {
+        dark: {
+          colors: {
+            "custom-orange": "#f09905",
+          },
+        },
+      },
+    }),
+  ],
 };
