@@ -7,6 +7,7 @@ import NewContactForm from "@/components/NewContactForm";
 import { Toaster } from "sonner";
 import Image from "next/image";
 import { Button } from "@nextui-org/button";
+import FormWithRHF from "@/components/FormWithRHF";
 
 const bgImg = "https://i.imgur.com/AwGWYah.jpg";
 
@@ -110,8 +111,12 @@ export default function Home() {
             <hr className="flex-grow h-px bg-gray-200 border-0 dark:bg-gray-700" />
           </div> */}
 
-          <div className="form-container pt-10 pb-10">
+          {/* <div className="form-container pt-10 pb-10">
             <NewContactForm />
+          </div> */}
+
+          <div className="flex min-h-screen max-w-4xl mx-auto flex-col items-center justify-between p-24">
+            <FormWithRHF />
           </div>
         </div>
       </div>
