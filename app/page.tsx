@@ -14,7 +14,7 @@ const bgImg = "https://i.imgur.com/AwGWYah.jpg";
 export default function Home() {
   return (
     <section className="relative min-h-screen ">
-      <Toaster richColors position="top-center" />
+      <Toaster richColors position="top-center" expand={true} />
 
       {/* Background Image with Opacity */}
       <div
@@ -111,13 +111,13 @@ export default function Home() {
             <hr className="flex-grow h-px bg-gray-200 border-0 dark:bg-gray-700" />
           </div> */}
 
-          {/* <div className="form-container pt-10 pb-10">
+          <div className="form-container pt-10 pb-10">
             <NewContactForm />
-          </div> */}
-
-          <div className="flex min-h-screen max-w-4xl mx-auto flex-col items-center justify-between p-24">
-            <FormWithRHF />
           </div>
+
+          {/* <div className="flex min-h-screen max-w-4xl mx-auto flex-col items-center justify-between p-24">
+            <FormWithRHF />
+          </div> */}
         </div>
       </div>
     </section>

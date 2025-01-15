@@ -1,11 +1,11 @@
 "use client";
 
-import { sendMessage, sendCopy } from "@/app/actions/actions";
+import { sendMessage, sendCopy } from "@/app/_actions/actions";
 import { contactFormSchema, defaultFormValues } from "@/app/lib/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { resolveMotionValue } from "framer-motion";
-import React, { useEffect, useState } from "react";
-import { FieldValues, useForm, FieldErrors, Controller } from "react-hook-form";
+import React from "react";
+import { useForm, FieldErrors, Controller } from "react-hook-form";
 import { z as zod } from "zod";
 import { toast } from "sonner";
 import { DevTool } from "@hookform/devtools";
@@ -21,11 +21,19 @@ export default function NewContactForm() {
     reset,
     control,
     watch,
+    getValues,
+    setValue,
   } = useForm<TContactFormSchema>({
     resolver: zodResolver(contactFormSchema),
-    // defaultValues: defaultFormValues,
+    defaultValues: defaultFormValues,
     mode: "onTouched",
   });
+
+  const setValueHandler = (fieldName: keyof TContactFormSchema) => {
+    return () => {
+      setValue(fieldName, "");
+    };
+  };
 
   const onSubmitHandler = async (data: TContactFormSchema) => {
     const sendOperations = [sendMessage(data)];
@@ -36,16 +44,41 @@ export default function NewContactForm() {
 
     Promise.all(sendOperations)
       .then((results) => {
-        const allSuccessful = results.every((result) => result.success);
-        if (allSuccessful) {
-          toast.success("Message sent successfully", { duration: 4000 });
-          reset({ name: "", email: "", message: "", shouldSendCopy: false });
+        const messageResult = results[0];
+        const copyResult = results[1];
+
+        if (messageResult.success) {
+          toast.success("Message sent successfully", { duration: 5000 });
         } else {
-          toast.error("Error: Message not sent", { duration: 4000 });
+          toast.error("Error: Message not sent", { duration: 5000 });
+        }
+
+        if (data.shouldSendCopy) {
+          if (copyResult.success) {
+            toast.success("Copy sent successfully", { duration: 5000 });
+          } else {
+            toast.error("Error: Copy not sent", { duration: 5000 });
+          }
+        }
+
+        if (
+          messageResult.success &&
+          (!data.shouldSendCopy || copyResult.success)
+        ) {
+          reset({
+            senderName: "",
+            senderEmailAddress: "",
+            senderMessage: "",
+            shouldSendCopy: false,
+          });
         }
       })
       .catch((err) => {
-        toast.error(`Error: ${err}`, { duration: 4000 });
+        // catch any errors during exec. of the promises in sendOperations
+        console.error(`Error in sendOperations promises: ${err}`);
+        toast.error(`An error occurred. Pleas try again later. ${err}`, {
+          duration: 4000,
+        });
       });
 
     return new Promise<void>((resolve) => {
@@ -78,27 +111,29 @@ export default function NewContactForm() {
           <div className="rounded-md shadow-sm space-y-4 mt-4">
             <div>
               <Controller
-                name="name"
+                name="senderName"
                 control={control}
-                render={({ field: { onChange, onBlur, value } }) => (
+                render={({ field: { onChange, onBlur, value, name } }) => (
                   <Input
                     label="Name"
                     type="text"
                     placeholder="Enter your name here"
-                    isClearable
                     value={value}
                     onBlur={onBlur}
                     onChange={onChange}
-                    errorMessage={errors.name?.message}
+                    isRequired
+                    isClearable
+                    onClear={setValueHandler(name)}
+                    errorMessage={errors.senderName?.message}
                   />
                 )}
               />
             </div>
             <div>
               <Controller
-                name="email"
+                name="senderEmailAddress"
                 control={control}
-                render={({ field: { onChange, onBlur, value } }) => (
+                render={({ field: { onChange, onBlur, value, name } }) => (
                   <Input
                     label="Email"
                     type="email"
@@ -106,21 +141,27 @@ export default function NewContactForm() {
                     value={value}
                     onBlur={onBlur}
                     onChange={onChange}
-                    errorMessage={errors.email?.message}
+                    isRequired
+                    isClearable
+                    onClear={setValueHandler(name)}
+                    errorMessage={errors.senderEmailAddress?.message}
                   />
                 )}
               />
             </div>
             <div>
               <Controller
-                name="message"
+                name="senderMessage"
                 control={control}
-                render={({ field }) => (
+                render={({ field: { onChange, onBlur, value, name } }) => (
                   <Textarea
                     label="Message"
                     placeholder="Enter your message here"
-                    errorMessage={errors.message?.message}
-                    {...field}
+                    onChange={onChange}
+                    onBlur={onBlur}
+                    value={value}
+                    isRequired
+                    errorMessage={errors.senderMessage?.message}
                   />
                 )}
               />
@@ -129,21 +170,23 @@ export default function NewContactForm() {
               <Controller
                 name="shouldSendCopy"
                 control={control}
-                render={({ field: props }) => (
+                render={({ field }) => (
+                  // console.log("object:", { onChange, value });
+
                   <Checkbox
-                    {...props}
+                    {...field}
                     color="secondary"
-                    checked={props.value}
-                    value={props.value ? "true" : "false"}
-                    onChange={(e) => {
-                      props.onChange(e.target.checked);
-                    }}
+                    checked={field.value}
+                    value={field.value ? "true" : "false"}
+                    onChange={(e) => field.onChange(e.target.checked)}
                     size="sm"
                   >
                     Send a copy of this query to my email address
                   </Checkbox>
                 )}
               />
+              {/* <Checkbox defaultSelected>Test</Checkbox> */}
+              {/* <input type="text" onChange={handleChange} id="test-input" /> */}
             </div>
             <div>
               <Button

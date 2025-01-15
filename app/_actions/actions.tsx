@@ -47,12 +47,12 @@ export async function sendMessage(data: FieldInputs) {
     from: SMTP_SENDER,
     to: SMTP_RECIPIENT,
     subject: "New Inquiry from Sparrowhawk Trees contact form",
-    text: `You have a new message from ${data.name}:
+    text: `You have a new message from ${data.senderName}:
   
-      Email: ${data.email}
+      Email: ${data.senderEmailAddress}
       
       Message:
-      ${data.message}
+      ${data.senderMessage}
         `,
   };
 
@@ -71,12 +71,12 @@ export async function sendMessage(data: FieldInputs) {
 export async function sendCopy(data: FieldInputs) {
   const mailOptions: Object = {
     from: SMTP_SENDER,
-    to: data.email,
+    to: data.senderEmailAddress,
     subject: "Copy of your message to Sparrowhawk Trees",
     text: `You sent the following message to Sparrowhawk Trees:
   
       Message:
-      ${data.message}
+      ${data.senderMessage}
         `,
   };
 

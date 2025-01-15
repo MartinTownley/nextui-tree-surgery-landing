@@ -1,16 +1,18 @@
 import { z as zod } from "zod";
 
 export const contactFormSchema = zod.object({
-  name: zod.string().trim().min(1, "Name is required."),
+  senderName: zod.string().trim().min(1, "Name is required."),
 
-  email: zod.string().email({ message: "Invalid email address." }),
-  message: zod.string().min(20, "Message must be at least 20 characters."),
+  senderEmailAddress: zod.string().email({ message: "Invalid email address." }),
+  senderMessage: zod
+    .string()
+    .min(30, "Message must be at least 30 characters."),
   shouldSendCopy: zod.boolean(),
 });
 
 export const defaultFormValues = {
-  name: "default name",
-  email: "default@email.com",
-  message: "this is a default message of the correct minimum length",
+  senderName: "default name",
+  senderEmailAddress: "default@email.com",
+  senderMessage: "this is a default message of the correct minimum length",
   shouldSendCopy: false,
 };
