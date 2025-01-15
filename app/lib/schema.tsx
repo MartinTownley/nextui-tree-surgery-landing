@@ -11,8 +11,8 @@ export const contactFormSchema = zod.object({
 });
 
 export const defaultFormValues = {
-  senderName: "default name",
-  senderEmailAddress: "default@email.com",
-  senderMessage: "this is a default message of the correct minimum length",
+  // senderName: "default name",
+  // senderEmailAddress: "default@email.com",
+  // senderMessage: "this is a default message of the correct minimum length",
   shouldSendCopy: false,
 };

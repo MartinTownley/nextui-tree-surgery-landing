@@ -4,6 +4,7 @@ import { sendMessage, sendCopy } from "@/app/_actions/actions";
 import { contactFormSchema, defaultFormValues } from "@/app/lib/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { resolveMotionValue } from "framer-motion";
+import clsx from "clsx";
 import React from "react";
 import { useForm, FieldErrors, Controller } from "react-hook-form";
 import { z as zod } from "zod";
@@ -11,6 +12,7 @@ import { toast } from "sonner";
 import { DevTool } from "@hookform/devtools";
 import { SentMessageInfo } from "nodemailer";
 import { Button, Input, Textarea, Checkbox } from "@nextui-org/react";
+import { roboto_mono } from "@/config/fonts";
 type TContactFormSchema = zod.infer<typeof contactFormSchema>;
 
 export default function NewContactForm() {
@@ -108,13 +110,20 @@ export default function NewContactForm() {
           className="space-y-6 border-t"
           noValidate
         >
-          <div className="rounded-md shadow-sm space-y-4 mt-4">
+          <div
+            className={clsx(
+              "rounded-md shadow-sm space-y-4 mt-4",
+              roboto_mono.className
+            )}
+          >
             <div>
               <Controller
                 name="senderName"
                 control={control}
                 render={({ field: { onChange, onBlur, value, name } }) => (
                   <Input
+                    variant="underlined"
+                    size="md"
                     label="Name"
                     type="text"
                     placeholder="Enter your name here"
@@ -123,6 +132,7 @@ export default function NewContactForm() {
                     onChange={onChange}
                     isRequired
                     isClearable
+                    isInvalid={!!errors.senderName}
                     onClear={setValueHandler(name)}
                     errorMessage={errors.senderName?.message}
                   />
@@ -135,14 +145,17 @@ export default function NewContactForm() {
                 control={control}
                 render={({ field: { onChange, onBlur, value, name } }) => (
                   <Input
+                    variant="underlined"
+                    size="md"
                     label="Email"
                     type="email"
-                    placeholder="Enter your email here"
+                    placeholder="Enter your email address here"
                     value={value}
                     onBlur={onBlur}
                     onChange={onChange}
                     isRequired
                     isClearable
+                    isInvalid={!!errors.senderEmailAddress}
                     onClear={setValueHandler(name)}
                     errorMessage={errors.senderEmailAddress?.message}
                   />
@@ -155,12 +168,15 @@ export default function NewContactForm() {
                 control={control}
                 render={({ field: { onChange, onBlur, value, name } }) => (
                   <Textarea
+                    size="md"
+                    variant="underlined"
                     label="Message"
                     placeholder="Enter your message here"
                     onChange={onChange}
                     onBlur={onBlur}
                     value={value}
                     isRequired
+                    isInvalid={!!errors.senderMessage}
                     errorMessage={errors.senderMessage?.message}
                   />
                 )}
@@ -179,7 +195,7 @@ export default function NewContactForm() {
                     checked={field.value}
                     value={field.value ? "true" : "false"}
                     onChange={(e) => field.onChange(e.target.checked)}
-                    size="sm"
+                    size="md"
                   >
                     Send a copy of this query to my email address
                   </Checkbox>
@@ -191,7 +207,7 @@ export default function NewContactForm() {
             <div>
               <Button
                 type="submit"
-                className="bg-custom-orange"
+                className="bg-custom-orange font-bold"
                 // color="secondary"
                 isDisabled={!isValid}
                 isLoading={isSubmitting}
