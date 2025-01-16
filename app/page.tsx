@@ -51,7 +51,7 @@ export default function Home() {
                 // color="custom-orange"
                 radius="sm"
                 variant="shadow"
-                href="/#contact-divider"
+                href="/#contact"
                 size="md"
               >
                 Get in Touch
