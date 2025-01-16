@@ -12,7 +12,6 @@ const ServiceSection = async () => {
   const OPTIONS: EmblaOptionsType = { align: "start" };
   const servicesWithImages = await fetchServicesWithImages();
 
-  // return <ServiceSwiper services={servicesWithImages} />;
   return (
     <EmblaCarousel
       services={servicesWithImages}

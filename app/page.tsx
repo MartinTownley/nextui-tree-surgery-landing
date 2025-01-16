@@ -39,9 +39,8 @@ export default function Home() {
               </h1>
               <br />
               <h2 className={subtitle({ class: "mt-2" })}>
-                At Sparrowhawk trees, we believe in more than tree surgery –
-                we&apos;re your partners in garden management, cultivating
-                spaces where nature and beauty coexist.
+                Skilled and experienced tree surgeons, carrying out quality tree
+                work throughout East London and beyond.
               </h2>
             </div>
             {/* Hero Button */}
@@ -63,7 +62,7 @@ export default function Home() {
 
         {/* Services Section */}
         {/* Container */}
-        <div className="relative services-section px-10 py-10 bg-neutral-500 bg-opacity-100">
+        <div className="relative services-section px-10 py-10 bg-neutral-500 bg-opacity-100 bg-[url('/noise1.svg')] bg-cover bg-center bg-fixed">
           <div className="relative">
             {/* Title */}
             <div className="relative z-10 max-w-lg py-0 justify-center text-center mx-auto pb-10">

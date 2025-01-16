@@ -95,7 +95,7 @@ export default function NewContactForm() {
       id="contactForm"
       className="mx-auto max-w-lg px-4 py-8 sm:px-6 lg:px-8"
     >
-      <header className="text-center sm:text-left">
+      <header className="text-center sm:text-center">
         <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
           Contact Us
         </h2>
@@ -212,7 +212,7 @@ export default function NewContactForm() {
                 isDisabled={!isValid}
                 isLoading={isSubmitting}
               >
-                Submit
+                SUBMIT
               </Button>
             </div>
 
