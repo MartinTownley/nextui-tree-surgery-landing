@@ -90,7 +90,7 @@ export default function Home() {
 
         <div
           id="contact"
-          className="contact-section bg-stone-900 bg-opacity-100"
+          className="contact-section bg-stone-900 bg-opacity-100 bg-[url('/nnnoise7.svg')] bg-cover bg-center bg-fixed"
         >
           {/* <div className="divider pt-32 px-20 flex items-center justify-center">
             <hr
@@ -110,7 +110,7 @@ export default function Home() {
             <hr className="flex-grow h-px bg-gray-200 border-0 dark:bg-gray-700" />
           </div> */}
 
-          <div className="form-container pt-10 pb-10">
+          <div className="form-container pt-10 pb-10 ">
             <NewContactForm />
           </div>
 
