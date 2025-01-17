@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { NavbarMenu, NavbarMenuItem } from "@nextui-org/navbar";
+import { NavbarMenu, NavbarMenuItem } from "@heroui/navbar";
 import { siteConfig } from "@/config/site";
 import Link from "next/link";
 

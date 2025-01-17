@@ -1,7 +1,7 @@
 import { title } from "@/components/primitives";
 import Gallery from "@/components/Gallery";
 import BreadcrumbComponent from "@/components/BreadcrumbComponent";
-import { Breadcrumbs, BreadcrumbItem } from "@nextui-org/react";
+import { Breadcrumbs, BreadcrumbItem } from "@heroui/react";
 
 export default async function GalleryPage() {
   const galleryComponent = await Gallery();

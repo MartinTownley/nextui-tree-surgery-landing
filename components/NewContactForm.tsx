@@ -11,7 +11,7 @@ import { z as zod } from "zod";
 import { toast } from "sonner";
 import { DevTool } from "@hookform/devtools";
 import { SentMessageInfo } from "nodemailer";
-import { Button, Input, Textarea, Checkbox } from "@nextui-org/react";
+import { Button, Input, Textarea, Checkbox } from "@heroui/react";
 import { roboto_mono } from "@/config/fonts";
 type TContactFormSchema = zod.infer<typeof contactFormSchema>;
 
@@ -91,7 +91,7 @@ export default function NewContactForm() {
   };
 
   return (
-    <section
+    (<section
       id="contactForm"
       className="mx-auto max-w-lg px-4 py-8 sm:px-6 lg:px-8"
     >
@@ -189,16 +189,15 @@ export default function NewContactForm() {
                 render={({ field }) => (
                   // console.log("object:", { onChange, value });
 
-                  <Checkbox
+                  (<Checkbox
                     {...field}
                     color="secondary"
                     checked={field.value}
                     value={field.value ? "true" : "false"}
                     onChange={(e) => field.onChange(e.target.checked)}
                     size="md"
-                  >
-                    Send a copy of this query to my email address
-                  </Checkbox>
+                  >Send a copy of this query to my email address
+                                      </Checkbox>)
                 )}
               />
               {/* <Checkbox defaultSelected>Test</Checkbox> */}
@@ -220,6 +219,6 @@ export default function NewContactForm() {
           </div>
         </form>
       </header>
-    </section>
+    </section>)
   );
 }

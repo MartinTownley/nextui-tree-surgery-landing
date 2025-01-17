@@ -1,4 +1,4 @@
-import { Link } from "@nextui-org/link"; // Assuming you're using NextUI for links
+import { Link } from "@heroui/link"; // Assuming you're using NextUI for links
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa"; // For social icons
 
 export default function Footer() {

@@ -1,6 +1,6 @@
 "use client";
 import servicesData from "@/public/data/services-data";
-import { Accordion, AccordionItem } from "@nextui-org/accordion";
+import { Accordion, AccordionItem } from "@heroui/accordion";
 
 export default function ServicesAccordion() {
   return (

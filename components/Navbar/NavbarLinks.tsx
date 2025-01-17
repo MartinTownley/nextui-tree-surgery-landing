@@ -1,6 +1,6 @@
 import { siteConfig } from "@/config/site";
-import { Link } from "@nextui-org/link";
-import { NavbarItem } from "@nextui-org/navbar";
+import { Link } from "@heroui/link";
+import { NavbarItem } from "@heroui/navbar";
 import { usePathname } from "next/navigation";
 
 const NavbarLinks = () => {

@@ -1,5 +1,5 @@
-import { NavbarMenu, NavbarMenuItem } from "@nextui-org/navbar";
-import { Link } from "@nextui-org/link";
+import { NavbarMenu, NavbarMenuItem } from "@heroui/navbar";
+import { Link } from "@heroui/link";
 import { siteConfig } from "@/config/site";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";

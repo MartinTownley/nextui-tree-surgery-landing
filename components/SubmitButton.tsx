@@ -1,7 +1,7 @@
 // "use client";
 // @ts-ignore
 import { useFormStatus } from "react-dom";
-import { Button } from "@nextui-org/react";
+import { Button } from "@heroui/react";
 import { FormState } from "react-hook-form";
 import { useState, useEffect } from "react";
 

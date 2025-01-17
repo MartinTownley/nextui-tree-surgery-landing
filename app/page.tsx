@@ -1,12 +1,12 @@
-import { Link } from "@nextui-org/link";
-import { button as buttonStyles } from "@nextui-org/theme";
+import { Link } from "@heroui/link";
+import { button as buttonStyles } from "@heroui/theme";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import ServiceSection from "@/components/Services/ServiceSection";
 import NewContactForm from "@/components/NewContactForm";
 import { Toaster } from "sonner";
 import Image from "next/image";
-import { Button } from "@nextui-org/button";
+import { Button } from "@heroui/button";
 import FormWithRHF from "@/components/FormWithRHF";
 
 const bgImg = "https://i.imgur.com/AwGWYah.jpg";

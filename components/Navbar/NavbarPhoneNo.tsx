@@ -1,4 +1,4 @@
-import { NavbarContent, NavbarItem } from "@nextui-org/navbar";
+import { NavbarContent, NavbarItem } from "@heroui/navbar";
 import { bungee } from "@/config/fonts";
 
 const NavbarPhoneNo = () => {

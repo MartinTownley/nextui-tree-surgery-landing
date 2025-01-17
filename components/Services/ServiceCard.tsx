@@ -5,7 +5,7 @@ import {
   CardBody,
   CardFooter,
   Button,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
 import { title as primTitle, subtitle } from "@/components/primitives";

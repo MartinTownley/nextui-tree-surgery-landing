@@ -15,6 +15,7 @@ import { Providers } from "./providers";
 import { Navbar } from "@/components/Navbar/navbar";
 import clsx from "clsx";
 import Footer2 from "@/components/Footer2";
+import NavbarV2 from "@/components/Navbar/NavbarV2";
 
 export const metadata: Metadata = {
   title: {
@@ -54,6 +55,7 @@ export default function RootLayout({
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col h-screen max-w-screen-xl mx-auto">
             <Navbar />
+            {/* <NavbarV2 /> */}
             <main className="container mx-auto max-w-screen-xl flex-grow">
               {children}
             </main>

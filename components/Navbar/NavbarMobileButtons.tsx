@@ -1,10 +1,6 @@
-import {
-  NavbarContent,
-  NavbarItem,
-  NavbarMenuToggle,
-} from "@nextui-org/navbar";
-import { Button } from "@nextui-org/button";
-import { Link } from "@nextui-org/link";
+import { NavbarContent, NavbarItem, NavbarMenuToggle } from "@heroui/navbar";
+import { Button } from "@heroui/button";
+import { Link } from "@heroui/link";
 import { bungee_shade } from "@/config/fonts";
 import { PhoneIcon } from "@/components/icons";
 
@@ -33,6 +29,7 @@ const NavbarMobileButtons = ({ isMenuOpen }: NavbarMobileButtonsProps) => {
       <NavbarItem className="flex items-center justify-end">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="p-4"
         />
       </NavbarItem>
     </NavbarContent>
