@@ -9,8 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@hookform/resolvers": "^3.3.4",
-    "@next/env": "^14.2.3",
     "@heroui/accordion": "2.2.7",
     "@heroui/breadcrumbs": "2.2.6",
     "@heroui/button": "2.2.9",
@@ -21,6 +19,8 @@
     "@heroui/react": "2.6.13",
     "@heroui/system": "2.4.6",
     "@heroui/theme": "2.4.5",
+    "@hookform/resolvers": "^3.3.4",
+    "@next/env": "^14.2.3",
     "@react-aria/ssr": "^3.8.0",
     "@react-aria/visually-hidden": "^3.8.6",
     "@tailwindcss/forms": "^0.5.9",
