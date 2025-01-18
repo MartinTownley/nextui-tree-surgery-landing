@@ -15,7 +15,7 @@ export const Navbar = () => {
   const pathname = usePathname();
   return (
     <NextUINavbar
-      maxWidth="xl"
+      maxWidth="2xl"
       position="sticky"
       isBordered
       isMenuOpen={isMenuOpen}
