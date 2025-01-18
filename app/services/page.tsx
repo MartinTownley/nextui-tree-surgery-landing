@@ -21,6 +21,7 @@ export default async function ServicesPage() {
           <div
             key={index}
             id={service.id.toString()}
+            // id={`service-${index}`}
             className={`mb-8 flex flex-col lg:flex-row lg:gap-8 scroll-mt-20 ${
               index % 2 === 0 ? "lg:flex-row-reverse" : ""
             }`}

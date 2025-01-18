@@ -29,7 +29,7 @@ const ServiceCard: React.FC<ServiceCardProps> = (props) => {
     additionalInfo2,
   } = props;
 
-  // console.log(buttonLink);
+  console.log(buttonLink);
   return (
     <Card
       isFooterBlurred
