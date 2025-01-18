@@ -16,9 +16,18 @@ const NavbarLinks = () => {
           <NavbarItem
             key={link.href}
             data-active={isActive ? "true" : "false"}
-            className="flex h-full items-end px-2 py-2"
+            // className="flex h-full items-end px-2 py-2"
+            className="flex h-full items-end"
           >
-            <Link color="foreground" size="lg" href={link.href}>
+            <Link
+              color="foreground"
+              size="lg"
+              href={link.href}
+              // className={isActive ? "font-extrabold" : ""}
+              className={`flex h-full items-end px-2 py-2 ${
+                isActive ? "font-extrabold" : ""
+              }`}
+            >
               {link.label}
             </Link>
           </NavbarItem>

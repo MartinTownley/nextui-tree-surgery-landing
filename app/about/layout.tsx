@@ -4,7 +4,7 @@ export default function AboutLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className="bg-background-stone flex flex-col items-center justify-center gap-4 pb-16">
+    <section className=" flex flex-col items-center justify-center gap-4 pb-16 bg-background-stone bg-[url('/noise1.svg')] bg-cover bg-center bg-fixed">
       <div>{children}</div>
     </section>
   );

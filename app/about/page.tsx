@@ -6,7 +6,7 @@ export default function AboutPage() {
   const imgUrl = "https://i.imgur.com/TqjdK9g.jpg";
   return (
     // Container
-    <div className="container flex flex-col-reverse lg:flex-row items-center gap-12 mt-8 lg:mt-14">
+    <div className="container flex flex-col-reverse lg:flex-row items-center mt-8 lg:mt-14">
       {/* Content */}
       <div className="flex-1 flex-col items-center lg:items-start">
         <h1 className={`${title()} text-center`}>About us</h1>
@@ -27,12 +27,12 @@ export default function AboutPage() {
           </p>
         </div>
       </div>
-      <div className="flex justify-center flex-1 mb-10 md:mb-16 lg:mb-0">
+      <div className="flex justify-center flex-1 m-10 md:m-12 lg:mb-0">
         <Image
           src={imgUrl}
           alt="Profile Picture"
-          width={400}
-          height={500}
+          width={300}
+          height={375}
           className="rounded-medium object-cover"
           // placeholder="blur"
           // style={{ objectFit: "" }}

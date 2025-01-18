@@ -46,7 +46,7 @@ export default function Home() {
             {/* Hero Button */}
             <div className="flex gap-3 relative z-10 pt-6">
               <Button
-                className="bg-secondary-orange  font-bold text-base"
+                className="bg-secondary-orange font-bold text-base border"
                 as={Link}
                 // color="custom-orange"
                 radius="sm"

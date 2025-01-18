@@ -10,9 +10,10 @@ export default function ServicesAccordion() {
           <AccordionItem
             key={index}
             aria-label={`Accordion ${index + 1}`}
-            title={service.title}
+            className="bg-stone-800"
+            title={<span className="text-lg font-bold">{service.title}</span>}
           >
-            {service.description}
+            <div className="pb-8 ">{service.description}</div>
           </AccordionItem>
         ))}
       </Accordion>
