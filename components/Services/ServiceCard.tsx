@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Button,
-} from "@heroui/react";
+import { Card, CardHeader, CardBody, CardFooter, Button } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
 import { title as primTitle, subtitle } from "@/components/primitives";
@@ -35,6 +29,7 @@ const ServiceCard: React.FC<ServiceCardProps> = (props) => {
     additionalInfo2,
   } = props;
 
+  // console.log(buttonLink);
   return (
     <Card
       isFooterBlurred
@@ -62,19 +57,20 @@ const ServiceCard: React.FC<ServiceCardProps> = (props) => {
       />
 
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10">
-        <Link href={buttonLink} passHref>
-          <Button
-            className="bg-secondary-orange border font-bold"
-            // as={Link}
-            radius="sm"
-            size="lg"
-            // color="secondary"
-            // href={buttonLink}
-            // variant="bordered"
-          >
-            {buttonText}
-          </Button>
-        </Link>
+        {/* <Link href={buttonLink} passHref> */}
+        {/* <Link > */}
+        <Button
+          className="bg-secondary-orange border font-bold"
+          as={Link}
+          radius="sm"
+          size="lg"
+          // color="secondary"
+          href={buttonLink}
+          // variant="bordered"
+        >
+          {buttonText}
+        </Button>
+        {/* </Link> */}
       </div>
 
       {/* <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100"> */}
