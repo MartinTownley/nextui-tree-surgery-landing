@@ -62,7 +62,7 @@ export default function Home() {
 
         {/* Services Section */}
         {/* Container */}
-        <div className="relative services-section px-10 py-10 bg-neutral-500 bg-opacity-100 bg-[url('/noise1.svg')] bg-cover bg-center bg-fixed">
+        <div className="relative services-section px-10 py-10 bg-stone-800 bg-opacity-100 bg-[url('/noise1.svg')] bg-cover bg-center bg-fixed">
           <div className="relative">
             {/* Title */}
             <div className="relative z-10 max-w-lg py-0 justify-center text-center mx-auto pb-10">

@@ -33,7 +33,7 @@ export const Navbar = () => {
           "data-[active=true]:after:right-0",
           "data-[active=true]:after:h-[4px]",
           // "data-[active=true]:after:rounded[2px]",
-          "data-[active=true]:after:bg-white",
+          "data-[active=true]:after:bg-brighter-orange",
         ],
       }}
     >

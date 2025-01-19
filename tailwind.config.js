@@ -41,6 +41,7 @@ module.exports = {
       colors: {
         "main-green": "var(--main-green-color)",
         "secondary-orange": "var(--secondary-orange-color)",
+        "brighter-orange": "var(--brighter-orange-color)",
       },
     },
   },

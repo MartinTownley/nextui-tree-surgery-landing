@@ -20,12 +20,12 @@ const NavbarLinks = () => {
             className="flex h-full items-end"
           >
             <Link
-              color="foreground"
+              // color={isActive ? "warning" : "foreground"}
               size="lg"
               href={link.href}
               // className={isActive ? "font-extrabold" : ""}
               className={`flex h-full items-end px-2 py-2 ${
-                isActive ? "font-extrabold" : ""
+                isActive ? "font-extrabold text-brighter-orange" : "text-white"
               }`}
             >
               {link.label}
