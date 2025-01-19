@@ -8,28 +8,31 @@ import { Toaster } from "sonner";
 import Image from "next/image";
 import { Button } from "@heroui/button";
 import FormWithRHF from "@/components/FormWithRHF";
+import TestParallax from "@/components/TestParallax";
+import heroFlip from "../public/hero-flip.jpeg";
 
-const bgImg = "https://i.imgur.com/AwGWYah.jpg";
+// const bgImg = "https://i.imgur.com/AwGWYah.jpg";
 
 export default function Home() {
   return (
-    <section className="relative min-h-screen ">
+    <section className="relative min-h-screen">
       <Toaster richColors position="top-center" expand={true} />
 
-      {/* Background Image with Opacity */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-fixed opacity-60"
-        style={{
-          backgroundImage: `url(${bgImg})`,
-        }}
-      >
-        <div className="absolute inset-0 bg-black opacity-30"></div>
-      </div>
-
       {/* Content Wrapper */}
-      <div className="relative z-10 tilt">
+      <div className="relative z-10 tilt border-solid border-8 border-white">
         {/* Hero Section */}
-        <div className=" hero-section relative flex flex-col items-start justify-center h-[91vh] ">
+        <div className="hero-section relative flex flex-col items-start justify-center h-[91vh] border-solid border-8 border-orange-500">
+          {/* Hero Image */}
+          <div className="absolute inset-0">
+            <Image
+              src={heroFlip}
+              alt="garden"
+              // style={{ objectFit: "cover", position: "absolute" }}
+              objectFit="cover"
+              fill
+            />
+          </div>
+
           {/* Hero text Wrapper */}
           <div className="py-8 md:py-10 px-10 relative w-full">
             {/* Hero Text */}

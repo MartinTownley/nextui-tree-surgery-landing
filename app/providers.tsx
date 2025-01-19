@@ -5,6 +5,7 @@ import { HeroUIProvider } from "@heroui/system";
 import { useRouter } from "next/navigation";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { ThemeProviderProps } from "next-themes/dist/types";
+import { ParallaxProvider } from "react-scroll-parallax";
 
 export interface ProvidersProps {
   children: React.ReactNode;
@@ -16,7 +17,9 @@ export function Providers({ children, themeProps }: ProvidersProps) {
 
   return (
     <HeroUIProvider navigate={router.push}>
-      <NextThemesProvider {...themeProps}>{children}</NextThemesProvider>
+      <NextThemesProvider {...themeProps}>
+        <ParallaxProvider>{children}</ParallaxProvider>
+      </NextThemesProvider>
     </HeroUIProvider>
   );
 }
