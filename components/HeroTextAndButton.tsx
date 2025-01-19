@@ -10,7 +10,11 @@ function HeroTextAndButton() {
       <div className="inline-block max-w-lg text-left">
         <h1 className={title()}>Your Friendly Neighbourhood Tree Surgery</h1>
         <br />
-        <h2 className={subtitle({ class: "mt-2" })}>
+        <h2
+          className={subtitle({
+            class: "mt-2 text-gray-100 backdrop-blur rounded-xl",
+          })}
+        >
           Skilled and experienced tree surgeons, carrying out quality tree work
           throughout East London and beyond.
         </h2>

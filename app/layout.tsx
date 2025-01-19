@@ -1,5 +1,4 @@
 import "@/styles/globals.css";
-
 import "@/styles/embla.css";
 import { Metadata, Viewport } from "next";
 import { siteConfig } from "@/config/site";
@@ -15,7 +14,7 @@ import { Providers } from "./providers";
 import { Navbar } from "@/components/Navbar/navbar";
 import clsx from "clsx";
 import Footer2 from "@/components/Footer2";
-import NavbarV2 from "@/components/Navbar/NavbarV2";
+import { ReactLenis, useLenis } from "./utils/lenis";
 
 export const metadata: Metadata = {
   title: {
@@ -47,25 +46,27 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body
-        className={clsx(
-          "min-h-screen bg-background antialiased",
-          merriweather.className
-        )}
-      >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen max-w-screen-2xl mx-auto">
-            <Navbar />
-            {/* <NavbarV2 /> */}
-            <main className="container mx-auto max-w-screen-2xl flex-grow">
-              {children}
-            </main>
-            <footer className="relative z-10 w-full flex items-center justify-center py-3">
-              <Footer2 />
-            </footer>
-          </div>
-        </Providers>
-      </body>
+      <ReactLenis root>
+        <body
+          className={clsx(
+            "min-h-screen bg-background antialiased",
+            merriweather.className
+          )}
+        >
+          <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+            <div className="relative flex flex-col h-screen max-w-screen-2xl mx-auto">
+              <Navbar />
+
+              <main className="container mx-auto max-w-screen-2xl flex-grow">
+                {children}
+              </main>
+              <footer className="relative z-10 w-full flex items-center justify-center py-3">
+                <Footer2 />
+              </footer>
+            </div>
+          </Providers>
+        </body>
+      </ReactLenis>
     </html>
   );
 }

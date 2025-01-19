@@ -40,9 +40,10 @@
   filter: invert(1) sepia(1);
 }
 
-* {
+/* css scroll behavior smooth will interfere with lenis scroll - only use one or the other */
+/* * {
   scroll-behavior: smooth;
-}
+} */
 
 .large-font {
   font-size: 1.5rem; /* Adjust the size as needed */
