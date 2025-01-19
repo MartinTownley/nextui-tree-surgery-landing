@@ -4,7 +4,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import heroFlip from "../public/hero-flip.jpeg";
 
-export default function FramerParallax() {
+export default function HeroImageParallax() {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({});
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "60%"]);

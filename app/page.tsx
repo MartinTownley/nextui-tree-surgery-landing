@@ -8,7 +8,7 @@ import { Toaster } from "sonner";
 import Image from "next/image";
 import { Button } from "@heroui/button";
 import heroFlip from "../public/hero-flip.jpeg";
-import FramerParallax from "@/components/FramerParallax";
+import HeroImageParallax from "@/components/HeroImageParallax";
 import HeroTextAndButton from "@/components/HeroTextAndButton";
 
 export default function Home() {
@@ -22,7 +22,7 @@ export default function Home() {
         <div className="relative flex flex-col items-start h-[95vh] justify-center overflow-hidden">
           {/* Hero Image */}
 
-          <FramerParallax />
+          <HeroImageParallax />
 
           <HeroTextAndButton />
         </div>
