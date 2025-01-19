@@ -7,11 +7,9 @@ import NewContactForm from "@/components/NewContactForm";
 import { Toaster } from "sonner";
 import Image from "next/image";
 import { Button } from "@heroui/button";
-import FormWithRHF from "@/components/FormWithRHF";
-import TestParallax from "@/components/TestParallax";
 import heroFlip from "../public/hero-flip.jpeg";
-
-// const bgImg = "https://i.imgur.com/AwGWYah.jpg";
+import FramerParallax from "@/components/FramerParallax";
+import HeroTextAndButton from "@/components/HeroTextAndButton";
 
 export default function Home() {
   return (
@@ -19,60 +17,42 @@ export default function Home() {
       <Toaster richColors position="top-center" expand={true} />
 
       {/* Content Wrapper */}
-      <div className="relative z-10 tilt border-solid border-8 border-white">
+      <div className="relative z-10 tilt">
         {/* Hero Section */}
-        <div className="hero-section relative flex flex-col items-start justify-center h-[91vh] border-solid border-8 border-orange-500">
+        <div className="hero-section relative flex flex-col items-start justify-center h-[91vh] ">
           {/* Hero Image */}
-          <div className="absolute inset-0">
+
+          {/* <TestParallax /> */}
+          {/* <FramerParallax /> */}
+
+          <div className="fixed z-0 inset-0">
             <Image
               src={heroFlip}
               alt="garden"
-              // style={{ objectFit: "cover", position: "absolute" }}
-              objectFit="cover"
+              style={{ objectFit: "cover", position: "absolute" }}
               fill
+              placeholder="blur"
             />
           </div>
 
+          {/* Dark Overlay */}
+          {/* <div className="fixed inset-0 z-1 bg-black opacity-50"></div> */}
+
           {/* Hero text Wrapper */}
-          <div className="py-8 md:py-10 px-10 relative w-full">
-            {/* Hero Text */}
-            <div className="relative z-10 inline-block max-w-lg text-left">
-              <h1 className={title()}>
-                Your Friendly Neighbourhood Tree Surgery
-              </h1>
-              <br />
-              <h2 className={subtitle({ class: "mt-2" })}>
-                Skilled and experienced tree surgeons, carrying out quality tree
-                work throughout East London and beyond.
-              </h2>
-            </div>
-            {/* Hero Button */}
-            <div className="flex gap-3 relative z-10 pt-6">
-              <Button
-                className="bg-secondary-orange font-bold text-base border"
-                as={Link}
-                // color="custom-orange"
-                radius="sm"
-                variant="shadow"
-                href="/#contact"
-                size="md"
-              >
-                Get in Touch
-              </Button>
-            </div>
-          </div>
+
+          <HeroTextAndButton />
         </div>
 
         {/* Services Section */}
         {/* Container */}
-        <div className="relative services-section px-10 py-10 bg-stone-800 bg-opacity-100 bg-[url('/noise1.svg')] bg-cover bg-center bg-fixed">
+        <div className="relative z-10 services-section px-10 py-10 bg-stone-800 bg-opacity-100 bg-[url('/noise1.svg')] bg-cover bg-center bg-fixed">
           <div className="relative">
             {/* Title */}
-            <div className="relative z-10 max-w-lg py-0 justify-center text-center mx-auto pb-10">
+            <div className=" max-w-lg py-0 justify-center text-center mx-auto pb-10">
               <h1 className={title()}>Our Services</h1>
             </div>
 
-            <div className="relative">
+            <div>
               <ServiceSection />
             </div>
           </div>
@@ -89,37 +69,16 @@ export default function Home() {
             className="logo"
           />
         </div>
+
         {/* Contact Section */}
 
         <div
           id="contact"
-          className="contact-section bg-stone-900 bg-opacity-100 bg-[url('/nnnoise7.svg')] bg-cover bg-center bg-fixed"
+          className="relative z-10 contact-section bg-stone-900 bg-opacity-100 bg-[url('/nnnoise7.svg')] bg-cover bg-center bg-fixed"
         >
-          {/* <div className="divider pt-32 px-20 flex items-center justify-center">
-            <hr
-              id="contact-divider"
-              className="flex-grow h-px bg-gray-200 border-0 dark:bg-gray-700"
-            />
-            <div className="mx-4">
-              <Image
-                src={"/custom-icon.png"}
-                alt="Sparrowhawk Trees Icon"
-                width={50}
-                height={50}
-                className="logo"
-              />
-            </div>
-
-            <hr className="flex-grow h-px bg-gray-200 border-0 dark:bg-gray-700" />
-          </div> */}
-
           <div className="form-container pt-10 pb-10 ">
             <NewContactForm />
           </div>
-
-          {/* <div className="flex min-h-screen max-w-4xl mx-auto flex-col items-center justify-between p-24">
-            <FormWithRHF />
-          </div> */}
         </div>
       </div>
     </section>

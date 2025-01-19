@@ -60,7 +60,7 @@ export default function RootLayout({
             <main className="container mx-auto max-w-screen-2xl flex-grow">
               {children}
             </main>
-            <footer className="w-full flex items-center justify-center py-3">
+            <footer className="relative z-10 w-full flex items-center justify-center py-3">
               <Footer2 />
             </footer>
           </div>
