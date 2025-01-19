@@ -16,29 +16,13 @@ export default function Home() {
     <section className="relative min-h-screen">
       <Toaster richColors position="top-center" expand={true} />
 
-      {/* Content Wrapper */}
+      {/* All Content Wrapper */}
       <div className="relative z-10 tilt">
-        {/* Hero Section */}
-        <div className="hero-section relative flex flex-col items-start justify-center h-[91vh] ">
+        {/* Hero Wrapper */}
+        <div className="relative flex flex-col items-start h-[95vh] justify-center overflow-hidden">
           {/* Hero Image */}
 
-          {/* <TestParallax /> */}
-          {/* <FramerParallax /> */}
-
-          <div className="fixed z-0 inset-0">
-            <Image
-              src={heroFlip}
-              alt="garden"
-              style={{ objectFit: "cover", position: "absolute" }}
-              fill
-              placeholder="blur"
-            />
-          </div>
-
-          {/* Dark Overlay */}
-          {/* <div className="fixed inset-0 z-1 bg-black opacity-50"></div> */}
-
-          {/* Hero text Wrapper */}
+          <FramerParallax />
 
           <HeroTextAndButton />
         </div>
