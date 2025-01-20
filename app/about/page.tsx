@@ -9,10 +9,10 @@ export default function AboutPage() {
     <div className="container flex flex-col-reverse lg:flex-row items-center justify-center mt-8 lg:mt-14 h-[80vh] px-4 pt-8 pb-8">
       {/* Content */}
       <div className="flex-1 flex-col items-center lg:items-start justify-center">
-        <h1 className={`${title()} text-center lg:text-left`}>
+        <h1 className={`${title()} text-center lg:text-right`}>
           About Our Practice
         </h1>
-        <div className="text-lg mt-4 text-center lg:text-left mb-6">
+        <div className="text-lg mt-4 text-center lg:text-right mb-6">
           <p className="my-4">
             We are fully insured and qualified to undertake all aspects of tree
             surgery, from pruning and shaping to felling and stump removal. We
@@ -29,7 +29,7 @@ export default function AboutPage() {
           </p>
         </div>
       </div>
-      <div className="flex justify-center flex-1 m-10 items-center lg:justify-end">
+      <div className="flex justify-center flex-1 mt-8 mb-8 items-center ">
         <Image
           src={imgUrl}
           alt="Profile Picture"
