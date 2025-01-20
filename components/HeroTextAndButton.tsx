@@ -1,11 +1,21 @@
+"use client";
 import React from "react";
 import { title, subtitle } from "@/components/primitives";
 import { Link } from "@heroui/link";
 import { Button } from "@heroui/button";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 function HeroTextAndButton() {
+  const ref = React.useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref });
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+
   return (
-    <div className="py-8 md:py-10 px-10 relative w-full z-10">
+    <motion.div
+      ref={ref}
+      style={{ opacity }}
+      className="py-8 md:py-10 px-10 relative w-full z-10"
+    >
       {/* Hero Text */}
       <div className="inline-block max-w-lg text-left">
         <h1 className={title()}>Your Friendly Neighbourhood Tree Surgery</h1>
@@ -33,7 +43,7 @@ function HeroTextAndButton() {
           Get in Touch
         </Button>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
