@@ -6,10 +6,12 @@ export default function AboutPage() {
   const imgUrl = "https://i.imgur.com/TqjdK9g.jpg";
   return (
     // Container
-    <div className="container flex flex-col-reverse lg:flex-row items-center mt-8 lg:mt-14">
+    <div className="container flex flex-col-reverse lg:flex-row items-center justify-center mt-8 lg:mt-14 h-[80vh] px-4 pt-8 pb-8">
       {/* Content */}
-      <div className="flex-1 flex-col items-center lg:items-start">
-        <h1 className={`${title()} text-center`}>About us</h1>
+      <div className="flex-1 flex-col items-center lg:items-start justify-center">
+        <h1 className={`${title()} text-center lg:text-left`}>
+          About Our Practice
+        </h1>
         <div className="text-lg mt-4 text-center lg:text-left mb-6">
           <p className="my-4">
             We are fully insured and qualified to undertake all aspects of tree
@@ -27,7 +29,7 @@ export default function AboutPage() {
           </p>
         </div>
       </div>
-      <div className="flex justify-center flex-1 m-10 md:m-12 lg:mb-0">
+      <div className="flex justify-center flex-1 m-10 items-center lg:justify-end">
         <Image
           src={imgUrl}
           alt="Profile Picture"
