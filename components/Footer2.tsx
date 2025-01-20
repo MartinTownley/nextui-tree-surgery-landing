@@ -5,7 +5,7 @@ import { roboto_mono } from "@/config/fonts";
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col items-center  text-center text-gray-300">
+    <footer className="flex flex-col items-center  text-center text-gray-400">
       <div
         className={clsx(
           "w-full bg-black/20 p-4 text-center",

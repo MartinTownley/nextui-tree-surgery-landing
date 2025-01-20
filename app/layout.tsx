@@ -14,7 +14,6 @@ import { Providers } from "./providers";
 import { Navbar } from "@/components/Navbar/navbar";
 import clsx from "clsx";
 import Footer2 from "@/components/Footer2";
-import { ReactLenis, useLenis } from "./utils/lenis";
 
 export const metadata: Metadata = {
   title: {
@@ -56,7 +55,7 @@ export default function RootLayout({
           <div className="relative flex flex-col h-screen max-w-screen-2xl mx-auto">
             <Navbar />
             <main className="container mx-auto max-w-screen-2xl flex-grow">
-              <ReactLenis root>{children}</ReactLenis>
+              {children}
             </main>
             <footer className="relative z-10 w-full flex items-center justify-center py-3">
               <Footer2 />
