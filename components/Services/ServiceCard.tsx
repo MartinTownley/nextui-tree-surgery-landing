@@ -31,7 +31,7 @@ const ServiceCard: React.FC<ServiceCardProps> = (props) => {
 
   return (
     <Card
-      isFooterBlurred
+      // isFooterBlurred
       className="relative w-full h-[300px] col-span-12 sm:col-span-7"
       radius="sm"
       shadow="md"
@@ -56,8 +56,6 @@ const ServiceCard: React.FC<ServiceCardProps> = (props) => {
       />
 
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10">
-        {/* <Link href={buttonLink} passHref> */}
-        {/* <Link > */}
         <Button
           className="bg-secondary-orange border font-bold"
           as={Link}

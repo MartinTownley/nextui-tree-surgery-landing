@@ -46,27 +46,24 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <ReactLenis root>
-        <body
-          className={clsx(
-            "min-h-screen bg-background antialiased",
-            merriweather.className
-          )}
-        >
-          <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-            <div className="relative flex flex-col h-screen max-w-screen-2xl mx-auto">
-              <Navbar />
-
-              <main className="container mx-auto max-w-screen-2xl flex-grow">
-                {children}
-              </main>
-              <footer className="relative z-10 w-full flex items-center justify-center py-3">
-                <Footer2 />
-              </footer>
-            </div>
-          </Providers>
-        </body>
-      </ReactLenis>
+      <body
+        className={clsx(
+          "min-h-screen bg-background antialiased",
+          merriweather.className
+        )}
+      >
+        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+          <div className="relative flex flex-col h-screen max-w-screen-2xl mx-auto">
+            <Navbar />
+            <main className="container mx-auto max-w-screen-2xl flex-grow">
+              <ReactLenis root>{children}</ReactLenis>
+            </main>
+            <footer className="relative z-10 w-full flex items-center justify-center py-3">
+              <Footer2 />
+            </footer>
+          </div>
+        </Providers>
+      </body>
     </html>
   );
 }

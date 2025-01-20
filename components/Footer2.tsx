@@ -12,7 +12,7 @@ export default function Footer() {
           roboto_mono.className
         )}
       >
-        [design & development by MT]
+        [design & development by MT, 2025]
       </div>
     </footer>
   );
