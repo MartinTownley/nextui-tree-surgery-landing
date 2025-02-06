@@ -22,14 +22,6 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const badTransporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: SMTP_SENDER,
-    pass: SMTP_BAD_PASSWORD,
-  },
-});
-
 export async function sendMessage(data: FieldInputs) {
   if (process.env.NODE_ENV === "development") {
     console.log("development mode");
@@ -86,8 +78,8 @@ export async function sendCopy(data: FieldInputs) {
       return { success: true, data: result.response };
     })
     .catch((err) => {
-      console.log("transporter error");
-      // What should I put here?
+      console.log("transporter sendCopy error:", err);
+
       return { success: false, error: err };
     });
 }
