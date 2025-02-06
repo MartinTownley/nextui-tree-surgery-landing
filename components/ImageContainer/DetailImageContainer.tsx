@@ -21,7 +21,7 @@ export default function DetailImageContainer({ image }: Props) {
         width={0}
         height={0}
         sizes="100vw"
-        className="max-h-[90vh] w-auto max-w-full"
+        className="max-h-[90vh] w-auto max-w-full object-cover rounded-xl"
       />
     </div>
   );

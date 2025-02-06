@@ -6,10 +6,6 @@ type Props = {
 };
 
 export default function ImageContainer({ image }: Props) {
-  console.log("ImageContainer received image:", image);
-  // console.log("objectFit:", objectFit);
-  // console.log("sizes:", sizes);
-
   if (!image) {
     return <div>No image data</div>;
   }

@@ -17,7 +17,7 @@ const CustomLogo: React.FC<CustomLogoProps> = ({
   height,
   className,
 }) => {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { theme } = useTheme();
 
   return (
     <div>

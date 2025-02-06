@@ -18,7 +18,7 @@ export default function Home() {
         <div className="relative flex flex-col items-start h-[95vh] justify-center overflow-hidden">
           {/* Hero Image */}
 
-          <HeroImageParallax />
+          <HeroImageParallax heroImage={heroFlip} />
 
           <HeroTextAndButton />
         </div>

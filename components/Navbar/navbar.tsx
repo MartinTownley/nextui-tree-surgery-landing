@@ -2,17 +2,16 @@
 import { NavbarContent, Navbar as NextUINavbar } from "@heroui/navbar";
 import { useState } from "react";
 // import { ThemeSwitch } from "@/components/theme-switch";
-import { usePathname } from "next/navigation";
 import NavbarLogo from "@/components/Navbar/NavbarLogo";
 import NavbarLinks from "@/components/Navbar/NavbarLinks";
 import NavbarPhoneNo from "./NavbarPhoneNo";
 import NavbarMobileButtons from "./NavbarMobileButtons";
 import NavbarMenuItems from "./NavbarMenuItems";
-//import MobileMenu from "@/components/MobileMenu";
+import customLogoShort from "../../public/custom-logo-short.svg";
+import customLogoLongCropped from "../../public/custom-logo-long-cropped.svg";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const pathname = usePathname();
   return (
     <NextUINavbar
       maxWidth="2xl"
@@ -38,7 +37,10 @@ export const Navbar = () => {
       }}
     >
       <NavbarContent className="">
-        <NavbarLogo />
+        <NavbarLogo
+          shortLogo={customLogoShort}
+          longLogo={customLogoLongCropped}
+        />
       </NavbarContent>
 
       <div className="hidden md:flex justify-end">
@@ -49,7 +51,6 @@ export const Navbar = () => {
           {/* Divider */}
           <NavbarPhoneNo />
         </NavbarContent>
-        {/* </NavbarContent> */}
       </div>
 
       <NavbarMobileButtons isMenuOpen={isMenuOpen} />

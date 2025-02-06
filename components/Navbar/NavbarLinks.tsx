@@ -16,14 +16,10 @@ const NavbarLinks = () => {
           <NavbarItem
             key={link.href}
             data-active={isActive ? "true" : "false"}
-            // className="flex h-full items-end px-2 py-2"
             className="flex h-full items-end"
           >
             <Link
-              // color={isActive ? "warning" : "foreground"}
-              // size='lg'
               href={link.href}
-              // className={isActive ? "font-extrabold" : ""}
               className={`flex h-full items-end px-2 py-2 ${
                 isActive ? "font-extrabold text-brighter-orange" : "text-white"
               } text-lg md:text-medium lg:text-lg`}

@@ -40,7 +40,6 @@ export default async function PhotoDetail({
     <div className="">
       <BreadcrumbComponent />
 
-      {/* <h1 className="text-3xl font-bold mb-4">Image Detail</h1> */}
       <DetailImageContainer image={image} />
     </div>
   );
