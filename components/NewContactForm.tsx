@@ -1,12 +1,12 @@
 "use client";
 
-import { sendMessage, sendCopy } from "@/app/_actions/actions";
+import { sendMessage, sendCopy } from "@/app/_actions/actions.resend";
 import { contactFormSchema, defaultFormValues } from "@/app/lib/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { resolveMotionValue } from "framer-motion";
 import clsx from "clsx";
 import React from "react";
-import { useForm, FieldErrors, Controller } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { z as zod } from "zod";
 import { toast } from "sonner";
 import { DevTool } from "@hookform/devtools";

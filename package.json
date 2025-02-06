@@ -49,6 +49,7 @@
     "react-icon": "^1.0.0",
     "react-icons": "^5.0.1",
     "react-photo-album": "^2.3.1",
+    "resend": "^4.1.2",
     "server-only": "^0.0.1",
     "sonner": "^1.4.3",
     "tailwind-variants": "^0.1.18",
