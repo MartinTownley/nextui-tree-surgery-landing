@@ -1,11 +1,12 @@
 import { title, subtitle } from "@/components/primitives";
-import ServiceSection from "@/components/Services/ServiceSection";
+import ServiceCarousel from "@/components/Services/ServiceCarousel";
 import NewContactForm from "@/components/NewContactForm";
 import { Toaster } from "sonner";
 import Image from "next/image";
 import heroFlip from "../public/hero-flip.jpeg";
 import HeroImageParallax from "@/components/HeroImageParallax";
 import HeroTextAndButton from "@/components/HeroTextAndButton";
+import ServicesSection from "@/components/Services/ServicesSection";
 
 export default function Home() {
   return (
@@ -24,19 +25,9 @@ export default function Home() {
         </div>
 
         {/* Services Section */}
-        {/* Container */}
-        <div className="relative z-10 services-section px-10 py-10 bg-stone-800 bg-opacity-100 bg-[url('/noise1.svg')] bg-cover bg-center bg-fixed">
-          <div className="relative">
-            {/* Title */}
-            <div className=" max-w-lg py-0 justify-center text-center mx-auto pb-10">
-              <h1 className={title()}>Our Services</h1>
-            </div>
+        <ServicesSection />
 
-            <div>
-              <ServiceSection />
-            </div>
-          </div>
-        </div>
+        <ServiceCarousel />
 
         {/*Icon on border*/}
 
