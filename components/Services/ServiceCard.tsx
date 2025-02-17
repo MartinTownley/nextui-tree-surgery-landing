@@ -55,15 +55,16 @@ const ServiceCard: React.FC<ServiceCardProps> = (props) => {
         src={imageUrl}
       />
 
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10">
+      <div
+        // whileHover={{ scale: 1.05 }}
+        className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10"
+      >
         <Button
-          className="bg-secondary-orange border font-bold"
+          className="bg-secondary-orange border font-bold transition-transform duration-300 data-[hover]:scale-110 ease-in-out"
           as={Link}
           radius="sm"
           size="lg"
-          // color="secondary"
           href={buttonLink}
-          // variant="bordered"
         >
           {buttonText}
         </Button>

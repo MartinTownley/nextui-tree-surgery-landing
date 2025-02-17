@@ -10,7 +10,6 @@ import {
 import useEmblaCarousel from "embla-carousel-react";
 import ServiceCard from "@/components/Services/ServiceCard";
 import type { Service } from "@/app/lib/fetchServicesWithImages";
-import { motion } from "framer-motion";
 
 type PropType = {
   services: Service[];
@@ -36,13 +35,9 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
       <div className="embla__viewport " ref={emblaRef}>
         <div className="embla__container p-4">
           {services.map((service, index) => (
-            <motion.div
-              className="embla__slide"
-              key={index}
-              whileHover={{ scale: 1.05 }}
-            >
+            <div className="embla__slide" key={index}>
               <ServiceCard {...service} />
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
