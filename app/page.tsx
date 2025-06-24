@@ -29,7 +29,7 @@ export default function Home() {
           <div className="relative">
             {/* Title */}
             <div className=" max-w-lg py-0 justify-center text-center mx-auto pb-10">
-              <h1 className={title()}>Our Services</h1>
+              {/* <h1 className={title()}>Our Services</h1> */}
             </div>
 
             <div>
