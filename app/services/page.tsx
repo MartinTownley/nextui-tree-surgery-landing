@@ -1,12 +1,9 @@
 import { title } from "@/components/primitives";
 import ServicesAccordion from "@/components/Services/ServicesAccordion";
-import { fetchServicesWithImages } from "@/app/lib/fetchServicesWithImages";
 import servicesData from "@/public/data/services-data";
 import Image from "next/image";
 
 export default async function ServicesPage() {
-  const servicesWithImages = await fetchServicesWithImages();
-
   return (
     <main className="py-10">
       <header className="mb-10 text-center lg:text-left">
@@ -17,7 +14,7 @@ export default async function ServicesPage() {
       </section>
 
       <section className="hidden lg:block ">
-        {servicesWithImages.map((service, index) => (
+        {servicesData.map((service, index) => (
           <div
             key={index}
             id={service.id.toString()}
