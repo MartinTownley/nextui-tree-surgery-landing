@@ -1,3 +1,4 @@
+// gallery/page.tsx
 import { title } from "@/components/primitives";
 import Gallery from "@/components/Gallery";
 import BreadcrumbComponent from "@/components/BreadcrumbComponent";

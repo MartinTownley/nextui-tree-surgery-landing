@@ -1,23 +1,12 @@
-import fetchImgurImage from "@/app/lib/fetchImgurImage";
-import fetchImgurAlbum from "@/app/lib/fetchImgurAlbum";
-import { ImgurAlbum, ImgurImage } from "@/models/imgur-schemas";
-import ImageContainer from "@/components/ImageContainer/ImageContainer";
-import React from "react";
+// app/gallery/[id]/page.tsx
+import galleryData from "@/public/data/gallery-data";
 import DetailImageContainer from "@/components/ImageContainer/DetailImageContainer";
 import BreadcrumbComponent from "@/components/BreadcrumbComponent";
 
 export async function generateStaticParams() {
-  const albumHash = "N24f6Zb";
-  const url = `https://api.imgur.com/3/album/${albumHash}/images`;
-
-  const album: ImgurAlbum | undefined = await fetchImgurAlbum(url);
-
-  if (!album) {
-    return [];
-  }
-
-  return album.data.map((image) => ({
-    id: image.id,
+  // Generate one static path per image in your local gallery data
+  return galleryData.map((image) => ({
+    id: image.id.toString(),
   }));
 }
 
@@ -27,19 +16,17 @@ export default async function PhotoDetail({
   params: { id: string };
 }) {
   const { id } = params;
-  const url = `https://api.imgur.com/3/image/${id}`;
-  // console.log("Fetching image with url:", url);
 
-  const image: ImgurImage | undefined = await fetchImgurImage(url);
+  // Find the image data by ID
+  const image = galleryData.find((img) => img.id.toString() === id);
 
   if (!image) {
     return <h2 className="m-4 text-2xl font-bold">No Image Found</h2>;
   }
 
   return (
-    <div className="">
+    <div>
       <BreadcrumbComponent />
-
       <DetailImageContainer image={image} />
     </div>
   );

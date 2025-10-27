@@ -1,9 +1,14 @@
-import type { ImgurImage } from "@/models/imgur-schemas";
 import Image from "next/image";
 import Link from "next/link";
 
 type Props = {
-  image: ImgurImage;
+  image: {
+    id: number;
+    src: string;
+    alt: string;
+    width?: number;
+    height?: number;
+  };
 };
 
 export default function GalleryImageContainer({ image }: Props) {
@@ -11,7 +16,10 @@ export default function GalleryImageContainer({ image }: Props) {
     return <div>No image data</div>;
   }
 
-  const widthHeightRatio = image.height / image.width;
+  const width = image.width || 250;
+  const height = image.height || 250;
+
+  const widthHeightRatio = height / width;
   const galleryHeight = Math.ceil(250 * widthHeightRatio);
   const imageSpans = Math.ceil(galleryHeight / 10) + 1;
 
@@ -20,20 +28,15 @@ export default function GalleryImageContainer({ image }: Props) {
       className="w-[250px] justify-self-center"
       style={{ gridRow: `span ${imageSpans}` }}
     >
-      {/* <Link
-        href={image.link}
-        target="_blank"
-        className="grid place-content-center"
-      > */}
       <Link href={`/gallery/${image.id}`}>
         <div className="rounded-xl overflow-hidden group">
           <Image
-            src={image.link}
-            alt={"Gallery image"}
+            src={image.src}
+            alt={image.alt || "Gallery image"}
             width={250}
             height={galleryHeight}
             sizes="250px"
-            className="group-hover:opacity-75"
+            className="group-hover:opacity-75 object-cover"
           />
         </div>
       </Link>

@@ -1,3 +1,4 @@
+// gallery/layout.tsx
 export default function GalleryLayout({
   children,
 }: {

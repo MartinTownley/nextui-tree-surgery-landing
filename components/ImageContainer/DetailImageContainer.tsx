@@ -1,8 +1,13 @@
-import type { ImgurImage } from "@/models/imgur-schemas";
 import Image from "next/image";
 
 type Props = {
-  image: ImgurImage;
+  image: {
+    id: number;
+    src: string;
+    alt: string;
+    width?: number;
+    height?: number;
+  };
 };
 
 export default function DetailImageContainer({ image }: Props) {
@@ -16,12 +21,13 @@ export default function DetailImageContainer({ image }: Props) {
       className="flex justify-center items-center min-h-screen"
     >
       <Image
-        src={image.link}
-        alt="Full size image"
-        width={0}
-        height={0}
+        src={image.src}
+        alt={image.alt || "Full size image"}
+        width={image.width || 1200}
+        height={image.height || 800}
         sizes="100vw"
-        className="max-h-[90vh] w-auto max-w-full object-cover rounded-xl"
+        className="max-h-[90vh] w-auto max-w-full object-contain rounded-xl"
+        priority
       />
     </div>
   );
