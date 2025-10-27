@@ -1,6 +1,4 @@
-import servicesData from "@/public/data/services-data";
-import { ServicesData } from "@/public/data/services-data";
-import fetchImgurAlbum from "@/app/lib/fetchImgurAlbum";
+// Services Section
 import {
   fetchServicesWithImages,
   Service,

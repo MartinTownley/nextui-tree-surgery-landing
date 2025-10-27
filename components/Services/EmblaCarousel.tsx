@@ -1,3 +1,4 @@
+// Embla Carousel
 "use client";
 import React from "react";
 import { EmblaOptionsType } from "embla-carousel";
