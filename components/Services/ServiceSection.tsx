@@ -5,16 +5,14 @@ import {
 } from "@/app/lib/fetchServicesWithImages";
 import EmblaCarousel from "./EmblaCarousel";
 import type { EmblaOptionsType } from "embla-carousel";
+import servicesData from "@/public/data/services-data";
 
 const ServiceSection = async () => {
   const OPTIONS: EmblaOptionsType = { align: "start" };
-  const servicesWithImages = await fetchServicesWithImages();
+  // const servicesWithImages = await fetchServicesWithImages();
 
   return (
-    <EmblaCarousel
-      services={servicesWithImages}
-      options={OPTIONS}
-    ></EmblaCarousel>
+    <EmblaCarousel services={servicesData} options={OPTIONS}></EmblaCarousel>
   );
 };
 

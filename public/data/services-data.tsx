@@ -8,6 +8,7 @@ export interface ServicesData {
   iconSrc: string;
   additionalInfo1: string;
   additionalInfo2: string;
+  imageUrl: string;
 }
 
 const servicesData: ServicesData[] = [
@@ -25,6 +26,7 @@ Our approach considers the species, its biology, aesthetics, and its surrounding
     iconSrc: "/custom-icon.png",
     additionalInfo1: "Additional Info 1",
     additionalInfo2: "Additional Info 2",
+    imageUrl: "/service-imgs/pruning.webp",
   },
 
   {
@@ -39,6 +41,7 @@ Our approach considers the species, its biology, aesthetics, and its surrounding
     iconSrc: "/custom-icon.png",
     additionalInfo1: "Additional Info 1",
     additionalInfo2: "Additional Info 2",
+    imageUrl: "/service-imgs/tree-removal.webp",
   },
   {
     id: 3,
@@ -52,6 +55,7 @@ Our approach considers the species, its biology, aesthetics, and its surrounding
     iconSrc: "/custom-icon.png",
     additionalInfo1: "Additional Info 1",
     additionalInfo2: "Additional Info 2",
+    imageUrl: "/service-imgs/stump-grinding.webp",
   },
   {
     id: 4,
@@ -67,6 +71,7 @@ Hedge laying, once associated only with agricultural field boundaries, is increa
     iconSrc: "/custom-icon.png",
     additionalInfo1: "Additional Info 1",
     additionalInfo2: "Additional Info 2",
+    imageUrl: "/service-imgs/hedge-management.webp",
   },
   {
     id: 5,
@@ -80,6 +85,7 @@ Hedge laying, once associated only with agricultural field boundaries, is increa
     iconSrc: "/custom-icon.png",
     additionalInfo1: "Additional Info 1",
     additionalInfo2: "Additional Info 2",
+    imageUrl: "/service-imgs/waste-disposal.webp",
   },
 ];
 
