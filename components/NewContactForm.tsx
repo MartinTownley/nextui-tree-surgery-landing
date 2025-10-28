@@ -1,16 +1,11 @@
 "use client";
-
 import { sendMessage, sendCopy } from "@/app/_actions/actions.resend";
 import { contactFormSchema, defaultFormValues } from "@/app/lib/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { resolveMotionValue } from "framer-motion";
 import clsx from "clsx";
-import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { z as zod } from "zod";
 import { toast } from "sonner";
-import { DevTool } from "@hookform/devtools";
-import { SentMessageInfo } from "nodemailer";
 import { Button, Input, Textarea, Checkbox } from "@heroui/react";
 import { roboto_mono } from "@/config/fonts";
 type TContactFormSchema = zod.infer<typeof contactFormSchema>;

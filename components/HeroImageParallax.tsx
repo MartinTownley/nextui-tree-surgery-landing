@@ -1,8 +1,6 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
-import React from "react";
 import Image, { StaticImageData } from "next/image";
-// import heroFlip from "../public/hero-flip.jpeg";
 
 interface HeroImageParallaxProps {
   heroImage: StaticImageData;
