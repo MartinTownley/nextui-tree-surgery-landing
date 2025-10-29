@@ -68,6 +68,8 @@ export default function NewContactForm() {
             senderMessage: "",
             shouldSendCopy: false,
           });
+
+          setValue("shouldSendCopy", false);
         }
       })
       .catch((err) => {
@@ -182,22 +184,19 @@ export default function NewContactForm() {
                 name="shouldSendCopy"
                 control={control}
                 render={({ field }) => (
-                  // console.log("object:", { onChange, value });
-
                   <Checkbox
                     {...field}
                     color="secondary"
                     checked={field.value}
                     value={field.value ? "true" : "false"}
-                    onChange={(e) => field.onChange(e.target.checked)}
+                    onChange={field.onChange}
                     size="md"
+                    defaultChecked={false}
                   >
                     Send a copy of this query to my email address
                   </Checkbox>
                 )}
               />
-              {/* <Checkbox defaultSelected>Test</Checkbox> */}
-              {/* <input type="text" onChange={handleChange} id="test-input" /> */}
             </div>
             <div>
               <Button

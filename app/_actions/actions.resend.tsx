@@ -23,7 +23,34 @@ function getEmailConfig() {
   };
 }
 
+type ValidationResult =
+  | {
+      success: true;
+      data: FieldInputs;
+    }
+  | { success: false; error: string; details: any };
+
+function validateContactData(data: FieldInputs): ValidationResult {
+  const parsedData = contactFormSchema.safeParse(data);
+
+  if (!parsedData.success) {
+    console.log("Validation error:", parsedData.error.format());
+    return {
+      success: false,
+      error: "Invalid form data",
+      details: parsedData.error.format(),
+    };
+  }
+  return { success: true, data: parsedData.data };
+}
+
 export async function sendMessage(data: FieldInputs) {
+  const validationResult = validateContactData(data);
+
+  if (!validationResult.success) {
+    return validationResult;
+  }
+
   // Validate all env variables
   const config = getEmailConfig();
 
@@ -31,7 +58,7 @@ export async function sendMessage(data: FieldInputs) {
   const resend = new Resend(config.resendApiKey);
 
   if (process.env.NODE_ENV === "development") {
-    console.log("development mode");
+    console.log("Sending email in development mode");
   } else {
     console.log("production mode");
   }
@@ -42,12 +69,12 @@ export async function sendMessage(data: FieldInputs) {
 
       to: config.resendRecipient,
       subject: "New Inquiry from Sparrowhawk Trees contact form",
-      text: `You have a new message from ${data.senderName}:
+      text: `You have a new message from ${validationResult.data.senderName}:
   
-      Email: ${data.senderEmailAddress}
+      Email: ${validationResult.data.senderEmailAddress}
       
       Message:
-      ${data.senderMessage}
+      ${validationResult.data.senderMessage}
         `,
     });
 
@@ -59,18 +86,34 @@ export async function sendMessage(data: FieldInputs) {
 }
 
 export async function sendCopy(data: FieldInputs) {
+  const validationResult = validateContactData(data);
+
+  if (!validationResult.success) {
+    return validationResult;
+  }
+
   const config = getEmailConfig();
   const resend = new Resend(config.resendApiKey);
 
   try {
     const response = await resend.emails.send({
       from: config.resendSender,
-      to: [data.senderEmailAddress],
+      to: [validationResult.data.senderEmailAddress],
       subject: "Copy of your message to Sparrowhawk Trees",
-      text: `You sent the following message to Sparrowhawk Trees:
+      text: `Thank you for contacting Sparrowhawk Trees.
 
-      Message:
-      ${data.senderMessage}`,
+This is a copy of the message you sent:
+
+---
+${validationResult.data.senderMessage}
+---
+
+We'll get back to you as soon as possible.
+
+Please note: This email is automated. Please do not reply to this message. If you need to follow up or provide additional information, please use our contact form or email us directly.
+
+Best regards,
+The Sparrowhawk Trees Team`,
     });
 
     return { success: true, data: response };
