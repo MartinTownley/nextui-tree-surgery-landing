@@ -5,16 +5,30 @@ import { z as zod } from "zod";
 
 type FieldInputs = zod.infer<typeof contactFormSchema>;
 
-const resendAPI = process.env.RESEND_API_KEY as string;
+function getEmailConfig() {
+  const resendApiKey = process.env.RESEND_API_KEY;
+  const resendSender = process.env.RESEND_SENDER;
+  const resendRecipient = process.env.RESEND_RECIPIENT;
 
-const resend = new Resend(resendAPI);
+  if (!resendApiKey || !resendSender || !resendRecipient) {
+    throw new Error(
+      "Missing required email environment variables. Check: RESEND_API_KEY, RESEND_SENDER, RESEND_RECIPIENT."
+    );
+  }
 
-if (!process.env.RESEND_SENDER) {
-  throw new Error("RESEND_SENDER environment variable is not set");
+  return {
+    resendApiKey,
+    resendSender,
+    resendRecipient,
+  };
 }
 
 export async function sendMessage(data: FieldInputs) {
-  const parsedData = contactFormSchema.safeParse(data);
+  // Validate all env variables
+  const config = getEmailConfig();
+
+  // Create Resend client with validated API key
+  const resend = new Resend(config.resendApiKey);
 
   if (process.env.NODE_ENV === "development") {
     console.log("development mode");
@@ -24,9 +38,9 @@ export async function sendMessage(data: FieldInputs) {
 
   try {
     const response = await resend.emails.send({
-      from: process.env.RESEND_SENDER as string,
+      from: config.resendSender,
 
-      to: process.env.RESEND_RECIPIENT as string,
+      to: config.resendRecipient,
       subject: "New Inquiry from Sparrowhawk Trees contact form",
       text: `You have a new message from ${data.senderName}:
   
@@ -45,9 +59,12 @@ export async function sendMessage(data: FieldInputs) {
 }
 
 export async function sendCopy(data: FieldInputs) {
+  const config = getEmailConfig();
+  const resend = new Resend(config.resendApiKey);
+
   try {
     const response = await resend.emails.send({
-      from: process.env.RESEND_SENDER as string,
+      from: config.resendSender,
       to: [data.senderEmailAddress],
       subject: "Copy of your message to Sparrowhawk Trees",
       text: `You sent the following message to Sparrowhawk Trees:
