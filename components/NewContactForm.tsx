@@ -90,7 +90,7 @@ export default function NewContactForm() {
   return (
     <section
       id="contactForm"
-      className="mx-auto max-w-lg px-4 py-8 sm:px-6 lg:px-8"
+      className="mx-auto max-w-lg px-4 py-8 sm:px-6 lg:px-8 md:scale-105 lg:scale-110"
     >
       <header className="text-center sm:text-center">
         <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
@@ -122,7 +122,6 @@ export default function NewContactForm() {
                     variant="underlined"
                     label="Name"
                     type="text"
-                    // size="md"
                     placeholder="Enter your name here"
                     value={value}
                     onBlur={onBlur}
@@ -210,15 +209,7 @@ export default function NewContactForm() {
                 SUBMIT
               </Button>
             </div>
-            <div className="text-red-500 bg-blue-200 p-4 md:text-green-500 md:bg-yellow-200">
-              TEST: This should be red on mobile, green on desktop
-            </div>
-            <div className="mb-4">
-              <Input
-                className="text-red-500 md:text-blue-500 text-sm md:text-lg"
-                placeholder="This should be small red on mobile, large blue on desktop"
-              />
-            </div>
+
             {/* <DevTool control={control} /> */}
           </div>
         </form>
