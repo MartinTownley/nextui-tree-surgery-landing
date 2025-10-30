@@ -120,9 +120,9 @@ export default function NewContactForm() {
                 render={({ field: { onChange, onBlur, value, name } }) => (
                   <Input
                     variant="underlined"
-                    size="md"
                     label="Name"
                     type="text"
+                    // size="md"
                     placeholder="Enter your name here"
                     value={value}
                     onBlur={onBlur}
@@ -132,6 +132,7 @@ export default function NewContactForm() {
                     isInvalid={!!errors.senderName}
                     onClear={setValueHandler(name)}
                     errorMessage={errors.senderName?.message}
+                    className="text-sm md:text-base lg:text-2xl"
                   />
                 )}
               />
@@ -209,7 +210,15 @@ export default function NewContactForm() {
                 SUBMIT
               </Button>
             </div>
-
+            <div className="text-red-500 bg-blue-200 p-4 md:text-green-500 md:bg-yellow-200">
+              TEST: This should be red on mobile, green on desktop
+            </div>
+            <div className="mb-4">
+              <Input
+                className="text-red-500 md:text-blue-500 text-sm md:text-lg"
+                placeholder="This should be small red on mobile, large blue on desktop"
+              />
+            </div>
             {/* <DevTool control={control} /> */}
           </div>
         </form>
