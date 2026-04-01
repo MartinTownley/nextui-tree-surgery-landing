@@ -5,7 +5,7 @@ import { Button } from "@heroui/button";
 
 function HeroTextAndButton() {
   return (
-    <div className="py-8 md:py-10 px-10 relative w-full z-10">
+    <div className="py-8 md:py-10 px-10 relative z-10">
       {/* Hero Text */}
       <div className="inline-block max-w-lg text-left">
         <h1 className={title()}>Your Friendly Neighbourhood Tree Surgeons</h1>

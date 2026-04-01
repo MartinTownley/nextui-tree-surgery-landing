@@ -6,6 +6,8 @@ import Image from "next/image";
 import heroFlip from "../public/hero-flip.jpeg";
 import HeroImageParallax from "@/components/HeroImageParallax";
 import HeroTextAndButton from "@/components/HeroTextAndButton";
+import HeroReviewCard from "@/components/Reviews/HeroReviewCard";
+import HeroUIReviewCard from "@/components/Reviews/HeroUIReviewCard";
 
 export default function Home() {
   return (
@@ -15,12 +17,15 @@ export default function Home() {
       {/* All Content Wrapper */}
       <div className="relative z-10 tilt">
         {/* Hero Wrapper */}
-        <div className="relative flex flex-col items-start h-[95vh] justify-center overflow-hidden">
+        <div className="relative grid md:grid-cols-2 h-[95vh] items-center overflow-hidden">
           {/* Hero Image */}
-
           <HeroImageParallax heroImage={heroFlip} />
 
           <HeroTextAndButton />
+          {/* <HeroReviewCard /> */}
+          <div className="self-end pb-10">
+            <HeroUIReviewCard />
+          </div>
         </div>
 
         {/* Services Section */}
