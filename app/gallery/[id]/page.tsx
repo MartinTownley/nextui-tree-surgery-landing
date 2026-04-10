@@ -13,9 +13,9 @@ export async function generateStaticParams() {
 export default async function PhotoDetail({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const { id } = params;
+  const { id } = await params;
 
   // Find the image data by ID
   const image = galleryData.find((img) => img.id.toString() === id);
