@@ -110,7 +110,7 @@ export default function NewContactForm() {
           <div
             className={clsx(
               "rounded-md shadow-sm space-y-4 mt-4",
-              roboto_mono.className
+              roboto_mono.className,
             )}
           >
             <div>
@@ -187,6 +187,7 @@ export default function NewContactForm() {
                   <Checkbox
                     {...field}
                     color="secondary"
+                    classNames={{ base: "border-white/60" }}
                     checked={field.value}
                     value={field.value ? "true" : "false"}
                     onChange={field.onChange}

@@ -8,7 +8,9 @@ function HeroTextAndButton() {
     <div className="py-8 md:py-10 px-10 relative z-10">
       {/* Hero Text */}
       <div className="inline-block max-w-lg text-left">
-        <h1 className={title()}>Your Friendly Neighbourhood Tree Surgeons</h1>
+        <h1 className={`${title()} text-white`}>
+          Your Friendly Neighbourhood Tree Surgeons
+        </h1>
         <br />
         <h2
           className={subtitle({
@@ -24,13 +26,22 @@ function HeroTextAndButton() {
         <Button
           className="bg-secondary-orange font-bold text-base border"
           as={Link}
-          // color="custom-orange"
           radius="sm"
           variant="shadow"
           href="/#contact"
           size="md"
         >
           Get in Touch
+        </Button>
+        <Button
+          className="text-white border-white/50 font-medium text-base backdrop-blur-sm"
+          as={Link}
+          radius="sm"
+          variant="bordered"
+          href="/#reviews"
+          size="md"
+        >
+          Our Reviews
         </Button>
       </div>
     </div>
