@@ -1,17 +1,12 @@
 import Image from "next/image";
-import Link from "next/link";
+import { GalleryImage } from "@/public/data/gallery-data";
 
 type Props = {
-  image: {
-    id: number;
-    src: string;
-    alt: string;
-    width?: number;
-    height?: number;
-  };
+  image: GalleryImage;
+  onImageClick: (image: GalleryImage) => void;
 };
 
-export default function GalleryImageContainer({ image }: Props) {
+export default function GalleryImageContainer({ image, onImageClick }: Props) {
   if (!image) {
     return <div>No image data</div>;
   }
@@ -28,7 +23,7 @@ export default function GalleryImageContainer({ image }: Props) {
       className="w-[250px] justify-self-center"
       style={{ gridRow: `span ${imageSpans}` }}
     >
-      <Link href={`/gallery/${image.id}`}>
+      <div onClick={() => onImageClick(image)}>
         <div className="rounded-xl overflow-hidden group">
           <Image
             src={image.src}
@@ -39,7 +34,7 @@ export default function GalleryImageContainer({ image }: Props) {
             className="group-hover:opacity-75 object-cover"
           />
         </div>
-      </Link>
+      </div>
     </div>
   );
 }

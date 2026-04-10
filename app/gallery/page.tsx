@@ -5,7 +5,7 @@ import BreadcrumbComponent from "@/components/BreadcrumbComponent";
 import { Breadcrumbs, BreadcrumbItem } from "@heroui/react";
 
 export default async function GalleryPage() {
-  const galleryComponent = await Gallery();
+  // const galleryComponent = Gallery();
   const breadcrumbs = [
     { label: "Home", href: "/" },
     { label: "Gallery", href: "/gallery" },
@@ -16,8 +16,7 @@ export default async function GalleryPage() {
       <div className="mx-4 mb-4">
         <BreadcrumbComponent />
       </div>
-      {/* <h1 className="text-3xl font-bold text-center">Gallery</h1> */}
-      {galleryComponent}
+      <Gallery />
     </div>
   );
 }

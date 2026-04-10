@@ -1,12 +1,85 @@
+"use client";
 import GalleryImageContainer from "./ImageContainer/GalleryImageContainer";
-import galleryData from "../public/data/gallery-data";
+import galleryData, { GalleryImage } from "../public/data/gallery-data";
+import { useState, useEffect } from "react";
+import { Modal, ModalContent, ModalBody, ModalFooter } from "@heroui/react";
+import Image from "next/image";
 
 export default function Gallery() {
+  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
+
+  const currentIndex = selectedImage
+    ? galleryData.findIndex((img) => img.id === selectedImage.id)
+    : -1;
+  const prevImage = currentIndex > 0 ? galleryData[currentIndex - 1] : null;
+  const nextImage =
+    currentIndex < galleryData.length - 1
+      ? galleryData[currentIndex + 1]
+      : null;
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft" && prevImage) setSelectedImage(prevImage);
+      if (e.key === "ArrowRight" && nextImage) setSelectedImage(nextImage);
+      if (e.key === "Escape") setSelectedImage(null);
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [prevImage, nextImage]);
+
   return (
-    <section className="px-1 my-3 grid grid-cols-gallery auto-rows-[10px]">
-      {galleryData.map((image) => (
-        <GalleryImageContainer key={image.id} image={image} />
-      ))}
-    </section>
+    <>
+      <section className="px-1 my-3 grid grid-cols-gallery auto-rows-[10px]">
+        {galleryData.map((image) => (
+          <GalleryImageContainer
+            key={image.id}
+            image={image}
+            onImageClick={setSelectedImage}
+          />
+        ))}
+      </section>
+      <Modal
+        isOpen={!!selectedImage}
+        onClose={() => setSelectedImage(null)}
+        size="full"
+      >
+        <ModalContent>
+          <ModalBody>
+            {selectedImage && (
+              <Image
+                src={selectedImage.src}
+                alt="Modal image"
+                height={selectedImage.height}
+                width={selectedImage.width}
+                className="max-h-[85vh] w-auto max-w-full object-contain mx-auto"
+              ></Image>
+            )}
+          </ModalBody>
+          <ModalFooter className="justify-between">
+            {prevImage ? (
+              <button
+                onClick={() => setSelectedImage(prevImage)}
+                className="text-white/70 hover:text-white transition-colors text-lg"
+              >
+                ← Prev
+              </button>
+            ) : (
+              <span />
+            )}
+            {nextImage ? (
+              <button
+                onClick={() => setSelectedImage(nextImage)}
+                className="text-white/70 hover:text-white transition-colors text-lg"
+              >
+                Next →
+              </button>
+            ) : (
+              <span />
+            )}
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
   );
 }
