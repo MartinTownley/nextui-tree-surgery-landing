@@ -75,3 +75,9 @@
 .tilt {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - var(--cut)));
 }
+
+@media (min-width: 768px) {
+  .reviews-viewport-mask {
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  }
+}

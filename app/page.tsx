@@ -8,6 +8,7 @@ import HeroImageParallax from "@/components/HeroImageParallax";
 import HeroTextAndButton from "@/components/HeroTextAndButton";
 import HeroReviewCard from "@/components/Reviews/HeroReviewCard";
 import HeroUIReviewCard from "@/components/Reviews/HeroUIReviewCard";
+import ReviewsSection from "@/components/Reviews/ReviewsSection";
 
 export default function Home() {
   return (
@@ -43,6 +44,9 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Reviews Section */}
+        <ReviewsSection />
+
         {/*Icon on border*/}
 
         <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
@@ -59,7 +63,7 @@ export default function Home() {
 
         <div
           id="contact"
-          className="relative z-10 contact-section bg-stone-900 bg-opacity-100 bg-[url('/nnnoise7.svg')] bg-cover bg-center bg-fixed"
+          className="relative z-10 contact-section bg-stone-800 bg-opacity-100 bg-[url('/noise1.svg')] bg-cover bg-center bg-fixed"
         >
           <div className="form-container pt-10 pb-10 ">
             <NewContactForm />
