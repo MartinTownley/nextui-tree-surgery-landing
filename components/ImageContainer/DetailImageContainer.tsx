@@ -16,17 +16,14 @@ export default function DetailImageContainer({ image }: Props) {
   }
 
   return (
-    <div
-      key={image.id}
-      className="flex justify-center items-center min-h-screen"
-    >
+    <div key={image.id} className="flex justify-center items-center">
       <Image
         src={image.src}
         alt={image.alt || "Full size image"}
         width={image.width || 1200}
         height={image.height || 800}
         sizes="100vw"
-        className="max-h-[90vh] w-auto max-w-full object-contain rounded-xl"
+        className="max-h-[80vh] w-auto max-w-full object-contain rounded-xl"
         priority
       />
     </div>
