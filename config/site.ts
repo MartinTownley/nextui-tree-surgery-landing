@@ -5,16 +5,16 @@ export const siteConfig = {
   description: "Tree Surgery and Garden Management",
   navAndMenuItems: [
     {
-      label: "Home",
-      href: "/",
-    },
-    {
       label: "About",
       href: "/about",
     },
     {
       label: "Services",
       href: "/services",
+    },
+    {
+      label: "Reviews",
+      href: "/#reviews",
     },
     {
       label: "Gallery",
