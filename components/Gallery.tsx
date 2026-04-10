@@ -2,8 +2,9 @@
 import GalleryImageContainer from "./ImageContainer/GalleryImageContainer";
 import galleryData, { GalleryImage } from "../public/data/gallery-data";
 import { useState, useEffect } from "react";
-import { Modal, ModalContent, ModalBody, ModalFooter } from "@heroui/react";
+import { Modal, ModalContent, ModalBody } from "@heroui/react";
 import Image from "next/image";
+import { IoChevronBack, IoChevronForward, IoClose } from "react-icons/io5";
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
@@ -42,10 +43,12 @@ export default function Gallery() {
       <Modal
         isOpen={!!selectedImage}
         onClose={() => setSelectedImage(null)}
-        size="full"
+        size="2xl"
+        backdrop="blur"
+        hideCloseButton
       >
         <ModalContent>
-          <ModalBody>
+          <ModalBody className="relative flex items-center justify-center p-0">
             {selectedImage && (
               <Image
                 src={selectedImage.src}
@@ -53,31 +56,31 @@ export default function Gallery() {
                 height={selectedImage.height}
                 width={selectedImage.width}
                 className="max-h-[85vh] w-auto max-w-full object-contain mx-auto"
-              ></Image>
+              />
             )}
-          </ModalBody>
-          <ModalFooter className="justify-between">
-            {prevImage ? (
+            {prevImage && (
               <button
                 onClick={() => setSelectedImage(prevImage)}
-                className="text-white/70 hover:text-white transition-colors text-lg"
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors bg-black/30 rounded-full p-2"
               >
-                ← Prev
+                <IoChevronBack size={28} />
               </button>
-            ) : (
-              <span />
             )}
-            {nextImage ? (
+            {nextImage && (
               <button
                 onClick={() => setSelectedImage(nextImage)}
-                className="text-white/70 hover:text-white transition-colors text-lg"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors bg-black/30 rounded-full p-2"
               >
-                Next →
+                <IoChevronForward size={28} />
               </button>
-            ) : (
-              <span />
             )}
-          </ModalFooter>
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-2 right-2 text-white/70 hover:text-white bg-black/30 rounded-full p-2 z-10"
+            >
+              <IoClose size={24} />
+            </button>
+          </ModalBody>
         </ModalContent>
       </Modal>
     </>
