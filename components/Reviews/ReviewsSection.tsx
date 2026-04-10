@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { reviews } from "@/data/reviews";
 import useEmblaCarousel from "embla-carousel-react";
 import { Card, CardHeader, CardBody } from "@heroui/react";
@@ -63,17 +63,19 @@ export default function ReviewsSection() {
           <span className="text-yellow-400 tracking-wide">★★★★★</span>
           <span className="text-white/70 text-sm md:text-base">5.0</span>
           <span className="text-white/30">|</span>
-          <span className="text-white/70 text-sm md:text-base">
+          <a
+            href="https://www.google.com/maps/place/Sparrowhawk+Trees/@51.553577,-0.0714451,17z/data=!4m8!3m7!1s0x48761dd9e9a46961:0x704bb4ace1028ed4!8m2!3d51.5535737!4d-0.0688702!9m1!1b1!16s%2Fg%2F11y1vkb5fz?entry=ttu&g_ep=EgoyMDI2MDMzMC4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-white transition-colors text-white/70 text-sm md:text-base"
+          >
             69 reviews on Google
-          </span>
+          </a>
         </div>
       </div>
 
       <div className="embla">
-        <div
-          className="embla__viewport reviews-viewport-mask"
-          ref={emblaRef}
-        >
+        <div className="embla__viewport reviews-viewport-mask" ref={emblaRef}>
           <div className="embla__container">
             {sorted.map((review, index) => (
               <div className="embla__slide" key={index}>
