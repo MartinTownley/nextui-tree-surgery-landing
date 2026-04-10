@@ -76,7 +76,7 @@ export default function ReviewsSection() {
 
       <div className="embla">
         <div className="embla__viewport reviews-viewport-mask" ref={emblaRef}>
-          <div className="embla__container">
+          <div className="embla__container select-none">
             {sorted.map((review, index) => (
               <div className="embla__slide" key={index}>
                 <Card className="w-full border border-white/20">
