@@ -6,7 +6,6 @@ import Image from "next/image";
 import heroFlip from "../public/hero-flip.jpeg";
 import HeroImageParallax from "@/components/HeroImageParallax";
 import HeroTextAndButton from "@/components/HeroTextAndButton";
-import HeroReviewCard from "@/components/Reviews/HeroReviewCard";
 import HeroUIReviewCard from "@/components/Reviews/HeroUIReviewCard";
 import ReviewsSection from "@/components/Reviews/ReviewsSection";
 

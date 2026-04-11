@@ -20,7 +20,8 @@ export default function HeroImageParallax({
         style={{ objectFit: "cover", objectPosition: "top" }}
         fill
         placeholder="blur"
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        sizes="100vw"
+        quality={90}
       />
       {/* Dark Overlay */}
       <div className="fixed inset-0 z-1 bg-black opacity-40"></div>
