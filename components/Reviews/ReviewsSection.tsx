@@ -1,10 +1,12 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { reviews } from "@/data/reviews";
 import useEmblaCarousel from "embla-carousel-react";
 import { Card, CardHeader, CardBody } from "@heroui/react";
 import { usePrevNextButtons } from "../Services/EmblaCarouselArrowButtons";
+import clsx from "clsx";
+import { roboto_mono } from "@/config/fonts";
 
 const stars = "★★★★★";
 const sorted = [...reviews].sort((a, b) => b.year - a.year);
@@ -111,12 +113,15 @@ export default function ReviewsSection() {
             →
           </button>
         </div>
-        <p className="md:hidden text-center text-white/50 text-xs mt-3">
-          Swipe to explore
-        </p>
-        <p className="text-center text-white/50 text-xs md:text-sm mt-2">
-          {selectedIndex + 1} / {sorted.length}
-        </p>
+        <div className={clsx(roboto_mono.className)}>
+          <p className="md:hidden text-center text-white/50 text-xs mt-3">
+            Swipe to explore
+          </p>
+
+          <p className="text-center text-white/50 text-xs md:text-sm mt-2">
+            {selectedIndex + 1} / {sorted.length}
+          </p>
+        </div>
       </div>
     </div>
   );
