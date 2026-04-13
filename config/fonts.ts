@@ -1,26 +1,13 @@
 import {
-  Inter,
   Roboto_Mono,
-  Rakkas,
   Merriweather,
   Bungee_Shade,
   Bungee,
-  Bungee_Outline,
 } from "next/font/google";
-
-export const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export const roboto_mono = Roboto_Mono({
   subsets: ["latin"],
   display: "swap",
-});
-
-export const rakkas = Rakkas({
-  subsets: ["latin"],
-  weight: "400",
 });
 
 export const merriweather = Merriweather({
@@ -36,12 +23,6 @@ export const bungee_shade = Bungee_Shade({
 });
 
 export const bungee = Bungee({
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-});
-
-export const bungee_outline = Bungee_Outline({
   subsets: ["latin"],
   weight: "400",
   display: "swap",

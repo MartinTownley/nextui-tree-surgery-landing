@@ -2,13 +2,7 @@ import "@/styles/globals.css";
 import "@/styles/embla.css";
 import { Metadata, Viewport } from "next";
 import { siteConfig } from "@/config/site";
-import {
-  inter,
-  roboto_mono,
-  rakkas,
-  merriweather,
-  bungee_shade,
-} from "@/config/fonts";
+import { merriweather } from "@/config/fonts";
 // import { Roboto, Inter } from "next/font/google";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/Navbar/navbar";
