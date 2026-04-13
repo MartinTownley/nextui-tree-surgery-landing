@@ -46,6 +46,7 @@ export default function Gallery() {
         size="2xl"
         backdrop="blur"
         hideCloseButton
+        placement="center"
       >
         <ModalContent>
           <ModalBody className="relative flex items-center justify-center p-0">

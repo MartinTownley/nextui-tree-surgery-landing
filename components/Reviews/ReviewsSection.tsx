@@ -37,7 +37,7 @@ export default function ReviewsSection() {
     >
       <div className="text-center mb-6">
         <h2 className="text-white text-2xl md:text-4xl font-bold">
-          What our customers say
+          What Our Customers Say
         </h2>
         <div className="flex items-center justify-center gap-2 mt-2">
           <svg
