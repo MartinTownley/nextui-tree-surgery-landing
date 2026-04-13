@@ -36,7 +36,13 @@ export default function ReviewsSection() {
       id="reviews"
       className="relative z-10 bg-stone-900 bg-opacity-100 bg-[url('/nnnoise7.svg')] bg-repeat [background-size:200px_200px] px-6 py-10 md:px-16 md:py-16"
     >
-      <div className="text-center mb-6">
+      <motion.div
+        className="text-center mb-6"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
         <h2 className="text-white text-2xl md:text-4xl font-bold">
           What Our Customers Say
         </h2>
@@ -75,55 +81,64 @@ export default function ReviewsSection() {
             69 reviews on Google
           </a>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="embla">
-        <div className="embla__viewport reviews-viewport-mask" ref={emblaRef}>
-          <div className="embla__container select-none">
-            {sorted.map((review, index) => (
-              <div className="embla__slide" key={index}>
-                <Card className="w-full border border-white/20">
-                  <CardHeader className="flex flex-col items-start gap-1 pb-0">
-                    <div className="text-yellow-400 tracking-wide">{stars}</div>
-                    <p className="text-default-500 text-sm font-medium">
-                      {review.name} · {review.year}
-                    </p>
-                  </CardHeader>
-                  <CardBody className="pt-2 h-48 md:h-64 overflow-y-auto">
-                    <p className="text-sm leading-relaxed">{review.text}</p>
-                  </CardBody>
-                </Card>
-              </div>
-            ))}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <div className="embla">
+          <div className="embla__viewport reviews-viewport-mask" ref={emblaRef}>
+            <div className="embla__container select-none">
+              {sorted.map((review, index) => (
+                <div className="embla__slide" key={index}>
+                  <Card className="w-full border border-white/20">
+                    <CardHeader className="flex flex-col items-start gap-1 pb-0">
+                      <div className="text-yellow-400 tracking-wide">
+                        {stars}
+                      </div>
+                      <p className="text-default-500 text-sm font-medium">
+                        {review.name} · {review.year}
+                      </p>
+                    </CardHeader>
+                    <CardBody className="pt-2 h-48 md:h-64 overflow-y-auto">
+                      <p className="text-sm leading-relaxed">{review.text}</p>
+                    </CardBody>
+                  </Card>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="hidden md:flex justify-center gap-6 mt-4">
+            <button
+              onClick={onPrevButtonClick}
+              disabled={prevBtnDisabled}
+              className="text-white/70 hover:text-white text-2xl font-bold disabled:opacity-30"
+            >
+              ←
+            </button>
+            <button
+              onClick={onNextButtonClick}
+              disabled={nextBtnDisabled}
+              className="text-white/70 hover:text-white text-2xl font-bold disabled:opacity-30"
+            >
+              →
+            </button>
+          </div>
+          <div className={clsx(roboto_mono.className)}>
+            <p className="md:hidden text-center text-white/50 text-xs mt-3">
+              Swipe to explore
+            </p>
+
+            <p className="text-center text-white/50 text-xs md:text-sm mt-2">
+              {selectedIndex + 1} / {sorted.length}
+            </p>
           </div>
         </div>
-
-        <div className="hidden md:flex justify-center gap-6 mt-4">
-          <button
-            onClick={onPrevButtonClick}
-            disabled={prevBtnDisabled}
-            className="text-white/70 hover:text-white text-2xl font-bold disabled:opacity-30"
-          >
-            ←
-          </button>
-          <button
-            onClick={onNextButtonClick}
-            disabled={nextBtnDisabled}
-            className="text-white/70 hover:text-white text-2xl font-bold disabled:opacity-30"
-          >
-            →
-          </button>
-        </div>
-        <div className={clsx(roboto_mono.className)}>
-          <p className="md:hidden text-center text-white/50 text-xs mt-3">
-            Swipe to explore
-          </p>
-
-          <p className="text-center text-white/50 text-xs md:text-sm mt-2">
-            {selectedIndex + 1} / {sorted.length}
-          </p>
-        </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

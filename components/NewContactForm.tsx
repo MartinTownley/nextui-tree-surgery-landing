@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import { Button, Input, Textarea, Checkbox } from "@heroui/react";
 import { roboto_mono } from "@/config/fonts";
 type TContactFormSchema = zod.infer<typeof contactFormSchema>;
+import { motion } from "framer-motion";
 
 export default function NewContactForm() {
   const {
@@ -88,133 +89,140 @@ export default function NewContactForm() {
   };
 
   return (
-    <section
-      id="contactForm"
-      className="mx-auto max-w-lg px-4 py-8 sm:px-6 lg:px-8 md:scale-105 lg:scale-110"
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <header className="text-center sm:text-center">
-        <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-          Contact Us
-        </h2>
-        <div className="mb-6 px-8 sm:px-0">
-          <p className="font-light text-gray-500 dark:text-gray-400 sm:text-xl">
-            Please send us a message using the form below, and we will respond
-            as soon as we can.
-          </p>
-        </div>
-        <form
-          onSubmit={handleSubmit(onSubmitHandler)}
-          className="space-y-6 border-t"
-          noValidate
-        >
-          <div
-            className={clsx(
-              "rounded-md shadow-sm space-y-4 mt-4",
-              roboto_mono.className,
-            )}
-          >
-            <div>
-              <Controller
-                name="senderName"
-                control={control}
-                render={({ field: { onChange, onBlur, value, name } }) => (
-                  <Input
-                    variant="underlined"
-                    label="Name"
-                    type="text"
-                    placeholder="Enter your name here"
-                    value={value}
-                    onBlur={onBlur}
-                    onChange={onChange}
-                    isRequired
-                    isClearable
-                    isInvalid={!!errors.senderName}
-                    onClear={setValueHandler(name)}
-                    errorMessage={errors.senderName?.message}
-                    className="text-sm md:text-base lg:text-2xl"
-                  />
-                )}
-              />
-            </div>
-            <div>
-              <Controller
-                name="senderEmailAddress"
-                control={control}
-                render={({ field: { onChange, onBlur, value, name } }) => (
-                  <Input
-                    variant="underlined"
-                    size="md"
-                    label="Email"
-                    type="email"
-                    placeholder="Enter your email address here"
-                    value={value}
-                    onBlur={onBlur}
-                    onChange={onChange}
-                    isRequired
-                    isClearable
-                    isInvalid={!!errors.senderEmailAddress}
-                    onClear={setValueHandler(name)}
-                    errorMessage={errors.senderEmailAddress?.message}
-                  />
-                )}
-              />
-            </div>
-            <div>
-              <Controller
-                name="senderMessage"
-                control={control}
-                render={({ field: { onChange, onBlur, value, name } }) => (
-                  <Textarea
-                    size="md"
-                    variant="underlined"
-                    label="Message"
-                    placeholder="Enter your message here"
-                    onChange={onChange}
-                    onBlur={onBlur}
-                    value={value}
-                    isRequired
-                    isInvalid={!!errors.senderMessage}
-                    errorMessage={errors.senderMessage?.message}
-                  />
-                )}
-              />
-            </div>
-            <div className="text-left">
-              <Controller
-                name="shouldSendCopy"
-                control={control}
-                render={({ field }) => (
-                  <Checkbox
-                    {...field}
-                    color="secondary"
-                    classNames={{ base: "border-white/60" }}
-                    checked={field.value}
-                    value={field.value ? "true" : "false"}
-                    onChange={field.onChange}
-                    size="md"
-                    defaultChecked={false}
-                  >
-                    Send a copy of this query to my email address
-                  </Checkbox>
-                )}
-              />
-            </div>
-            <div>
-              <Button
-                type="submit"
-                className="bg-custom-orange font-bold border"
-                // color="secondary"
-                isDisabled={!isValid}
-                isLoading={isSubmitting}
-              >
-                SUBMIT
-              </Button>
-            </div>
-
-            {/* <DevTool control={control} /> */}
+      <section
+        id="contactForm"
+        className="mx-auto max-w-lg px-4 py-8 sm:px-6 lg:px-8 md:scale-105 lg:scale-110"
+      >
+        <header className="text-center sm:text-center">
+          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+            Contact Us
+          </h2>
+          <div className="mb-6 px-8 sm:px-0">
+            <p className="font-light text-gray-500 dark:text-gray-400 sm:text-xl">
+              Please send us a message using the form below, and we will respond
+              as soon as we can.
+            </p>
           </div>
-        </form>
-      </header>
-    </section>
+          <form
+            onSubmit={handleSubmit(onSubmitHandler)}
+            className="space-y-6 border-t"
+            noValidate
+          >
+            <div
+              className={clsx(
+                "rounded-md shadow-sm space-y-4 mt-4",
+                roboto_mono.className,
+              )}
+            >
+              <div>
+                <Controller
+                  name="senderName"
+                  control={control}
+                  render={({ field: { onChange, onBlur, value, name } }) => (
+                    <Input
+                      variant="underlined"
+                      label="Name"
+                      type="text"
+                      placeholder="Enter your name here"
+                      value={value}
+                      onBlur={onBlur}
+                      onChange={onChange}
+                      isRequired
+                      isClearable
+                      isInvalid={!!errors.senderName}
+                      onClear={setValueHandler(name)}
+                      errorMessage={errors.senderName?.message}
+                      className="text-sm md:text-base lg:text-2xl"
+                    />
+                  )}
+                />
+              </div>
+              <div>
+                <Controller
+                  name="senderEmailAddress"
+                  control={control}
+                  render={({ field: { onChange, onBlur, value, name } }) => (
+                    <Input
+                      variant="underlined"
+                      size="md"
+                      label="Email"
+                      type="email"
+                      placeholder="Enter your email address here"
+                      value={value}
+                      onBlur={onBlur}
+                      onChange={onChange}
+                      isRequired
+                      isClearable
+                      isInvalid={!!errors.senderEmailAddress}
+                      onClear={setValueHandler(name)}
+                      errorMessage={errors.senderEmailAddress?.message}
+                    />
+                  )}
+                />
+              </div>
+              <div>
+                <Controller
+                  name="senderMessage"
+                  control={control}
+                  render={({ field: { onChange, onBlur, value, name } }) => (
+                    <Textarea
+                      size="md"
+                      variant="underlined"
+                      label="Message"
+                      placeholder="Enter your message here"
+                      onChange={onChange}
+                      onBlur={onBlur}
+                      value={value}
+                      isRequired
+                      isInvalid={!!errors.senderMessage}
+                      errorMessage={errors.senderMessage?.message}
+                    />
+                  )}
+                />
+              </div>
+              <div className="text-left">
+                <Controller
+                  name="shouldSendCopy"
+                  control={control}
+                  render={({ field }) => (
+                    <Checkbox
+                      {...field}
+                      color="secondary"
+                      classNames={{ base: "border-white/60" }}
+                      checked={field.value}
+                      value={field.value ? "true" : "false"}
+                      onChange={field.onChange}
+                      size="md"
+                      defaultChecked={false}
+                    >
+                      Send a copy of this query to my email address
+                    </Checkbox>
+                  )}
+                />
+              </div>
+              <div>
+                <Button
+                  type="submit"
+                  className="bg-custom-orange font-bold border"
+                  // color="secondary"
+                  isDisabled={!isValid}
+                  isLoading={isSubmitting}
+                >
+                  SUBMIT
+                </Button>
+              </div>
+
+              {/* <DevTool control={control} /> */}
+            </div>
+          </form>
+        </header>
+      </section>
+    </motion.div>
   );
 }

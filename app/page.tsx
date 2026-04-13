@@ -6,6 +6,7 @@ import Image from "next/image";
 import heroFlip from "../public/hero-flip.jpeg";
 import HeroImageParallax from "@/components/HeroImageParallax";
 import HeroTextAndButton from "@/components/HeroTextAndButton";
+import HeroTextAnimated from "@/components/HeroTextAnimated";
 import HeroUIReviewCard from "@/components/Reviews/HeroUIReviewCard";
 import ReviewsSection from "@/components/Reviews/ReviewsSection";
 
@@ -21,7 +22,9 @@ export default function Home() {
           {/* Hero Image */}
           <HeroImageParallax heroImage={heroFlip} />
 
-          <HeroTextAndButton />
+          <div className="self-end md:self-center">
+            <HeroTextAndButton />
+          </div>
           {/* <HeroReviewCard /> */}
           <div className="self-end pb-10">
             <HeroUIReviewCard />
@@ -33,9 +36,11 @@ export default function Home() {
         <div className="relative z-10 services-section px-10 py-10 bg-stone-800 bg-opacity-100 bg-[url('/noise1.svg')] bg-repeat [background-size:200px_200px]">
           <div className="relative">
             {/* Title */}
-            <div className="md:hidden text-center mb-6">
-              <h2 className="text-white text-2xl font-bold">Our Services</h2>
-            </div>
+            <HeroTextAnimated scrollTriggered>
+              <div className="md:hidden text-center mb-6">
+                <h2 className="text-white text-2xl font-bold">Our Services</h2>
+              </div>
+            </HeroTextAnimated>
 
             <div>
               <ServiceSection />
