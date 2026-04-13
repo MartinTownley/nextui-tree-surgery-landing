@@ -7,6 +7,7 @@ import { Card, CardHeader, CardBody } from "@heroui/react";
 import { usePrevNextButtons } from "../Services/EmblaCarouselArrowButtons";
 import clsx from "clsx";
 import { roboto_mono } from "@/config/fonts";
+import { motion } from "framer-motion";
 
 const stars = "★★★★★";
 const sorted = [...reviews].sort((a, b) => b.year - a.year);
@@ -33,7 +34,7 @@ export default function ReviewsSection() {
   return (
     <div
       id="reviews"
-      className="relative z-10 bg-stone-900 bg-opacity-100 bg-[url('/nnnoise7.svg')] bg-cover bg-center bg-fixed px-6 py-10 md:px-16 md:py-16"
+      className="relative z-10 bg-stone-900 bg-opacity-100 bg-[url('/nnnoise7.svg')] bg-repeat [background-size:200px_200px] px-6 py-10 md:px-16 md:py-16"
     >
       <div className="text-center mb-6">
         <h2 className="text-white text-2xl md:text-4xl font-bold">

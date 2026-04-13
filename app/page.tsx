@@ -30,7 +30,7 @@ export default function Home() {
 
         {/* Services Section */}
         {/* Container */}
-        <div className="relative z-10 services-section px-10 py-10 bg-stone-800 bg-opacity-100 bg-[url('/noise1.svg')] bg-cover bg-center bg-fixed">
+        <div className="relative z-10 services-section px-10 py-10 bg-stone-800 bg-opacity-100 bg-[url('/noise1.svg')] bg-repeat [background-size:200px_200px]">
           <div className="relative">
             {/* Title */}
             <div className="md:hidden text-center mb-6">
@@ -62,7 +62,7 @@ export default function Home() {
 
         <div
           id="contact"
-          className="relative z-10 contact-section bg-stone-800 bg-opacity-100 bg-[url('/noise1.svg')] bg-cover bg-center bg-fixed"
+          className="relative z-10 contact-section bg-stone-800 bg-opacity-100 bg-[url('/noise1.svg')] bg-repeat [background-size:200px_200px]"
         >
           <div className="form-container pt-10 pb-10 ">
             <NewContactForm />
